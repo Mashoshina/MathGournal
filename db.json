@@ -1,0 +1,138 @@
+{
+  "manuscripts": [
+    {
+      "id": 1,
+      "manuscriptId": 1,
+      "title": "Многопараметрический функционал для оценки поворота и перемещения в задаче регистрации облака точек",
+      "authorsId": [1],
+      "keyWords": [
+        "ICP-алгоритм",
+        "3D",
+        "SLAM",
+        "пространственная трансформация",
+        "оптимизационные методы"
+      ],
+      "description": "Статья посвящена разработке многопараметрического функционала качества для задачи регистрации 3D-облаков точек. Предлагаемый подход позволяет совместно и оптимально вычислять матрицу поворота и вектор перемещения, обеспечивая высокую точность сопоставления и робастность к зашумленным данным и частичным перекрытиям облаков.",
+      "chapter": "Математика",
+      "collection": "Дифференциальные игры, теория управления и оптимизация. Посвящается памяти профессора В. И. Ухоботова",
+      "manuscriptFiles": ["file1.pdf"],
+      "coverLetter": ["letter1.pdf"],
+      "sentDate": "2026-02-12"
+    },
+    {
+      "id": 2,
+      "manuscriptId": 2,
+      "title": "Аналитическое исследование механизмов нелинейного распределения в гидродинамике с помощью уравнения Буати-Леона-Мианны-Пемпинелли",
+      "authorsId": [2],
+      "keyWords": [
+        "устойчивость решений",
+        "динамика сплошных сред",
+        "дисперсионные эффекты",
+        "аналитические методы"
+      ],
+      "description": "В статье проводится аналитическое исследование механизмов нелинейного распределения в гидродинамических системах на основе уравнения Буати–Леона–Мианны–Пемпинелли. Рассматриваются фундаментальные свойства модели, включая структуру нелинейных членов, дисперсионные характеристики и условия существования устойчивых решений.",
+      "chapter": "Математическое моделирование",
+      "collection": null,
+      "manuscriptFiles": ["file1.pdf"],
+      "coverLetter": ["letter1.pdf"],
+      "sentDate": "2026-02-15"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "reviewesId": 1,
+      "reviewersId": 1,
+      "manuscriptId": 1,
+      "reviewesFiles": ["review1.pdf"]
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "authorsId": 1,
+      "name": "Артём Маковецкий",
+      "mail": "makovar@mail.ru"
+    },
+    {
+      "id": 2,
+      "authorsId": 2,
+      "name": "Асиф ЙОКУС",
+      "mail": "asyok@mail.ru"
+    }
+  ],
+  "reviewers": [
+    {
+      "id": 1,
+      "reviewersId": 1,
+      "name": "Фёдоров Е.А.",
+      "mail": "eg_fedorof@gmail.com",
+      "mainChapter": "математическое моделирование",
+      "countReviews": 45,
+      "ivitesCount": 64,
+      "declineCount": 19
+    },
+    {
+      "id": 2,
+      "reviewersId": 2,
+      "name": "Рафаил Даутов",
+      "mail": "dau_dau_@inbox.com",
+      "mainChapter": "математическое моделирование",
+      "countReviews": 38,
+      "ivitesCount": 48,
+      "declineCount": 10
+    },
+    {
+      "id": 3,
+      "reviewersId": 3,
+      "name": "Матвей Вашин",
+      "mail": "matvash@gmail.com",
+      "mainChapter": "математическое моделирование",
+      "countReviews": 24,
+      "ivitesCount": 58,
+      "declineCount": 34
+    },
+    {
+      "id": 4,
+      "reviewersId": 4,
+      "name": "Лужнец П. П.",
+      "mail": "luzhh_72@gmail.com",
+      "mainChapter": "математика",
+      "countReviews": 61,
+      "ivitesCount": 62,
+      "declineCount": 1
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "taskId": "ЛК-1",
+      "manuscriptId": 1,
+      "deadline": "2026-04-12",
+      "createdAt": "2026-02-12",
+      "type": "Оценить отзывы рецензентов",
+      "stage": "Рецензенты приглашены",
+      "invitedReviewersId": [1, 2, 3],
+      "acceptedReviewersId": [2],
+      "declinedReviewersId": [3],
+      "version": 1,
+      "reviewesId": [1],
+      "procrastination": false
+    },
+    {
+      "id": 2,
+      "taskId": "ЛК-2",
+      "manuscriptId": 2,
+      "deadline": "2026-04-15",
+      "createdAt": "2026-02-15",
+      "type": "Найти и пригласить рецензентов",
+      "stage": "Рецензенты не приглашены",
+      "invitedReviewersId": [],
+      "acceptedReviewersId": [],
+      "declinedReviewersId": [],
+      "version": 1,
+      "reviewesId": [],
+      "procrastination": true
+    }
+  ]
+}
