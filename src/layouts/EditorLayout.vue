@@ -1,6 +1,6 @@
 <script setup>
-import HeaderBar from '../components/HeaderBar.vue'
-import EditorNavigationBar from '../components/EditorNavigationBar.vue'
+import HeaderBar from '@/components/HeaderBar.vue'
+import EditorNavigationBar from '@/components/editor/EditorNavigationBar.vue'
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import EditorNavigationBar from '../components/EditorNavigationBar.vue'
     <EditorNavigationBar />
 
     <section class="content">
-      <slot />
+      <router-view />
     </section>
 
     <footer class="footer">FOOTER</footer>

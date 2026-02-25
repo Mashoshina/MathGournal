@@ -3,6 +3,9 @@
     {
       "id": 1,
       "manuscriptId": 1,
+      "stage": "В процессе",
+      "redactorStatus": "user",
+      "redactorsId": [1],
       "title": "Многопараметрический функционал для оценки поворота и перемещения в задаче регистрации облака точек",
       "authorsId": [1],
       "keyWords": [
@@ -22,6 +25,8 @@
     {
       "id": 2,
       "manuscriptId": 2,
+      "stage": "В процессе",
+      "redactorStatus": "user",
       "title": "Аналитическое исследование механизмов нелинейного распределения в гидродинамике с помощью уравнения Буати-Леона-Мианны-Пемпинелли",
       "authorsId": [2],
       "keyWords": [
@@ -36,6 +41,26 @@
       "manuscriptFiles": ["file1.pdf"],
       "coverLetter": ["letter1.pdf"],
       "sentDate": "2026-02-15"
+    },
+    {
+      "id": 3,
+      "manuscriptId": 3,
+      "stage": "Опубликовано",
+      "redactorStatus": 2,
+      "title": "Интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности",
+      "authorsId": [3],
+      "keyWords": [
+        "задача Коши",
+        "уравнение теплопроводности",
+        "априорные оценки",
+        "аналитические методы"
+      ],
+      "description": "В статье рассматривается интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности. Предложенный подход позволяет представить исходную параболическую задачу в эквивалентной интегральной форме, что упрощает анализ существования, единственности и устойчивости решений.",
+      "chapter": "Математика",
+      "collection": null,
+      "manuscriptFiles": ["file1.pdf"],
+      "coverLetter": ["letter1.pdf"],
+      "sentDate": "2026-02-01"
     }
   ],
   "reviews": [
@@ -59,6 +84,12 @@
       "authorsId": 2,
       "name": "Асиф ЙОКУС",
       "mail": "asyok@mail.ru"
+    },
+    {
+      "id": 3,
+      "authorsId": 3,
+      "name": "Б.Л. Гребенщик",
+      "mail": "b_l_greb_4ik@mail.ru"
     }
   ],
   "reviewers": [
@@ -101,6 +132,28 @@
       "countReviews": 61,
       "ivitesCount": 62,
       "declineCount": 1
+    }
+  ],
+  "redactors": [
+    {
+      "id": 1,
+      "redactorsId": 1,
+      "name": "Владимир Фёдоров",
+      "mail": "vladimir_fedorof@gmail.com",
+      "mainChapter": "математическое моделирование",
+      "countReviews": 45,
+      "ivitesCount": 64,
+      "declineCount": 19
+    },
+    {
+      "id": 2,
+      "redactorsId": 2,
+      "name": "Валентинов И.И.",
+      "mail": "valenii@gmail.com",
+      "mainChapter": "математическое моделирование",
+      "countReviews": 45,
+      "ivitesCount": 64,
+      "declineCount": 19
     }
   ],
   "tasks": [
