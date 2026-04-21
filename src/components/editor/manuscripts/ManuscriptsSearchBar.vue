@@ -1,7 +1,21 @@
+<script setup>
+import { ref, watch } from 'vue'
+
+const emit = defineEmits(['search'])
+
+const searchQuery = ref('')
+
+watch(searchQuery, (value) => {
+  emit('search', value)
+})
+</script>
+
 <template>
-  <div class="search-block">
-    <h2>Поиск рукописей</h2>
-    <p>Поиск по ID, названию и имени автора</p>
-    <input type="text" placeholder="Введите запрос..." />
-  </div>
+  <div class="section-name">Поиск рукописей</div>
+  <input
+    v-model="searchQuery"
+    class="search-input-big"
+    type="text"
+    placeholder="Поиск рукописей по названию, имени автора, id"
+  />
 </template>

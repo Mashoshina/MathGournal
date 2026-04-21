@@ -14,9 +14,9 @@ const preparedTasks = computed(() => {
   return props.tasks.map((task) => {
     const manuscript = props.manuscripts.find((m) => m.manuscriptId === task.manuscriptId)
 
-    const author = manuscript
-      ? props.authors.find((a) => a.authorsId === manuscript.authorsId[0])
-      : null
+    const authorsList = manuscript
+      ? props.authors.filter((a) => manuscript.authorsId.includes(a.authorsId))
+      : []
 
     return {
       id: task.id,
@@ -24,12 +24,10 @@ const preparedTasks = computed(() => {
       stage: task.stage,
       type: task.type,
       createdAt: task.createdAt,
-      deadline: task.deadline,
-      version: task.version,
+      version: manuscript?.version,
 
       manuscriptTitle: manuscript?.title,
-      authorName: author?.name,
-      authorMail: author?.mail,
+      authors: authorsList,
       manuscriptSentDate: manuscript?.sentDate,
 
       invitedCount: task.invitedReviewersId.length,
@@ -42,28 +40,7 @@ const preparedTasks = computed(() => {
 </script>
 
 <template>
-  <div class="tasks-container">
-    <div class="tasks-inner">
-      <TaskCard v-for="task in preparedTasks" :key="task.id" :task="task" />
-    </div>
+  <div class="containers">
+    <TaskCard v-for="task in preparedTasks" :key="task.id" :task="task" />
   </div>
 </template>
-
-<style scoped>
-.tasks-container {
-  width: 1340px;
-  height: 500px;
-  overflow: hidden;
-  box-shadow:
-    inset 0 -4px 6px rgba(0, 0, 0, 0.08),
-    0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.tasks-inner {
-  height: 100%;
-  overflow-y: auto;
-  padding-top: 12px;
-  border: 1px solid #e6e6e6;
-  background: #ffffff;
-}
-</style>

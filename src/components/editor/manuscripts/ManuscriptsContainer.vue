@@ -1,36 +1,41 @@
 <script setup>
+import { computed } from 'vue'
 import ManuscriptCard from './ManuscriptCard.vue'
 
-defineProps({
+const props = defineProps({
   manuscripts: Array,
   authors: Array,
   redactors: Array,
 })
+
+/* =========================
+   Обогащаем рукописи
+========================= */
+const enrichedManuscripts = computed(() => {
+  return props.manuscripts.map((manuscript) => {
+    const manuscriptAuthors = props.authors.filter((author) =>
+      manuscript.authorsId?.includes(author.authorsId),
+    )
+
+    const manuscriptRedactors = props.redactors.filter((redactor) =>
+      manuscript.redactorsId?.includes(redactor.redactorsId),
+    )
+
+    return {
+      ...manuscript,
+      authors: manuscriptAuthors,
+      redactors: manuscriptRedactors,
+    }
+  })
+})
 </script>
 
 <template>
-  <div class="container">
+  <div class="containers">
     <ManuscriptCard
-      v-for="manuscript in manuscripts"
+      v-for="manuscript in enrichedManuscripts"
       :key="manuscript.id"
       :manuscript="manuscript"
-      :authors="authors"
-      :redactors="redactors"
     />
   </div>
 </template>
-
-<style scoped>
-.container {
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 20px;
-
-  max-height: 500px;
-  overflow-y: auto;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-</style>

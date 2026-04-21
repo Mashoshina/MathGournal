@@ -1,87 +1,83 @@
 <script setup>
-import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 
 const props = defineProps({
   manuscript: Object,
-  authors: Array,
-  redactors: Array,
 })
 
-const author = computed(() => {
-  return props.authors.find((a) => a.authorsId === props.manuscript.authorsId?.[0])
-})
+const router = useRouter()
 
-const redactor = computed(() => {
-  if (!props.manuscript.redactorsId?.length) return null
-  return props.redactors.find((r) => r.redactorsId === props.manuscript.redactorsId[0])
-})
+const openManuscript = () => {
+  router.push(`/editor/manuscripts/${props.manuscript.id}`)
+}
 </script>
 
 <template>
   <div class="card">
-    <!-- Акцентный заголовок -->
-    <div class="card-header">
-      <span>{{ manuscript.stage }}</span>
-      <span>
-        {{ redactor ? redactor.name : 'Без редактора' }}
+    <!-- ===== Заголовок ===== -->
+    <div class="manuscript-card-header">
+      <span class>
+        {{ manuscript.stage }}
       </span>
-      <span>Подана: {{ manuscript.sentDate }}</span>
+
+      <span>
+        <template v-if="manuscript.redactors?.length">
+          {{ manuscript.redactors.map((r) => r.name).join(', ') }}
+        </template>
+        <template v-else> Без редактора </template>
+      </span>
+
+      <span> Рукопись подана: {{ manuscript.sentDate }} </span>
     </div>
 
-    <!-- Тело карточки -->
+    <!-- ===== Тело ===== -->
     <div class="card-body">
-      <h3 class="title">
+      <!-- Название -->
+      <strong class="manuscript-card-title" @click="openManuscript">
         {{ manuscript.title }}
-      </h3>
+      </strong>
 
-      <div v-if="manuscript.stage === 'Опубликовано'">
-        Версия 1 | Дата публикации: {{ manuscript.sentDate }}
+      <!-- Дата публикации -->
+      <div v-if="manuscript.stage === 'Опубликовано'" class="published">
+        Опубликована: {{ manuscript.sentDate }}
       </div>
 
-      <div>
-        Автор:
-        {{ author?.name }} | {{ author?.mail }}
+      <!-- Авторы -->
+      <div class="info-block">
+        <strong>Автор(ы):</strong>
+        <div v-for="author in manuscript.authors" :key="author.authorsId">
+          {{ author.name }} | {{ author.mail }}
+        </div>
       </div>
 
-      <div>
-        Редактор:
-        {{ redactor?.name || '—' }} | {{ redactor?.mail || '—' }}
+      <!-- Редактор -->
+      <div class="info-block">
+        <strong>Редактор(ы): </strong>
+        <div v-if="manuscript.redactors?.length">
+          <div v-for="r in manuscript.redactors" :key="r.redactorsId">
+            {{ r.name }} | {{ r.mail }}
+          </div>
+        </div>
+        <span v-else> Без редактора </span>
       </div>
 
-      <div>
-        {{ manuscript.collection || 'Без сборника' }} |
-        {{ manuscript.chapter }}
+      <!-- Сборник + область -->
+      <div class="info-block">
+        <span v-if="manuscript.collection">
+          {{ manuscript.collection }} |
+          {{ manuscript.chapter }}
+        </span>
+        <span v-else>
+          {{ manuscript.chapter }}
+        </span>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.card {
-  border: 1px solid #dcdcdc;
-  border-radius: 12px;
-  padding: 16px;
-  background: white;
-}
-
-.card-header {
-  background: #f3f3f3;
-  padding: 8px 12px;
-  border-radius: 8px;
+.published {
   font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.title {
-  color: #810e17;
-  cursor: pointer;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
+  color: #2e7d32;
 }
 </style>

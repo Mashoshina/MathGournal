@@ -33,12 +33,12 @@ const sortOrder = ref('new') // new | old
 const filteredTasks = computed(() => {
   let result = tasks.value
 
-  // 1. фильтр по типу
+  // Фильтр по типу
   if (activeFilter.value !== 'all') {
     result = result.filter((task) => task.type === activeFilter.value)
   }
 
-  // 2. сортировка по дате создания
+  // Сортировка по дате создания
   result = [...result].sort((a, b) => {
     const dateA = new Date(a.createdAt)
     const dateB = new Date(b.createdAt)

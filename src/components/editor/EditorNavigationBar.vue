@@ -27,7 +27,7 @@
 .breadcrumb {
   background: none;
   border: none;
-  color: white;
+  color: var(--white);
   font-family: 'Biryani', sans-serif;
   font-size: 16px;
   cursor: pointer;
@@ -64,6 +64,7 @@
 }
 
 .tab {
+  text-decoration: none;
   flex: 1;
   padding: 10px 180px;
   text-align: center;
