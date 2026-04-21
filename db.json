@@ -3,111 +3,143 @@
     {
       "id": "0",
       "userId": 0,
+      "login": "admin",
+      "password": "Admin_00",
       "name": "Системный пользователь",
-      "role": [
-        "admin"
-      ]
+      "mail": "admin@mail.ru",
+      "role": ["admin"],
+      "notifs": []
     },
     {
       "id": "1",
       "userId": 1,
+      "login": "EugenFed_01",
+      "password": "EugenFed_01",
       "name": "Евгений Фёдоров",
-      "role": [
-        "main_red",
-        "red",
-        "rev",
-        "author"
+      "mail": "vladimir_fedorof@gmail.com",
+      "role": ["main_red", "red", "rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "2",
       "userId": 2,
+      "login": "Val_02",
+      "password": "ValenVal_02",
       "name": "Валентинов И.И.",
-      "role": [
-        "red",
-        "rev",
-        "author"
+      "mail": "valenii@gmail.com",
+      "role": ["red", "rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "3",
       "userId": 3,
+      "login": "Luntik_0303",
+      "password": "Luntik_0303",
       "name": "Лунтик",
-      "role": [
-        "red",
-        "rev",
-        "author"
+      "mail": "luni_lu@gmail.com",
+      "role": ["red", "rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "4",
       "userId": 4,
+      "login": "FeodoraDu_04",
+      "password": "FeodoraDu_04",
       "name": "Фёдоров Е.А.",
-      "role": [
-        "rev",
-        "author"
+      "mail": "eg_fedorof@gmail.com",
+      "role": ["rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "5",
       "userId": 5,
+      "login": "RafailDaut_05",
+      "password": "RafailDaut_05",
       "name": "Рафаил Даутов",
-      "role": [
-        "rev",
-        "author"
+      "mail": "dau_dau_@inbox.com",
+      "role": ["rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "6",
       "userId": 6,
+      "login": "matvash@gmail.com",
+      "password": "Matvashik_06",
       "name": "Матвей Вашин",
-      "role": [
-        "rev",
-        "author"
+      "mail": "matvash@gmail.com",
+      "role": ["rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "7",
       "userId": 7,
+      "login": "luzhh_72@gmail.com",
+      "password": "Luzhhaika_07",
       "name": "Лужнец П. П.",
-      "role": [
-        "rev",
-        "author"
+      "mail": "luzhh_72@gmail.com",
+      "role": ["rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "8",
       "userId": 8,
+      "login": "08_rezenzent_R",
+      "password": "08_rezenzent_R",
       "name": "Рецензент Р. Р.",
-      "role": [
-        "rev",
-        "author"
+      "mail": "reviewer@gmail.com",
+      "role": ["rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "9",
       "userId": 9,
+      "login": "Artem_Makovar_09",
+      "password": "Artem_Makovar_09",
       "name": "Артём Маковецкий",
-      "role": [
-        "author"
+      "mail": "makovar@mail.ru",
+      "role": ["author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "10",
       "userId": 10,
+      "login": "AsiYOY_10",
+      "password": "Asif_ka_YOY_10",
       "name": "Асиф ЙОКУС",
-      "role": [
-        "rev",
-        "author"
+      "mail": "asyok@mail.ru",
+      "role": ["rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     },
     {
       "id": "11",
       "userId": 11,
+      "login": "grebka_yA_11",
+      "password": "grebka_yA_11",
       "name": "Б.Л. Гребенщик",
-      "role": [
-        "rev",
-        "author"
+      "mail": "b_l_greb_4ik@mail.ru",
+      "role": ["rev", "author"],
+      "notifs": [
+        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
       ]
     }
   ],
@@ -117,14 +149,9 @@
       "manuscriptId": 1,
       "stage": "В процессе",
       "redactorStatus": "mine",
-      "redactorsId": [
-        1,
-        2
-      ],
+      "redactorsId": [1, 2],
       "title": "Многопараметрический функционал для оценки поворота и перемещения в задаче регистрации облака точек",
-      "authorsId": [
-        1
-      ],
+      "authorsId": [1],
       "keyWords": [
         "ICP-алгоритм",
         "3D",
@@ -135,13 +162,8 @@
       "description": "Статья посвящена разработке многопараметрического функционала качества для задачи регистрации 3D-облаков точек. Предлагаемый подход позволяет совместно и оптимально вычислять матрицу поворота и вектор перемещения, обеспечивая высокую точность сопоставления и робастность к зашумленным данным и частичным перекрытиям облаков.",
       "chapter": "Математика",
       "collection": "Дифференциальные игры, теория управления и оптимизация. Посвящается памяти профессора В. И. Ухоботова",
-      "manuscriptFiles": [
-        "./public/manuscripts/mfdop.pdf",
-        "./public/manuscripts/mfdop2.pdf"
-      ],
-      "coverLetter": [
-        "./public/manuscripts/letter1.pdf"
-      ],
+      "manuscriptFiles": ["./public/manuscripts/mfdop.pdf", "./public/manuscripts/mfdop2.pdf"],
+      "coverLetter": ["./public/manuscripts/letter1.pdf"],
       "sentDate": "2026-02-12",
       "version": 1,
       "events": [
@@ -212,14 +234,9 @@
       "manuscriptId": 2,
       "stage": "В процессе",
       "redactorStatus": "by_name",
-      "redactorsId": [
-        2
-      ],
+      "redactorsId": [2],
       "title": "Аналитическое исследование механизмов нелинейного распределения в гидродинамике с помощью уравнения Буати-Леона-Мианны-Пемпинелли",
-      "authorsId": [
-        2,
-        3
-      ],
+      "authorsId": [2, 3],
       "keyWords": [
         "устойчивость решений",
         "динамика сплошных сред",
@@ -229,12 +246,8 @@
       "description": "В статье проводится аналитическое исследование механизмов нелинейного распределения в гидродинамических системах на основе уравнения Буати–Леона–Мианны–Пемпинелли. Рассматриваются фундаментальные свойства модели, включая структуру нелинейных членов, дисперсионные характеристики и условия существования устойчивых решений.",
       "chapter": "Математическое моделирование",
       "collection": null,
-      "manuscriptFiles": [
-        "./public/manuscripts/2026-03-01_20-24-42.pdf"
-      ],
-      "coverLetter": [
-        "./public/manuscripts/letter1.pdf"
-      ],
+      "manuscriptFiles": ["./public/manuscripts/2026-03-01_20-24-42.pdf"],
+      "coverLetter": ["./public/manuscripts/letter1.pdf"],
       "sentDate": "2026-02-15",
       "version": 1,
       "events": [
@@ -265,9 +278,7 @@
       "redactorStatus": "none",
       "redactorsId": [],
       "title": "Интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности",
-      "authorsId": [
-        3
-      ],
+      "authorsId": [3],
       "keyWords": [
         "задача Коши",
         "уравнение теплопроводности",
@@ -277,12 +288,8 @@
       "description": "В статье рассматривается интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности. Предложенный подход позволяет представить исходную параболическую задачу в эквивалентной интегральной форме, что упрощает анализ существования, единственности и устойчивости решений.",
       "chapter": "Математика",
       "collection": null,
-      "manuscriptFiles": [
-        "./public/manuscripts/12939-196408-1-PB.pdf"
-      ],
-      "coverLetter": [
-        "./public/manuscripts/letter1.pdf"
-      ],
+      "manuscriptFiles": ["./public/manuscripts/12939-196408-1-PB.pdf"],
+      "coverLetter": ["./public/manuscripts/letter1.pdf"],
       "sentDate": "2026-02-01",
       "version": 1,
       "events": [
@@ -307,9 +314,7 @@
       "reviewesId": 1,
       "reviewersId": 1,
       "manuscriptId": 1,
-      "reviewesFiles": [
-        "./public/manuscripts/review1.pdf"
-      ]
+      "reviewesFiles": ["./public/manuscripts/review1.pdf"]
     }
   ],
   "authors": [
@@ -409,7 +414,7 @@
       "id": "3",
       "redactorsId": 3,
       "name": "Лунтик",
-      "mail": "valenii@gmail.com",
+      "mail": "luni_lu@gmail.com",
       "mainChapter": "математическое моделирование",
       "countReviews": 45,
       "ivitesCount": 64,
@@ -424,20 +429,10 @@
       "createdAt": "2026-02-12",
       "type": "Оценить отзывы рецензентов",
       "stage": "Рецензенты приглашены",
-      "invitedReviewersId": [
-        1,
-        2,
-        3
-      ],
-      "acceptedReviewersId": [
-        2
-      ],
-      "declinedReviewersId": [
-        3
-      ],
-      "reviewesId": [
-        1
-      ]
+      "invitedReviewersId": [1, 2, 3],
+      "acceptedReviewersId": [2],
+      "declinedReviewersId": [3],
+      "reviewesId": [1]
     },
     {
       "id": "2",

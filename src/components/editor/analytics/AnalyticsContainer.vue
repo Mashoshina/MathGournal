@@ -15,36 +15,33 @@ const redactorsCount = computed(() => props.redactors.length)
 </script>
 
 <template>
-  <div class="analytics-container">
-    <div class="stat-card">
-      <div class="stat-title">Рукописи</div>
-      <div class="stat-value">{{ manuscriptsCount }}</div>
-    </div>
+  <div>
+    <div class="section-name">Аналитика продуктивности</div>
+    <div class="analytics-container">
+      <div class="stat-card">
+        <div class="stat-title">Рукописи</div>
+        <div class="stat-value">{{ manuscriptsCount }}</div>
+      </div>
 
-    <div class="stat-card">
-      <div class="stat-title">Задачи</div>
-      <div class="stat-value">{{ tasksCount }}</div>
-    </div>
+      <div class="stat-card">
+        <div class="stat-title">Задачи</div>
+        <div class="stat-value">{{ tasksCount }}</div>
+      </div>
 
-    <div class="stat-card">
-      <div class="stat-title">Рецензенты</div>
-      <div class="stat-value">{{ reviewersCount }}</div>
-    </div>
+      <div class="stat-card">
+        <div class="stat-title">Рецензенты</div>
+        <div class="stat-value">{{ reviewersCount }}</div>
+      </div>
 
-    <div class="stat-card">
-      <div class="stat-title">Редакторы</div>
-      <div class="stat-value">{{ redactorsCount }}</div>
+      <div class="stat-card">
+        <div class="stat-title">Редакторы</div>
+        <div class="stat-value">{{ redactorsCount }}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.analytics-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
 .stat-card {
   border: 1px solid #e6e6e6;
   border-radius: 10px;
