@@ -58,12 +58,6 @@
           "title": "Новое уведомление",
           "text": "Текст уведомления",
           "date": "21-01-2026"
-        },
-        {
-          "id": 1776840798668,
-          "title": "Рукопись отклонена",
-          "text": "cvbnm,.//,mnbvcghjlkjnhb",
-          "date": "2026-04-22"
         }
       ]
     },
@@ -365,42 +359,6 @@
           "user": 0,
           "date": "2026-02-01",
           "version": 1
-        }
-      ]
-    },
-    {
-      "id": "9a3b",
-      "manuscriptId": 1776840766612,
-      "stage": "Отклонено",
-      "redactorStatus": "none",
-      "redactorsId": [],
-      "title": "dfghjkl",
-      "authorsId": [10, 11],
-      "keyWords": ["gvhbjnmkl", ""],
-      "description": "xcfvgbhjnkml",
-      "chapter": "fvgbhnjmkl",
-      "collection": null,
-      "manuscriptFiles": ["/public/manuscripts/mfdop.pdf"],
-      "coverLetter": [],
-      "sentDate": "2026-04-22",
-      "version": 1,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-04-22",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Евгений Фёдоров назначен",
-          "user": 0,
-          "date": "2026-04-22",
-          "version": 1
-        },
-        {
-          "event": "Отклонить",
-          "user": 1,
-          "date": "2026-04-22"
         }
       ]
     }
