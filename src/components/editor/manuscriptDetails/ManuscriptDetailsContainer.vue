@@ -15,6 +15,10 @@ const showRedactorsOverlay = ref(false)
 const selectedRedactors = ref([])
 const searchQuery = ref('')
 
+const showActionModal = ref(false)
+const actionType = ref(null)
+const messageText = ref('')
+
 const props = defineProps({
   manuscript: Object,
   authors: Array,
@@ -96,6 +100,98 @@ const saveRedactors = async () => {
 
   location.reload()
 }
+
+/*Действия с рукописью*/
+const actionTitleMap = {
+  reject: 'Отклонить',
+  revision: 'На доработку',
+  publish: 'Опубликовать',
+}
+
+const stageMap = {
+  reject: 'Отклонено',
+  revision: 'На доработке',
+  publish: 'Опубликовано',
+}
+
+const notifTitleMap = {
+  reject: 'Рукопись отклонена',
+  revision: 'Рукопись отправлена на доработку',
+  publish: 'Рукопись опубликована',
+}
+
+const openActionModal = (type) => {
+  actionType.value = type
+  messageText.value = ''
+  showActionModal.value = true
+}
+
+const submitAction = async () => {
+  const today = new Date().toISOString().split('T')[0]
+
+  // 1. обновляем рукопись
+  const updatedEvents = [
+    ...(props.manuscript.events || []),
+    {
+      event: actionTitleMap[actionType.value],
+      user: 1,
+      date: today,
+    },
+  ]
+
+  await axios.patch(`http://localhost:3001/manuscripts/${props.manuscript.id}`, {
+    stage: stageMap[actionType.value],
+    events: updatedEvents,
+  })
+
+  if (actionType.value === 'reject') {
+    await deleteTaskByManuscript()
+  }
+
+  // 2. получаем пользователей
+  const usersRes = await axios.get('http://localhost:3001/users')
+  const users = usersRes.data
+
+  // 3. ищем авторов → пользователей
+  const authors = props.manuscript.authorsId
+
+  const targetUsers = users.filter((u) => authors.includes(u.userId))
+
+  // 4. добавляем уведомления
+  for (const user of targetUsers) {
+    const newNotif = {
+      id: Date.now(),
+      title: notifTitleMap[actionType.value],
+      text: messageText.value,
+      date: today,
+    }
+
+    const updatedNotifs = [...(user.notifs || []), newNotif]
+
+    await axios.patch(`http://localhost:3001/users/${user.id}`, {
+      notifs: updatedNotifs,
+    })
+  }
+
+  showActionModal.value = false
+  location.reload()
+}
+
+const isReadonly = computed(() => {
+  return props.manuscript.stage === 'Опубликовано' || props.manuscript.stage === 'Отклонено'
+})
+
+const deleteTaskByManuscript = async () => {
+  const tasksRes = await axios.get('http://localhost:3001/tasks')
+
+  const task = tasksRes.data.find(
+    (t) => Number(t.manuscriptId) === Number(props.manuscript.manuscriptId),
+  )
+
+  if (task) {
+    await axios.delete(`http://localhost:3001/tasks/${task.id}`)
+  }
+}
 </script>
 
 <template>
@@ -126,16 +222,13 @@ const saveRedactors = async () => {
             <a :href="file.replace('./public', '')" target="_blank">
               {{ file.split('/').pop() }}
             </a>
-            <template v-if="manuscript.stage !== 'Опубликовано'">
+            <template v-if="!isReadonly">
               <ReplaceFileButton :index="index" :manuscript="manuscript" />
               <DeleteFileButton :index="index" @ask-delete="openDeleteOverlay" />
             </template>
           </li>
         </ul>
-        <AddManuscriptFileButton
-          v-if="manuscript.stage !== 'Опубликовано'"
-          :manuscript="manuscript"
-        />
+        <AddManuscriptFileButton v-if="!isReadonly" :manuscript="manuscript" />
       </div>
     </div>
 
@@ -195,23 +288,26 @@ const saveRedactors = async () => {
       </div>
 
       <div v-else>Без редакторв</div>
-      <ChangeRedactors
-        v-if="manuscript.stage !== 'Опубликовано'"
-        @open="showRedactorsOverlay = true"
-      />
+      <ChangeRedactors v-if="!isReadonly" @open="showRedactorsOverlay = true" />
     </div>
   </div>
 
   <!-- ДЕЙСТВИЯ -->
-  <div v-if="manuscript.stage !== 'Опубликовано'">
+  <div v-if="!isReadonly">
     <div class="section-name">Действия:</div>
 
     <div class="actions-block">
-      <button class="bright-button editor" @click="rejectManuscript">Отклонить рукопись</button>
+      <button class="bright-button editor" @click="openActionModal('reject')">
+        Отклонить рукопись
+      </button>
 
-      <button class="bright-button editor" @click="sendToRevision">Отправить на доработку</button>
+      <button class="bright-button editor" @click="openActionModal('revision')">
+        Отправить на доработку
+      </button>
 
-      <button class="bright-button editor" @click="publishManuscript">Опубликовать рукопись</button>
+      <button class="bright-button editor" @click="openActionModal('publish')">
+        Опубликовать рукопись
+      </button>
     </div>
   </div>
 
@@ -274,6 +370,29 @@ const saveRedactors = async () => {
       <div class="save-block">
         <button class="general-button editor" @click="saveRedactors">Сохранить</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Оверлей действий с рукописью -->
+  <div v-if="showActionModal" class="overlay">
+    <div class="search-modal">
+      <div class="modal-header">
+        <span>Действия с рукописью</span>
+        <span class="close-btn" @click="showActionModal = false">✕</span>
+      </div>
+
+      <div class="section-name" style="margin-top: 16px">
+        {{ actionTitleMap[actionType] }}
+      </div>
+
+      <textarea
+        class="input"
+        rows="5"
+        placeholder="Введите текст уведомления"
+        v-model="messageText"
+      ></textarea>
+
+      <button class="bright-button editor" @click="submitAction">Отправить</button>
     </div>
   </div>
 </template>

@@ -23,9 +23,7 @@ const select = (value) => {
 <template>
   <div class="sort-wrapper">
     <button class="sort-btn" @click="toggle">
-      {{
-        status === 'all' ? 'Все статусы' : status === 'В процессе' ? 'В процессе' : 'Опубликовано'
-      }}
+      {{ status === 'all' ? 'Все статусы' : status }}
 
       <vue-feather
         type="chevron-down"
@@ -58,6 +56,16 @@ const select = (value) => {
           @change="select('Опубликовано')"
         />
         Опубликовано
+      </label>
+
+      <label class="option">
+        <input
+          type="radio"
+          value="Отклонено"
+          :checked="status === 'Отклонено'"
+          @change="select('Отклонено')"
+        />
+        Отклонено
       </label>
     </div>
   </div>

@@ -19,7 +19,12 @@
       "mail": "vladimir_fedorof@gmail.com",
       "role": ["main_red", "red", "rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -31,7 +36,12 @@
       "mail": "valenii@gmail.com",
       "role": ["red", "rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -43,7 +53,18 @@
       "mail": "luni_lu@gmail.com",
       "role": ["red", "rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        },
+        {
+          "id": 1776840798668,
+          "title": "Рукопись отклонена",
+          "text": "cvbnm,.//,mnbvcghjlkjnhb",
+          "date": "2026-04-22"
+        }
       ]
     },
     {
@@ -55,7 +76,12 @@
       "mail": "eg_fedorof@gmail.com",
       "role": ["rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -67,7 +93,12 @@
       "mail": "dau_dau_@inbox.com",
       "role": ["rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -79,7 +110,12 @@
       "mail": "matvash@gmail.com",
       "role": ["rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -91,7 +127,12 @@
       "mail": "luzhh_72@gmail.com",
       "role": ["rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -103,7 +144,12 @@
       "mail": "reviewer@gmail.com",
       "role": ["rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -115,7 +161,12 @@
       "mail": "makovar@mail.ru",
       "role": ["author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -127,7 +178,12 @@
       "mail": "asyok@mail.ru",
       "role": ["rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     },
     {
@@ -139,7 +195,12 @@
       "mail": "b_l_greb_4ik@mail.ru",
       "role": ["rev", "author"],
       "notifs": [
-        { "id": 1, "title": "Новое уведомление", "text": "Текст уведомления", "date": "21-01-2026" }
+        {
+          "id": 1,
+          "title": "Новое уведомление",
+          "text": "Текст уведомления",
+          "date": "21-01-2026"
+        }
       ]
     }
   ],
@@ -151,7 +212,7 @@
       "redactorStatus": "mine",
       "redactorsId": [1, 2],
       "title": "Многопараметрический функционал для оценки поворота и перемещения в задаче регистрации облака точек",
-      "authorsId": [1],
+      "authorsId": [9],
       "keyWords": [
         "ICP-алгоритм",
         "3D",
@@ -236,7 +297,7 @@
       "redactorStatus": "by_name",
       "redactorsId": [2],
       "title": "Аналитическое исследование механизмов нелинейного распределения в гидродинамике с помощью уравнения Буати-Леона-Мианны-Пемпинелли",
-      "authorsId": [2, 3],
+      "authorsId": [10, 11],
       "keyWords": [
         "устойчивость решений",
         "динамика сплошных сред",
@@ -278,7 +339,7 @@
       "redactorStatus": "none",
       "redactorsId": [],
       "title": "Интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности",
-      "authorsId": [3],
+      "authorsId": [11],
       "keyWords": [
         "задача Коши",
         "уравнение теплопроводности",
@@ -306,13 +367,49 @@
           "version": 1
         }
       ]
+    },
+    {
+      "id": "9a3b",
+      "manuscriptId": 1776840766612,
+      "stage": "Отклонено",
+      "redactorStatus": "none",
+      "redactorsId": [],
+      "title": "dfghjkl",
+      "authorsId": [10, 11],
+      "keyWords": ["gvhbjnmkl", ""],
+      "description": "xcfvgbhjnkml",
+      "chapter": "fvgbhnjmkl",
+      "collection": null,
+      "manuscriptFiles": ["/public/manuscripts/mfdop.pdf"],
+      "coverLetter": [],
+      "sentDate": "2026-04-22",
+      "version": 1,
+      "events": [
+        {
+          "event": "Статья получена",
+          "user": 0,
+          "date": "2026-04-22",
+          "version": 1
+        },
+        {
+          "event": "Главный редактор Евгений Фёдоров назначен",
+          "user": 0,
+          "date": "2026-04-22",
+          "version": 1
+        },
+        {
+          "event": "Отклонить",
+          "user": 1,
+          "date": "2026-04-22"
+        }
+      ]
     }
   ],
   "reviews": [
     {
       "id": "1",
       "reviewesId": 1,
-      "reviewersId": 1,
+      "reviewersId": 4,
       "manuscriptId": 1,
       "reviewesFiles": ["./public/manuscripts/review1.pdf"]
     }
@@ -320,19 +417,19 @@
   "authors": [
     {
       "id": "1",
-      "authorsId": 1,
+      "authorsId": 9,
       "name": "Артём Маковецкий",
       "mail": "makovar@mail.ru"
     },
     {
       "id": "2",
-      "authorsId": 2,
+      "authorsId": 10,
       "name": "Асиф ЙОКУС",
       "mail": "asyok@mail.ru"
     },
     {
       "id": "3",
-      "authorsId": 3,
+      "authorsId": 11,
       "name": "Б.Л. Гребенщик",
       "mail": "b_l_greb_4ik@mail.ru"
     }
@@ -340,7 +437,7 @@
   "reviewers": [
     {
       "id": "1",
-      "reviewersId": 1,
+      "reviewersId": 4,
       "name": "Фёдоров Е.А.",
       "mail": "eg_fedorof@gmail.com",
       "mainChapter": "Математическое моделирование",
@@ -350,7 +447,7 @@
     },
     {
       "id": "2",
-      "reviewersId": 2,
+      "reviewersId": 5,
       "name": "Рафаил Даутов",
       "mail": "dau_dau_@inbox.com",
       "mainChapter": "Математическое моделирование",
@@ -360,7 +457,7 @@
     },
     {
       "id": "3",
-      "reviewersId": 3,
+      "reviewersId": 6,
       "name": "Матвей Вашин",
       "mail": "matvash@gmail.com",
       "mainChapter": "Математическое моделирование",
@@ -370,7 +467,7 @@
     },
     {
       "id": "4",
-      "reviewersId": 4,
+      "reviewersId": 7,
       "name": "Лужнец П. П.",
       "mail": "luzhh_72@gmail.com",
       "mainChapter": "Математика",
@@ -380,7 +477,7 @@
     },
     {
       "id": "5",
-      "reviewersId": 5,
+      "reviewersId": 8,
       "name": "Рецензент Р. Р.",
       "mail": "reviewer@gmail.com",
       "mainChapter": "Физика",
@@ -429,10 +526,10 @@
       "createdAt": "2026-02-12",
       "type": "Оценить отзывы рецензентов",
       "stage": "Рецензенты приглашены",
-      "invitedReviewersId": [1, 2, 3],
-      "acceptedReviewersId": [2],
-      "declinedReviewersId": [3],
-      "reviewesId": [1]
+      "invitedReviewersId": [4, 5, 6],
+      "acceptedReviewersId": [5],
+      "declinedReviewersId": [6],
+      "reviewesId": [4]
     },
     {
       "id": "2",
