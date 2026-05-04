@@ -1,52 +1,37 @@
+<script setup>
+import HeaderBar from '@/components/HeaderBar.vue'
+import TopBar from '@/components/main_page/Top-Bar.vue'
+import MainNavigationBar from '@/components/main_page/MainNavigationBar.vue'
+import AppFooter from '@/components/AppFooter.vue'
+</script>
+
 <template>
-  <div class="layout">
-    <header class="header">
-      <h2>Челябинский физико-математический журнал</h2>
-    </header>
+  <div class="page">
+    <HeaderBar />
+    <TopBar />
+    <MainNavigationBar />
 
-    <div class="content">
-      <aside class="sidebar">
-        <p>Меню</p>
-        <ul>
-          <li>Статьи</li>
-          <li>Рецензенты</li>
-          <li>Профиль</li>
-        </ul>
-      </aside>
+    <section class="content">
+      <router-view />
+    </section>
 
-      <main class="main">
-        <slot />
-      </main>
-    </div>
+    <footer class="main-footer"><AppFooter /></footer>
   </div>
 </template>
 
-<style scoped>
-.layout {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-.header {
-  background: #1e293b;
-  color: white;
-  padding: 15px;
-}
-
+<style>
 .content {
-  display: flex;
-  flex: 1;
+  width: 1400;
+  margin-right: 60px;
+  margin-left: 60px;
+  min-height: 600px;
+  padding: 24px;
+  border-radius: 28px;
 }
 
-.sidebar {
-  width: 220px;
-  background: #f1f5f9;
-  padding: 15px;
-}
-
-.main {
-  flex: 1;
-  padding: 20px;
+.main-footer {
+  height: auto;
+  background: var(--main-gradient);
+  margin-top: auto;
 }
 </style>

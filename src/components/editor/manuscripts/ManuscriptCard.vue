@@ -63,13 +63,7 @@ const openManuscript = () => {
 
       <!-- Сборник + область -->
       <div class="info-block">
-        <span v-if="manuscript.collection">
-          {{ manuscript.collection }} |
-          {{ manuscript.chapter }}
-        </span>
-        <span v-else>
-          {{ manuscript.chapter }}
-        </span>
+        {{ manuscript.chapter }}
       </div>
     </div>
   </div>

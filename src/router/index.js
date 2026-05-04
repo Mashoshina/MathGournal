@@ -1,15 +1,35 @@
 import { createRouter, createWebHistory } from 'vue-router'
-//import EditorView from '../views/EditorView.vue'
 import EditorLayout from '../layouts/EditorLayout.vue'
 import TaskView from '../views/TasksView.vue'
 import ManuscriptsView from '../views/ManuscriptsView.vue'
+import MainLayout from '../layouts/MainLayout.vue'
+import MainView from '../views/MainView.vue'
+
+import MainSectionsLayout from '@/layouts/MainSectionsLayout.vue'
+import MainManuscriptView from '@/views/MainManuscriptView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      redirect: '/editor/tasks',
+      component: MainLayout,
+      children: [
+        {
+          path: '',
+          component: MainView,
+        },
+      ],
+    },
+    {
+      path: '/manuscripts',
+      component: MainSectionsLayout,
+      children: [
+        {
+          path: 'view/:id',
+          component: MainManuscriptView,
+        },
+      ],
     },
     {
       path: '/editor',

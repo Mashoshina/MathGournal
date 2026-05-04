@@ -1,5 +1,6 @@
 <script setup>
-import { computed } from 'vue'
+import DateFilter from './dateFilter.vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
   tasks: Array,
@@ -8,34 +9,89 @@ const props = defineProps({
   redactors: Array,
 })
 
-const manuscriptsCount = computed(() => props.manuscripts.length)
-const tasksCount = computed(() => props.tasks.length)
-const reviewersCount = computed(() => props.reviewers.length)
-const redactorsCount = computed(() => props.redactors.length)
+const dateFilter = ref({ type: 'month' })
+
+const handleDateChange = (filter) => {
+  dateFilter.value = filter
+}
+
+/* Расчёт дат для фильтра */
+const filteredManuscripts = computed(() => {
+  const now = new Date()
+
+  return props.manuscripts.filter((m) => {
+    const date = new Date(m.sentDate)
+
+    if (dateFilter.value.type === 'month') {
+      const monthAgo = new Date()
+      monthAgo.setMonth(now.getMonth() - 1)
+      return date >= monthAgo
+    }
+
+    if (dateFilter.value.type === '3months') {
+      const threeMonthsAgo = new Date()
+      threeMonthsAgo.setMonth(now.getMonth() - 3)
+      return date >= threeMonthsAgo
+    }
+
+    if (dateFilter.value.type === 'year') {
+      const yearAgo = new Date()
+      yearAgo.setFullYear(now.getFullYear() - 1)
+      return date >= yearAgo
+    }
+
+    if (dateFilter.value.type === 'custom') {
+      const from = new Date(dateFilter.value.from)
+      const to = new Date(dateFilter.value.to)
+      return date >= from && date <= to
+    }
+
+    return true
+  })
+})
+
+const myManuscriptsCount = computed(
+  () => filteredManuscripts.value.filter((m) => m.redactorsId?.includes(1)).length,
+)
+
+const inProgressCount = computed(
+  () => filteredManuscripts.value.filter((m) => m.stage === 'В процессе').length,
+)
+
+const declinedCount = computed(
+  () => filteredManuscripts.value.filter((m) => m.stage === 'Отклонено').length,
+)
+
+const publishedCount = computed(
+  () => filteredManuscripts.value.filter((m) => m.stage === 'Опубликовано').length,
+)
 </script>
 
 <template>
   <div>
     <div class="section-name">Аналитика продуктивности</div>
+
+    <DateFilter @change="handleDateChange" />
+
     <div class="analytics-container">
       <div class="stat-card">
-        <div class="stat-title">Рукописи</div>
-        <div class="stat-value">{{ manuscriptsCount }}</div>
+        <div class="stat-title">Мои рукописи</div>
+        <div class="stat-value">{{ myManuscriptsCount }}</div>
       </div>
 
       <div class="stat-card">
-        <div class="stat-title">Задачи</div>
-        <div class="stat-value">{{ tasksCount }}</div>
+        <div class="stat-title">Принято</div>
+        <div class="stat-value">{{ inProgressCount }}</div>
       </div>
 
       <div class="stat-card">
-        <div class="stat-title">Рецензенты</div>
-        <div class="stat-value">{{ reviewersCount }}</div>
+        <div class="stat-title">Отклонённые</div>
+        <div class="stat-value">{{ declinedCount }}</div>
       </div>
 
       <div class="stat-card">
-        <div class="stat-title">Редакторы</div>
-        <div class="stat-value">{{ redactorsCount }}</div>
+        <div class="stat-title">Опубликованные</div>
+        <div class="stat-value">{{ publishedCount }}</div>
       </div>
     </div>
   </div>
@@ -43,26 +99,42 @@ const redactorsCount = computed(() => props.redactors.length)
 
 <style scoped>
 .stat-card {
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
-  padding: 20px;
+  border: 2px solid var(--red-editor);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-bg);
+  margin-top: var(--spacing-md);
 
-  background: white;
+  background: var(--white);
 
   box-shadow:
     inset 0 -4px 6px rgba(0, 0, 0, 0.05),
     0 2px 6px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  text-align: center;
+}
+
+.cards-block {
+  margin-top: var(--spacing-md);
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: grid;
+  width: 100%;
 }
 
 .stat-title {
-  font-family: 'Biryani', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-Biryani);
+  font-size: var(--size-nm);
 }
 
 .stat-value {
-  margin-top: 10px;
+  margin-top: var(--spacing-sm);
   font-family: 'Lora', serif;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: var(--size-lg);
+  font-weight: var(--medium-weight);
 }
 </style>

@@ -39,10 +39,15 @@
   --spacing-md: 12px;
   --spacing-bg: 16px;
   --spacing-lg: 24px;
+  --spacing-very-lg: 32px;
+
+  --spacing-40: 40px;
+  --spacing-50: 50px;
 
   /*-------------------------------------------
                     STROCKS
     ---------------------------------------------*/
+  --strock-tn: 1px;
   --strock-sm: 2px;
   --strock-md: 4px;
   --strock-lg: 8px;
@@ -50,6 +55,7 @@
   /*-------------------------------------------
                     RADIUS
     ---------------------------------------------*/
+  --radius-tn: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radis-bg: 16px;
@@ -67,6 +73,7 @@
   --normal-weight: 400;
   --medium-weight: 600;
   --bold-weight: 700;
+  --black-bold-weight: 900;
 
   /*-------------------------------------------
                     FONT SIZE
@@ -75,4 +82,5 @@
   --size-nm: 14px;
   --size-bg: 16px;
   --size-lg: 24px;
+  --size-very-lg: 32px;
 }

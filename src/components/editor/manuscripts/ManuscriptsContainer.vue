@@ -34,7 +34,7 @@ const enrichedManuscripts = computed(() => {
   <div class="containers">
     <ManuscriptCard
       v-for="manuscript in enrichedManuscripts"
-      :key="manuscript.id"
+      :key="manuscript.manuscriptId"
       :manuscript="manuscript"
     />
   </div>

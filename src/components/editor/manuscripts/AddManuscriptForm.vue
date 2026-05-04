@@ -14,7 +14,6 @@ const title = ref('')
 const description = ref('')
 const keywords = ref('')
 const chapter = ref('')
-const collection = ref('')
 
 const authorSearch = ref('')
 const selectedAuthors = ref([])
@@ -88,14 +87,13 @@ async function saveManuscript() {
   const manuscript = {
     manuscriptId,
     stage: 'В процессе',
-    redactorStatus: 'none',
-    redactorsId: [],
+    redactorStatus: 'mine',
+    redactorsId: [1],
     title: title.value,
     authorsId: selectedAuthors.value,
     keyWords: keywords.value.split(','),
     description: description.value,
     chapter: chapter.value,
-    collection: collection.value || null,
     manuscriptFiles: manuscriptFiles.value.map((f) => `/public/manuscripts/${f.name}`),
     coverLetter: coverLetterFiles.value.map((f) => `/public/manuscripts/${f.name}`),
     sentDate: new Date().toISOString().slice(0, 10),
@@ -111,7 +109,6 @@ async function saveManuscript() {
   const task = {
     taskId: `ЛК-${Date.now()}`,
     manuscriptId: newManuscript.manuscriptId,
-    deadline: new Date(Date.now() + 60 * 86400000).toISOString().slice(0, 10),
     createdAt: newManuscript.sentDate,
     type: 'Найти и пригласить рецензентов',
     stage: 'Рецензенты не приглашены',
@@ -119,14 +116,6 @@ async function saveManuscript() {
     acceptedReviewersId: [],
     declinedReviewersId: [],
     reviewesId: [],
-    events: [
-      {
-        event: 'Статья получена',
-        user: [1],
-        date: newManuscript.sentDate,
-      },
-    ],
-    note: null,
   }
 
   await axios.post('http://localhost:3001/tasks', task)
@@ -170,9 +159,6 @@ async function saveManuscript() {
       class="input"
       :class="{ invalid: validationError && !title }"
     />
-
-    <!-- Поле коллекции -->
-    <input v-model="collection" class="input" placeholder="Коллекция (необязательно)" />
 
     <!-- Поиск авторов -->
     <div class="section-name">Авторы*</div>
