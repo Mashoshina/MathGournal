@@ -11,6 +11,8 @@ import AppFooter from '@/components/AppFooter.vue'
     <TopBar />
     <MainNavigationBar />
 
+    <div class="line main"></div>
+
     <section class="content">
       <router-view />
     </section>

@@ -10,6 +10,17 @@ const emit = defineEmits(['change-filter'])
 
 const isOpen = ref(false)
 
+const chapters = [
+  'Математика',
+  'Механика',
+  'Физика',
+  'Астрономия',
+  'Информатика, вычислительная техника и управление',
+  'Математическое моделирование',
+  'Динамика многофазных сред',
+  'Поздравительные статьи',
+]
+
 const toggle = () => {
   isOpen.value = !isOpen.value
 }
@@ -34,6 +45,7 @@ const selectOption = (value) => {
     </button>
 
     <div v-if="isOpen" class="dropdown">
+      <!-- Любое -->
       <label class="option">
         <input
           type="radio"
@@ -44,51 +56,16 @@ const selectOption = (value) => {
         Любое
       </label>
 
-      <label class="option">
-        <input type="radio" value="Математика" @change="selectOption('Математика')" />
-        Математика
-      </label>
-
-      <label class="option">
-        <input type="radio" value="Механика" @change="selectOption('Механика')" />
-        Механика
-      </label>
-
-      <label class="option">
-        <input type="radio" value="Физика" @change="selectOption('Физика')" />
-        Физика
-      </label>
-
-      <label class="option">
-        <input type="radio" value="Астрономия" @change="selectOption('Астрономия')" />
-        Астрономия
-      </label>
-
-      <label class="option">
+      <!-- Разделы -->
+      <label v-for="chapter in chapters" :key="chapter" class="option">
         <input
           type="radio"
-          value="Информатика, вычислительная техника и управление"
-          @change="selectOption('Информатика, вычислительная техника и управление')"
+          :value="chapter"
+          :checked="chapterFilter === chapter"
+          @change="selectOption(chapter)"
         />
-        Информатика, вычислительная техника и управление
-      </label>
 
-      <label class="option">
-        <input
-          type="radio"
-          value="Математическое моделирование"
-          @change="selectOption('Математическое моделирование')"
-        />
-        Математическое моделирование
-      </label>
-
-      <label class="option">
-        <input
-          type="radio"
-          value="Динамика многофазных сред"
-          @change="selectOption('Динамика многофазных сред')"
-        />
-        Динамика многофазных сред
+        {{ chapter }}
       </label>
     </div>
   </div>

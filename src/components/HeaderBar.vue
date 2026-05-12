@@ -7,9 +7,9 @@ import VueFeather from 'vue-feather'
     <div class="header-left">
       <img src="@/assets/logo.png" alt="logo" class="logo" />
       <div class="title">
-        <div class="line black">Челябинский</div>
-        <div class="line accent">физико-математический</div>
-        <div class="line black right">журнал</div>
+        <div class="linne black">Челябинский</div>
+        <div class="linne accent">физико-математический</div>
+        <div class="linne black right">журнал</div>
       </div>
     </div>
 
@@ -52,7 +52,7 @@ import VueFeather from 'vue-feather'
   flex-direction: column;
 }
 
-.line {
+.linne {
   line-height: 18px;
 }
 
@@ -69,14 +69,14 @@ import VueFeather from 'vue-feather'
 }
 
 .profile-btn {
-  font-family: 'Biryani', sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+
+  font-family: var(--font-Biryani);
+  font-size: var(--size-bg);
+  font-weight: var(--normal-weight);
 
   background: none;
   border: none;

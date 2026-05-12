@@ -8,6 +8,9 @@ import MainView from '../views/MainView.vue'
 import MainSectionsLayout from '@/layouts/MainSectionsLayout.vue'
 import MainManuscriptView from '@/views/MainManuscriptView.vue'
 
+import AboutGournalPage from '@/views/AboutGournalPage.vue'
+import AboutGournalDetailsView from '@/views/AboutGournalDetailsView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -28,6 +31,20 @@ const router = createRouter({
         {
           path: 'view/:id',
           component: MainManuscriptView,
+        },
+      ],
+    },
+    {
+      path: '/about',
+      component: MainSectionsLayout,
+      children: [
+        {
+          path: '',
+          component: AboutGournalPage,
+        },
+        {
+          path: ':section',
+          component: AboutGournalDetailsView,
         },
       ],
     },

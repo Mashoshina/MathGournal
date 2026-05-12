@@ -12,7 +12,7 @@ const emit = defineEmits(['change-status', 'change-editor-filter'])
 </script>
 
 <template>
-  <div class="filters">
+  <div class="filters-row">
     <StatusFilter :status="status" @change-status="emit('change-status', $event)" />
 
     <EditorFilter

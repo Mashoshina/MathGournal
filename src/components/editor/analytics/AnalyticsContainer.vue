@@ -75,12 +75,12 @@ const publishedCount = computed(
 
     <div class="analytics-container">
       <div class="stat-card">
-        <div class="stat-title">Мои рукописи</div>
+        <div class="stat-title">Все рукописи</div>
         <div class="stat-value">{{ myManuscriptsCount }}</div>
       </div>
 
       <div class="stat-card">
-        <div class="stat-title">Принято</div>
+        <div class="stat-title">На рассмотрении</div>
         <div class="stat-value">{{ inProgressCount }}</div>
       </div>
 

@@ -29,7 +29,7 @@ import AppFooter from '@/components/AppFooter.vue'
 }
 
 .editor-footer {
-  height: 515px;
+  height: auto;
   background: var(--editor-gradient);
   margin-top: auto;
 }

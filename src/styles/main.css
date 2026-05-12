@@ -1,5 +1,7 @@
 @import './variables.css';
 @import './components.css';
+@import './text_styles.css';
+@import './forms.css';
 
 body {
   font-family: var(--font-main);

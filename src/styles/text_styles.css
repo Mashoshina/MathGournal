@@ -1,0 +1,292 @@
+/*-------------------------------------------
+              HEADERS AND TITLES
+---------------------------------------------*/
+/*-------- Section name --------*/
+.section-name {
+  margin-top: var(--spacing-md);
+
+  font-family: var(--font-Lora);
+  font-size: var(--size-bg);
+  font-weight: var(--medium-weight);
+  color: var(--black);
+
+  &.big {
+    font-size: var(--size-bg);
+    font-weight: var(--medium-weight);
+  }
+
+  &.large {
+    font-size: var(--size-lg);
+    font-weight: var(--bold-weight);
+  }
+}
+/*-------- Titles --------*/
+
+.cards {
+  &.editor {
+    &.headers {
+      padding: var(--spacing-md) var(--spacing-bg);
+      display: flex;
+      text-decoration: none;
+      background: var(--soft-red);
+
+      font-family: var(--font-Lora);
+      font-size: var(--size-bg);
+      font-weight: var(--medium-weight);
+
+      border-radius: var(--radius-sm);
+
+      &.tasks {
+        color: var(--red-editor);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      &.tasks:hover {
+        text-decoration: underline;
+      }
+
+      &.manuscripts {
+        color: var(--black);
+        text-decoration: none;
+      }
+    }
+
+    &.titles {
+      margin-top: var(--spacing-bg);
+
+      font-family: var(--font-Biryani);
+      font-size: var(--size-bg);
+      font-weight: var(--medium-weight);
+
+      &.tasks {
+        color: var(--black);
+        text-decoration: none;
+      }
+
+      &.manuscripts {
+        color: var(--red-editor);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      &.manuscripts:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.info-block {
+    font-family: var(--font-Biryani);
+    font-weight: var(--normal-weight);
+    font-size: var(--size-nm);
+    color: var(--black);
+    font-size: var(--size-nm);
+  }
+}
+/*-------------------------------------------
+                TEXT BLOCKS
+---------------------------------------------*/
+.text-blocks {
+  .section-name {
+    margin-top: var(--spacing-bg);
+
+    font-family: var(--font-Lora);
+    font-size: var(--size-bg);
+    font-weight: var(--medium-weight);
+    color: var(--black);
+
+    &.big {
+      font-size: var(--size-bg);
+      font-weight: var(--medium-weight);
+    }
+  }
+
+  .title {
+    margin-top: var(--spacing-md);
+
+    &.Lora-family {
+      font-family: var(--font-Lora);
+      color: var(--black);
+
+      &.big {
+        font-size: var(--size-bg);
+        font-weight: var(--medium-weight);
+      }
+
+      &.large {
+        font-size: var(--size-lg);
+        font-weight: var(--bold-weight);
+      }
+
+      &.very-large {
+        font-size: var(--size-very-lg);
+        font-weight: var(--black-bold-weight);
+      }
+    }
+
+    &.Biryani-family {
+      font-family: var(--font-Biryani);
+      color: var(--black);
+      &.big {
+        font-size: var(--size-bg);
+        font-weight: var(--medium-weight);
+      }
+
+      &.large {
+        font-size: var(--size-lg);
+        font-weight: var(--bold-weight);
+      }
+
+      &.very-large {
+        font-size: var(--size-vary-lg);
+        font-weight: var(--black-bold-weight);
+      }
+    }
+  }
+
+  .section-text {
+    margin-top: var(--spacing-md);
+
+    font-family: var(--font-Biryani);
+    font-size: var(--size-nm);
+    font-weight: var(--normal-weight);
+    color: var(--black);
+
+    a {
+      font-family: var(--font-Biryani);
+      font-size: var(--size-nm);
+      font-weight: var(--normal-weight);
+      color: var(--black);
+      text-decoration-line: underline;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    li {
+      margin-top: var(--spacing-md);
+    }
+
+    &.bottom-border {
+      margin-top: var(--spacing-bg);
+      padding-bottom: var(--spacing-sm);
+      border-bottom: var(--strock-tn) solid var(--primary-gray-two);
+    }
+
+    .materials-block {
+      font-family: var(--font-Biryani);
+      font-size: var(--size-nm);
+      font-weight: var(--normal-weight);
+
+      &.editor {
+        color: var(--red-editor);
+        margin-right: var(--spacing-md);
+        text-decoration: none;
+      }
+
+      &.editor:hover {
+        text-decoration: underline;
+      }
+
+      &.main {
+        color: var(--purple-main);
+        margin-right: var(--spacing-md);
+        text-decoration: none;
+      }
+
+      &.main:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.inline-list {
+      display: inline-flex;
+      gap: 56px;
+      width: 100em;
+    }
+  }
+
+  &.main-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 160px;
+    margin-left: 564px;
+
+    gap: var(--spacing-bg);
+    max-width: 1000px;
+
+    a {
+      font-family: var(--font-Biryani);
+      font-size: var(--size-bg);
+      font-weight: var(--normal-weight);
+      color: var(--white);
+      text-decoration-line: underline;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    b {
+      font-family: var(--font-Biryani);
+      font-size: var(--size-bg);
+      font-weight: var(--normal-weight);
+      color: var(--white);
+      text-decoration: none;
+    }
+  }
+}
+
+.details-version-date {
+  margin-top: var(--spacing-lg);
+}
+/*-------- Links --------*/
+.hyper-links {
+  font-family: var(--font-Biryani);
+  font-size: var(--size-bg);
+  font-weight: var(--normal-weight);
+  color: var(--black);
+
+  &.white {
+    color: var(--white);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &.editor {
+    color: var(--red-editor);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &.main {
+    &.manuscripts {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    &.manuscripts:hover {
+      text-decoration: underline;
+    }
+
+    &.over {
+      color: var(--purple-main);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    &.over:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  &.white:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  &.editor:hover {
+    text-decoration-thickness: 2px;
+  }
+}

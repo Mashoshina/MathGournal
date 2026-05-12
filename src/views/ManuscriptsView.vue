@@ -144,6 +144,6 @@ const filteredManuscripts = computed(() => {
 .manuscripts-page {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 </style>

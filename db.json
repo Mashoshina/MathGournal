@@ -326,6 +326,13 @@
       "declineCount": 19
     }
   ],
+  "editoralAdvice": [{ "id": 0, "redactorsId": [1] }],
+  "editoralCollegium": [
+    {
+      "id": 0,
+      "redactorsId": [2, 3]
+    }
+  ],
   "reviews": [
     {
       "id": "1",
@@ -382,6 +389,11 @@
           "user": 1,
           "date": "2026-03-18",
           "version": 1
+        },
+        {
+          "event": "Список редакторов изменён",
+          "user": 1,
+          "date": "2026-05-10"
         }
       ]
     },
@@ -543,6 +555,64 @@
           "date": "2026-04-23"
         }
       ]
+    },
+    {
+      "id": "f977",
+      "manuscriptId": 1778135591992,
+      "stage": "В процессе",
+      "redactorStatus": "mine",
+      "redactorsId": [1, 3],
+      "title": "Test 3",
+      "authorsId": [9, 10],
+      "keyWords": ["key1", " key2", "key3"],
+      "description": "Test description 3",
+      "chapter": "Физика",
+      "manuscriptFiles": ["/public/manuscripts/test_file3.pdf"],
+      "coverLetter": [],
+      "sentDate": "2026-05-07",
+      "version": 1,
+      "events": [
+        {
+          "event": "Статья получена",
+          "user": 0,
+          "date": "2026-05-07",
+          "version": 1
+        },
+        {
+          "event": "Главный редактор Евгений Фёдоров назначен",
+          "user": 0,
+          "date": "2026-05-07",
+          "version": 1
+        },
+        {
+          "event": "Список редакторов изменён",
+          "user": 1,
+          "date": "2026-05-07"
+        },
+        {
+          "event": "Рецензенты приглашены",
+          "user": 1,
+          "date": "2026-05-07",
+          "version": 1
+        },
+        {
+          "event": "Список редакторов изменён",
+          "user": 1,
+          "date": "2026-05-07"
+        },
+        {
+          "event": "Рецензенты приглашены",
+          "user": 1,
+          "date": "2026-05-09",
+          "version": 1
+        },
+        {
+          "event": "Рецензенты приглашены",
+          "user": 1,
+          "date": "2026-05-09",
+          "version": 1
+        }
+      ]
     }
   ],
   "tasks": [
@@ -563,6 +633,18 @@
       "taskId": "ЛК-2",
       "manuscriptId": 2,
       "createdAt": "2026-02-15",
+      "type": "Найти и пригласить рецензентов",
+      "stage": "Рецензенты не приглашены",
+      "invitedReviewersId": [],
+      "acceptedReviewersId": [],
+      "declinedReviewersId": [],
+      "reviewesId": []
+    },
+    {
+      "id": "71f5",
+      "taskId": "ЛК-1778135592158",
+      "manuscriptId": 1778135591992,
+      "createdAt": "2026-05-07",
       "type": "Найти и пригласить рецензентов",
       "stage": "Рецензенты не приглашены",
       "invitedReviewersId": [],

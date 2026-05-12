@@ -15,27 +15,25 @@ const openManuscript = () => {
 <template>
   <div class="card">
     <!-- ===== Заголовок ===== -->
-    <div class="manuscript-card-header">
-      <span class>
-        {{ manuscript.stage }}
-      </span>
-
+    <div class="cards editor headers manuscripts">
       <span>
+        {{ manuscript.stage }} &nbsp;|&nbsp;
+
         <template v-if="manuscript.redactors?.length">
           {{ manuscript.redactors.map((r) => r.name).join(', ') }}
         </template>
         <template v-else> Без редактора </template>
-      </span>
 
-      <span> Рукопись подана: {{ manuscript.sentDate }} </span>
+        &nbsp;|&nbsp; Рукопись подана: {{ manuscript.sentDate }}
+      </span>
     </div>
 
     <!-- ===== Тело ===== -->
     <div class="card-body">
       <!-- Название -->
-      <strong class="manuscript-card-title" @click="openManuscript">
+      <div class="cards editor titles manuscripts" @click="openManuscript">
         {{ manuscript.title }}
-      </strong>
+      </div>
 
       <!-- Дата публикации -->
       <div v-if="manuscript.stage === 'Опубликовано'" class="published">
@@ -43,7 +41,7 @@ const openManuscript = () => {
       </div>
 
       <!-- Авторы -->
-      <div class="info-block">
+      <div class="cards info-block">
         <strong>Автор(ы):</strong>
         <div v-for="author in manuscript.authors" :key="author.authorsId">
           {{ author.name }} | {{ author.mail }}
@@ -51,7 +49,7 @@ const openManuscript = () => {
       </div>
 
       <!-- Редактор -->
-      <div class="info-block">
+      <div class="cards info-block">
         <strong>Редактор(ы): </strong>
         <div v-if="manuscript.redactors?.length">
           <div v-for="r in manuscript.redactors" :key="r.redactorsId">
@@ -62,9 +60,7 @@ const openManuscript = () => {
       </div>
 
       <!-- Сборник + область -->
-      <div class="info-block">
-        {{ manuscript.chapter }}
-      </div>
+      <div class="cards info-block"><strong>Раздел: </strong>{{ manuscript.chapter }}</div>
     </div>
   </div>
 </template>

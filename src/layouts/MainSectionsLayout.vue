@@ -19,7 +19,6 @@ const goBack = () => {
     <!-- Цветная "обложка" -->
     <section class="section-header">
       <button class="back-btn" @click="goBack">← Назад</button>
-      <slot name="header" />
     </section>
 
     <section class="content">
@@ -39,7 +38,6 @@ const goBack = () => {
 }
 
 .content {
-  background: var(--white);
   padding: 24px;
   border-radius: 28px;
 }

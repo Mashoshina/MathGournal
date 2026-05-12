@@ -10,6 +10,7 @@ const props = defineProps({
   reviews: Array,
 })
 
+/* Формируем задачи*/
 const preparedTasks = computed(() => {
   return props.tasks.map((task) => {
     const manuscript = props.manuscripts.find((m) => m.manuscriptId === task.manuscriptId)

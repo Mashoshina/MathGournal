@@ -35,19 +35,25 @@ onMounted(async () => {
 
 <template>
   <div v-if="manuscript" style="padding: var(--spacing-sm) var(--spacing-lg)">
-    <div class="details-header">
+    <div
+      class="text-blocks"
+      style="
+        padding-bottom: var(--spacing-lg);
+        border-bottom: var(--strock-sm) solid var(--red-editor);
+      "
+    >
       <!-- Первая строка -->
-      <div class="details-status">{{ manuscript.stage }}</div>
+      <div class="title Lora-family big">{{ manuscript.stage }}</div>
 
       <!-- Название -->
-      <div class="details-title">
+      <div class="title Lora-family big">
         {{ manuscript.title }}
       </div>
 
       <!-- Версия и дата -->
       <div class="details-version-date">
         <span class="version-badge"> Версия {{ manuscript.version }} </span>
-        <span> Рукопись подана: {{ manuscript.sentDate }}</span>
+        <span class="section-text"> Рукопись подана: {{ manuscript.sentDate }}</span>
       </div>
     </div>
     <ManuscriptDetailsContainer

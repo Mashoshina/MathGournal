@@ -32,9 +32,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="manuscript" class="manuscript-page">
-    <div class="details-title">
-      {{ manuscript.title }}
+  <div v-if="manuscript" class="page">
+    <div class="text-blocks">
+      <div class="title Lora-family large">{{ manuscript.title }}</div>
     </div>
 
     <ManuscriptActions />
@@ -52,13 +52,8 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.manuscript-page {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
 .layout {
+  margin-top: 16px;
   display: flex;
   gap: 32px;
 }

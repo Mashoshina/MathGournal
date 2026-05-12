@@ -8,7 +8,7 @@ function closeModal() {
 
 <template>
   <div class="overlay">
-    <div class="search-modal">
+    <div class="modals search-modal">
       <div class="modal-header">
         <div class="section-name">Добавить рукопись</div>
         <span class="close-btn" @click="closeModal">✕</span>

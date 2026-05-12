@@ -38,7 +38,7 @@ const applyCustom = () => {
 
 <template>
   <div class="sort-wrapper">
-    <div class="sort-btn" @click="isOpen = !isOpen">
+    <div class="sort-btn" @click="isOpen = !isOpen" style="margin-top: var(--spacing-md)">
       Фильтр по дате
       <vue-feather
         type="chevron-down"

@@ -1,3 +1,22 @@
+<script setup>
+import SortDropdown from './SortDropdown.vue'
+
+const { activeFilter, sortOrder } = defineProps({
+  activeFilter: String,
+  sortOrder: String,
+})
+
+const emit = defineEmits(['change-filter', 'change-sort'])
+
+const setFilter = (filter) => {
+  emit('change-filter', filter)
+}
+
+const setSort = (order) => {
+  emit('change-sort', order)
+}
+</script>
+
 <template>
   <div class="actions-bar">
     <div class="filters">
@@ -25,25 +44,6 @@
     <SortDropdown :sortOrder="sortOrder" @change-sort="setSort" />
   </div>
 </template>
-
-<script setup>
-import SortDropdown from './SortDropdown.vue'
-
-const { activeFilter, sortOrder } = defineProps({
-  activeFilter: String,
-  sortOrder: String,
-})
-
-const emit = defineEmits(['change-filter', 'change-sort'])
-
-const setFilter = (filter) => {
-  emit('change-filter', filter)
-}
-
-const setSort = (order) => {
-  emit('change-sort', order)
-}
-</script>
 
 <style scoped>
 .actions-bar {

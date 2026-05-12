@@ -11,10 +11,10 @@ watch(searchQuery, (value) => {
 </script>
 
 <template>
-  <div class="section-name">Поиск рукописей</div>
+  <div class="text-blocks"><div class="section-name big">Поиск рукописей</div></div>
   <input
     v-model="searchQuery"
-    class="search-input-big"
+    class="search-input-small"
     type="text"
     placeholder="Поиск рукописей по названию, имени автора, id"
   />

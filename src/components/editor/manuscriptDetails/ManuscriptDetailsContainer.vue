@@ -39,18 +39,22 @@ watch(
   { immediate: true },
 )
 
+/* Авторы рукописи */
 const manuscriptAuthors = computed(() => {
   return props.manuscript.authorsId.map((id) => props.authors.find((a) => a.authorsId === id))
 })
 
+/* Редакторы */
 const manuscriptRedactors = computed(() => {
   return props.redactors.filter((r) => props.manuscript.redactorsId.includes(r.redactorsId))
 })
 
+/* Рецензии */
 const manuscriptReviews = computed(() => {
   return props.reviews.filter((r) => Number(r.manuscriptId) === Number(props.manuscript.id))
 })
 
+/* Рецензии связываем с рецензентами */
 const reviewsWithReviewer = computed(() => {
   return manuscriptReviews.value.map((review) => {
     const reviewer = props.reviewers.find((r) => r.reviewersId === review.reviewersId)
@@ -62,6 +66,7 @@ const reviewsWithReviewer = computed(() => {
   })
 })
 
+/* Поиск редакторов */
 const filteredRedactors = computed(() => {
   if (!searchQuery.value) return props.redactors
 
@@ -72,6 +77,7 @@ const filteredRedactors = computed(() => {
   )
 })
 
+/* Удаление файла */
 const deleteFile = async () => {
   const files = [...props.manuscript.manuscriptFiles]
 
@@ -85,11 +91,13 @@ const deleteFile = async () => {
   location.reload()
 }
 
+/* Открытие оверлея уверенности */
 const openDeleteOverlay = (index) => {
   fileIndexToDelete.value = index
   showDeleteOverlay.value = true
 }
 
+/* Сохранить редакторов */
 const saveRedactors = async () => {
   const newEvent = {
     event: 'Список редакторов изменён',
@@ -228,10 +236,12 @@ const submitAction = async () => {
   location.reload()
 }
 
+/* Если рукопись опубликована или отклонена, то её уже нельзя изменить */
 const isReadonly = computed(() => {
   return props.manuscript.stage === 'Опубликовано' || props.manuscript.stage === 'Отклонено'
 })
 
+/* Удаление задачи, связанной с рукописью */
 const deleteTaskByManuscript = async () => {
   const tasksRes = await axios.get('http://localhost:3001/tasks')
 
@@ -246,122 +256,134 @@ const deleteTaskByManuscript = async () => {
 <template>
   <div>
     <!-- Описание -->
-    <div class="section-name">Описание</div>
-    <div class="section-text">
-      {{ manuscript.description }}
-    </div>
-
-    <!-- Ключевые слова -->
-    <div class="section-text">
-      Ключевые слова:
-      <ul>
-        <li v-for="word in manuscript.keyWords" :key="word">
-          {{ word }}
-        </li>
-      </ul>
-    </div>
-
-    <!-- Материалы -->
-    <div class="section-name">Материалы</div>
-    <div class="section-text">
-      Файлы рукописи:
-      <div class="materials-block">
-        <ul v-if="manuscript.manuscriptFiles?.length">
-          <li v-for="(file, index) in manuscript.manuscriptFiles" :key="file">
-            <a :href="file.replace('./public', '')" target="_blank">
-              {{ file.split('/').pop() }}
-            </a>
-            <template v-if="!isReadonly">
-              <ReplaceFileButton :index="index" :manuscript="manuscript" />
-              <DeleteFileButton :index="index" @ask-delete="openDeleteOverlay" />
-            </template>
-          </li>
-        </ul>
-        <AddManuscriptFileButton v-if="!isReadonly" :manuscript="manuscript" />
+    <div class="text-blocks">
+      <div class="section-name big">Описание</div>
+      <div class="section-text">
+        {{ manuscript.description }}
       </div>
-    </div>
 
-    <!-- Сопроводительное письмо -->
-    <div class="section-text">
-      Сопроводительное письмо:
-      <div class="materials-block">
-        <ul v-if="manuscript.coverLetter?.length">
-          <li v-for="file in manuscript.coverLetter" :key="file">
-            <a :href="file.replace('./public', '')" target="_blank">
-              {{ file.split('/').pop() }}
-            </a>
+      <!-- Ключевые слова -->
+      <div class="section-text">
+        Ключевые слова:
+        <ul>
+          <li v-for="word in manuscript.keyWords" :key="word">
+            {{ word }}
           </li>
         </ul>
       </div>
-    </div>
 
-    <!-- Рецензии -->
-    <div class="section-text">
-      Рецензии:
-      <div class="materials-block">
-        <div v-if="reviewsWithReviewer.length === 0">Рецензий нет</div>
-        <ul v-else>
-          <li v-for="review in reviewsWithReviewer" :key="review.id">
-            {{ review.reviewerName }}:
-
-            <a
-              v-for="file in review.reviewesFiles"
-              :key="file"
-              :href="file.replace('./public', '')"
-              target="_blank"
-            >
-              {{ file.split('/').pop() }}
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Авторы -->
-    <div class="section-name">Автор(ы):</div>
-    <div class="section-text">
-      <ul>
-        <li v-for="author in manuscriptAuthors" :key="author.id">
-          {{ author.name }} | {{ author.mail }}
-        </li>
-      </ul>
-    </div>
-
-    <!-- редактор -->
-    <div class="section-name">Редакторы</div>
-    <div class="section-text">
-      <div v-if="manuscriptRedactors.length">
-        <div v-for="redactor in manuscriptRedactors" :key="redactor.id">
-          {{ redactor.name }} | {{ redactor.mail }}
+      <!-- Материалы -->
+      <div class="section-name big">Материалы</div>
+      <div class="section-text">
+        Файлы рукописи:
+        <div>
+          <ul v-if="manuscript.manuscriptFiles?.length">
+            <li v-for="(file, index) in manuscript.manuscriptFiles" :key="file">
+              <a
+                :href="file.replace('./public', '')"
+                target="_blank"
+                class="materials-block editor"
+              >
+                {{ file.split('/').pop() }}
+              </a>
+              <template v-if="!isReadonly">
+                <ReplaceFileButton :index="index" :manuscript="manuscript" />
+                <DeleteFileButton :index="index" @ask-delete="openDeleteOverlay" />
+              </template>
+            </li>
+          </ul>
+          <AddManuscriptFileButton v-if="!isReadonly" :manuscript="manuscript" />
         </div>
       </div>
 
-      <div v-else>Без редакторв</div>
-      <ChangeRedactors v-if="!isReadonly" @open="showRedactorsOverlay = true" />
+      <!-- Сопроводительное письмо -->
+      <div class="section-text">
+        Сопроводительное письмо:
+        <div>
+          <ul v-if="manuscript.coverLetter?.length">
+            <li v-for="file in manuscript.coverLetter" :key="file">
+              <a
+                :href="file.replace('./public', '')"
+                target="_blank"
+                class="materials-block editor"
+              >
+                {{ file.split('/').pop() }}
+              </a>
+            </li>
+          </ul>
+          <div v-else>Нет сопроводительного письма</div>
+        </div>
+      </div>
+
+      <!-- Рецензии -->
+      <div class="section-text">
+        Рецензии:
+        <div>
+          <div v-if="reviewsWithReviewer.length === 0">Рецензий нет</div>
+          <ul v-else>
+            <li v-for="review in reviewsWithReviewer" :key="review.id">
+              {{ review.reviewerName }}:
+
+              <a
+                v-for="file in review.reviewesFiles"
+                :key="file"
+                :href="file.replace('./public', '')"
+                target="_blank"
+                class="materials-block editor"
+              >
+                {{ file.split('/').pop() }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Авторы -->
+      <div class="section-name big">Автор(ы):</div>
+      <div class="section-text">
+        <ul>
+          <li v-for="author in manuscriptAuthors" :key="author.id">
+            {{ author.name }}:&nbsp; {{ author.mail }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- редактор -->
+      <div class="section-name big">Редакторы</div>
+      <div class="section-text">
+        <div v-if="manuscriptRedactors.length">
+          <div v-for="redactor in manuscriptRedactors" :key="redactor.id">
+            {{ redactor.name }}:&nbsp; {{ redactor.mail }}
+          </div>
+        </div>
+
+        <div v-else>Без редакторв</div>
+        <ChangeRedactors v-if="!isReadonly" @open="showRedactorsOverlay = true" />
+      </div>
     </div>
-  </div>
 
-  <!-- ДЕЙСТВИЯ -->
-  <div v-if="!isReadonly">
-    <div class="section-name">Действия:</div>
+    <!-- ДЕЙСТВИЯ -->
+    <div v-if="!isReadonly">
+      <div class="section-name big">Действия:</div>
 
-    <div class="actions-block">
-      <button class="bright-button editor" @click="openActionModal('reject')">
-        Отклонить рукопись
-      </button>
+      <div class="actions-block">
+        <button class="bright-button editor" @click="openActionModal('reject')">
+          Отклонить рукопись
+        </button>
 
-      <button class="bright-button editor" @click="openActionModal('revision')">
-        Отправить на доработку
-      </button>
+        <button class="bright-button editor" @click="openActionModal('revision')">
+          Отправить на доработку
+        </button>
 
-      <button class="bright-button editor" @click="openActionModal('publish')">
-        Опубликовать рукопись
-      </button>
+        <button class="bright-button editor" @click="openActionModal('publish')">
+          Опубликовать рукопись
+        </button>
+      </div>
     </div>
   </div>
 
   <div v-if="showDeleteOverlay" class="overlay">
-    <div class="confirm-modal">
+    <div class="modals confirm-modal">
       <p>Удалить файл?</p>
 
       <div class="confirm-buttons">
@@ -373,17 +395,39 @@ const deleteTaskByManuscript = async () => {
   </div>
 
   <div v-if="showRedactorsOverlay" class="overlay">
-    <div class="search-modal">
+    <div class="modals search-modal">
       <div class="modal-header">
-        <div class="section-name">Изменить список редакторов</div>
+        <div class="section-name big">Изменить список редакторов</div>
         <span class="close-btn" @click="showRedactorsOverlay = false">✕</span>
       </div>
+      <div class="modals form">
+        <!-- текущие редакторы -->
+        <div class="section-name big">Текущие редакторы</div>
+        <div class="modal-containers">
+          <div v-if="manuscriptRedactors.length">
+            <div v-for="r in manuscriptRedactors" :key="r.id">
+              <label>
+                <div class="modal-cards">
+                  <input type="checkbox" :value="r.redactorsId" v-model="selectedRedactors" />
+                  {{ r.name }} | {{ r.mail }}
+                </div>
+              </label>
+            </div>
+          </div>
+          <div v-else>Редакторов нет</div>
+        </div>
 
-      <!-- текущие редакторы -->
-      <div class="section-name">Текущие редакторы</div>
-      <div class="modal-containers">
-        <div v-if="manuscriptRedactors.length">
-          <div v-for="r in manuscriptRedactors" :key="r.id">
+        <!-- поиск -->
+        <div class="section-name big">Поиск редакторов</div>
+
+        <input
+          v-model="searchQuery"
+          placeholder="Поиск редакторов по имени или почте"
+          class="search-input-small"
+        />
+
+        <div class="modal-containers">
+          <div v-for="r in filteredRedactors" :key="r.id">
             <label>
               <div class="modal-cards">
                 <input type="checkbox" :value="r.redactorsId" v-model="selectedRedactors" />
@@ -392,31 +436,8 @@ const deleteTaskByManuscript = async () => {
             </label>
           </div>
         </div>
-        <div v-else>Редакторов нет</div>
-      </div>
 
-      <!-- поиск -->
-      <div class="section-name">Поиск редакторов</div>
-
-      <input
-        v-model="searchQuery"
-        placeholder="Поиск редакторов по имени или почте"
-        class="search-input-small"
-      />
-
-      <div class="modal-containers">
-        <div v-for="r in filteredRedactors" :key="r.id">
-          <label>
-            <div class="modal-cards">
-              <input type="checkbox" :value="r.redactorsId" v-model="selectedRedactors" />
-              {{ r.name }} | {{ r.mail }}
-            </div>
-          </label>
-        </div>
-      </div>
-
-      <!-- кнопка -->
-      <div class="save-block">
+        <!-- кнопка -->
         <button class="general-button editor" @click="saveRedactors">Сохранить</button>
       </div>
     </div>
@@ -424,45 +445,47 @@ const deleteTaskByManuscript = async () => {
 
   <!-- Оверлей действий с рукописью -->
   <div v-if="showActionModal" class="overlay">
-    <div class="search-modal">
+    <div class="modals search-modal">
       <div class="modal-header">
-        <span>Действия с рукописью</span>
+        <div class="section-name big">Действия с рукописью</div>
         <span class="close-btn" @click="showActionModal = false">✕</span>
       </div>
+      <div class="modals form">
+        <div class="section-name big">
+          {{ actionTitleMap[actionType] }}
+        </div>
 
-      <div class="section-name" style="margin-top: 16px">
-        {{ actionTitleMap[actionType] }}
-      </div>
+        <div v-if="actionType === 'publish'">
+          <div class="text-blocks">
+            <div class="section-name big" style="margin-top: 0px">Выберите том</div>
+          </div>
 
-      <div v-if="actionType === 'publish'">
-        <div class="section-name">Выберите том</div>
-
-        <div class="modal-containers">
-          <div v-for="vol in currentVolumes" :key="vol.id">
-            <label class="modal-cards">
-              <input type="radio" :value="vol.volId" v-model="selectedVolume" />
-              Том {{ vol.volId }}
-            </label>
+          <div class="modal-containers row" style="margin-top: var(--spacing-md)">
+            <div v-for="vol in currentVolumes" :key="vol.id">
+              <label class="modal-cards">
+                <input type="radio" :value="vol.volId" v-model="selectedVolume" />
+                Том {{ vol.volId }}
+              </label>
+            </div>
           </div>
         </div>
+
+        <textarea
+          class="input"
+          rows="5"
+          placeholder="Введите текст уведомления"
+          v-model="messageText"
+        ></textarea>
+
+        <button class="bright-button editor" @click="submitAction">Отправить</button>
       </div>
-
-      <textarea
-        class="input"
-        rows="5"
-        placeholder="Введите текст уведомления"
-        v-model="messageText"
-      ></textarea>
-
-      <button class="bright-button editor" @click="submitAction">Отправить</button>
     </div>
   </div>
 </template>
 
 <style>
-.save-block {
+.actions-block {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
+  gap: var(--spacing-md);
 }
 </style>

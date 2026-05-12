@@ -1,0 +1,205 @@
+/*-------------------------------------------
+            SOME GENERALL STYLES
+---------------------------------------------*/
+/*---- GENERAL FORMS ----*/
+.analytics-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.containers {
+  border: 1px solid var(--primary-gray-two);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+
+  max-height: 500px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.navigate-wrapper {
+  position: relative;
+  background: var(--main-gradient);
+}
+
+.page {
+  background: var(--primary-gray-one);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/*Styles for cards*/
+.card {
+  padding: var(--spacing-lg) var(--spacing-lg);
+  margin: var(--spacing-md) auto;
+  gap: var(--spacing-bg) var(--spacing-bg);
+  width: 1200px;
+
+  border: var(--strock-tn) solid var(--primary-gray-two);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--spacing-bg) var(--spacing-bg);
+}
+
+.version-badge {
+  padding: var(--spacing-sm) var(--spacing-bg);
+  margin-right: var(--spacing-sm);
+  border: var(--strock-sm) solid var(--red-editor);
+  border-radius: var(--radius-lg);
+
+  font-family: var(--font-Biryani);
+  font-size: var(--size-nm);
+  font-weight: var(--normal-weight);
+  color: var(--black);
+}
+
+/*Overlays, modals, modal containers*/
+.modals {
+  &.confirm-modal {
+    text-align: center;
+    width: 320px;
+    padding: var(--spacing-lg);
+
+    background: var(--white);
+    font-family: var(--font-Biryani);
+    font-size: var(--size-nm);
+    border-radius: var(--radius-md);
+
+    .confirm-buttons {
+      display: flex;
+      justify-content: center;
+
+      margin-top: var(--spacing-sm);
+      gap: var(--spacing-lg);
+    }
+  }
+
+  &.search-modal {
+    background: var(--white);
+
+    padding: var(--spacing-lg);
+    gap: 12px;
+    width: 800px;
+    max-height: 80vh;
+
+    overflow-y: auto;
+    border-radius: var(--radius-md);
+
+    .modal-header {
+      font-family: var(--font-Lora);
+      font-size: var(--size-bg);
+      font-weight: var(--medium-weight);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .modal-containers {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      padding: var(--spacing-sm) var(--spacing-sm);
+
+      max-height: 380px;
+      overflow-y: auto;
+
+      border: var(--strock-sm) solid var(--primary-gray-two);
+      border-radius: var(--radius-md);
+
+      &.row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--spacing-md);
+
+        min-height: 80px;
+        overflow-x: auto;
+      }
+
+      .modal-cards {
+        margin-bottom: var(--spacing-sm);
+        font-family: var(--font-Biryani);
+        color: var(--black);
+        padding: var(--spacing-md);
+        border: var(--strock-tn) solid #ddd;
+        border-radius: var(--radius-sm);
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+/*---- TABLES ----*/
+.tables {
+  margin-top: var(--spacing-bg);
+
+  font-family: var(--font-Biryani);
+  font-size: var(--size-nm);
+  font-weight: var(--normal-weight);
+
+  border-bottom: var(--strock-sm) solid var(--black);
+}
+
+/* History table */
+.history-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: var(--spacing-md);
+  font-size: var(--size-nm);
+}
+
+.history-row.header {
+  font-weight: var(--medium-weight);
+  background: var(--white);
+  border-bottom: var(--strock-sm) solid var(--black);
+}
+
+.history-row.white {
+  background: var(--white);
+}
+
+.history-row.gray {
+  background: var(--primary-gray-one);
+}
+
+.filters-row {
+  display: flex;
+  gap: var(--spacing-md) var(--spacing-md);
+}

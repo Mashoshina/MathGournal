@@ -10,21 +10,24 @@ defineEmits(['select-file'])
 <template>
   <div class="sidebar">
     <!-- АВТОРЫ -->
-    <div class="block">
-      <div class="section-name">Авторы</div>
+    <div class="text-blocks">
+      <div class="title Lora-family big">Авторы</div>
 
-      <div v-for="author in authors" :key="author.id" class="section-text">
-        {{ author.name }}
-      </div>
+      <ul v-for="author in authors" :key="author.id" class="section-text">
+        <li v-for="author in authors" :key="author.id">{{ author.name }}: {{ author.mail }}</li>
+      </ul>
     </div>
 
     <!-- ФАЙЛЫ -->
-    <div class="block">
-      <div class="section-name">Файлы</div>
-
-      <div v-for="file in files" :key="file" class="file" @click="$emit('select-file', file)">
-        {{ file.split('/').pop() }}
-      </div>
+    <div class="text-blocks">
+      <div class="title Lora-family big">Файлы</div>
+      <ul class="section-text">
+        <li v-for="file in files" :key="file">
+          <a href="#" @click.prevent="$emit('select-file', file)" class="materials-block main">
+            {{ file.split('/').pop() }}
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
