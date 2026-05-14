@@ -1,10 +1,12 @@
 <template>
-  <div class="page">
+  <div class="contents main-sections header-section">
     <!-- Заголовок -->
     <div class="text-blocks">
-      <div class="title Lora-family large">О журнале</div>
+      <div class="title Lora-family large" style="color: white">О журнале</div>
     </div>
+  </div>
 
+  <div class="contents main-sections content">
     <!-- ЛЮДИ -->
     <div class="text-blocks">
       <div class="title Lora-family big">Люди</div>

@@ -32,9 +32,16 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="manuscript" class="page">
+  <div div v-if="manuscript" class="contents main-sections header-section">
     <div class="text-blocks">
-      <div class="title Lora-family large">{{ manuscript.title }}</div>
+      <div class="title Lora-family large" style="color: white">{{ manuscript.title }}</div>
+    </div>
+  </div>
+  <div v-if="manuscript" class="contents main-sections content">
+    <div class="text-blocks">
+      <div class="title Lora-family large">
+        {{ manuscript.title }}
+      </div>
     </div>
 
     <ManuscriptActions />

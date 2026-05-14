@@ -31,7 +31,7 @@
     <button class="link-buttons main">Архив</button>
   </div>
   <!-- ОПИСАНИЕ САЙТА -->
-  <div class="text-blocks" style="margin-left: 644px; margin-right: 80px; padding-bottom: 20px">
+  <div class="text-blocks" style="margin-left: 640px; margin-right: 80px; padding-bottom: 20px">
     <div class="title Lora-family large">О журнале</div>
     <div class="section-text">
       «Челябинский физико-математический журнал» является продолжением выпускавшихся с 1991 по 2015
@@ -54,9 +54,12 @@
 
 <style scoped>
 .nav-wrapper {
+  background-image: url('@/assets/cover_3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   padding: 40px 80px;
-  background: var(--main-gradient);
 }
 
 .side-bar {

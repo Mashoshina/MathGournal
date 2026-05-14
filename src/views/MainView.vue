@@ -64,6 +64,11 @@ const getAuthors = (ids) => {
     .filter(Boolean)
     .join(', ')
 }
+
+/* --- разделы текущего тома --- */
+const volumeChapters = computed(() => {
+  return [...new Set(volumeManuscripts.value.map((m) => m.chapter))]
+})
 </script>
 
 <template>
@@ -73,16 +78,18 @@ const getAuthors = (ids) => {
       <img src="/Обложка.jpg" class="release-cover" />
 
       <div class="text-blocks">
-        <div class="title Lora-family large">Текущий выпуск</div>
+        <div class="title Lora-family large">Текущий выпуск №{{ currentRelease.relNum }}</div>
 
         <div class="title Lora-family large">
           {{ currentRelease.year }} | Том
           {{ currentRelease.volumes.indexOf(currentVolume.volId) + 1 }}
         </div>
 
-        <div v-if="currentVolume.collection" class="section-text">
-          {{ currentVolume.collection }}
-        </div>
+        <div class="title Lora-family big">Разделы в этом томе:</div>
+        <span v-for="(chapter, index) in volumeChapters" :key="chapter" class="section-text">
+          {{ chapter }}
+          <span v-if="index !== volumeChapters.length - 1">, </span>
+        </span>
 
         <button class="bright-button main" style="width: fit-content">
           Посмотреть все тома и выпуски <vue-feather type="arrow-right" size="20" />

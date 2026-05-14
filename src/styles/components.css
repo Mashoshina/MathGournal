@@ -236,7 +236,7 @@
 
 .line {
   margin-left: 80px;
-  width: 1780px;
+  width: 1700px;
   height: 2px;
   &.main {
     background-color: var(--soft-purple);

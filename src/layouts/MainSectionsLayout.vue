@@ -21,7 +21,7 @@ const goBack = () => {
       <button class="back-btn" @click="goBack">← Назад</button>
     </section>
 
-    <section class="content">
+    <section>
       <router-view />
     </section>
 
@@ -31,15 +31,20 @@ const goBack = () => {
 
 <style scoped>
 .section-header {
-  background: var(--main-gradient);
-  padding: 40px 60px;
+  background-image: url('@/assets/cover_nn_1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 24px 80px;
+  padding-bottom: 8px;
+  margin-bottom: 0px;
 
   color: white;
 }
 
 .content {
-  padding: 24px;
-  border-radius: 28px;
+  padding: 16px 24px;
 }
 
 .main-footer {
@@ -58,7 +63,6 @@ const goBack = () => {
 
   position: relative;
   padding: 0;
-  margin-bottom: 16px;
 }
 
 /* линия */
