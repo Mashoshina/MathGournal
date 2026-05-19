@@ -241,7 +241,7 @@ const groupedEvents = computed(() => {
   <!-- Обзор -->
   <div v-if="activeTab === 'overview'">
     <div class="text-blocks">
-      <div class="section-name big">Описание:</div>
+      <div class="section-name big">Описание</div>
       <div class="section-text">{{ manuscript.description }}</div>
 
       <div class="section-text">
@@ -254,7 +254,7 @@ const groupedEvents = computed(() => {
       </div>
 
       <!-- Материалы задачи -->
-      <div class="section-name big">Материалы задачи:</div>
+      <div class="section-name big">Материалы задачи</div>
       <div class="section-text">
         Файлы рукописи:
         <ul v-if="manuscript.manuscriptFiles?.length">
@@ -302,7 +302,7 @@ const groupedEvents = computed(() => {
 
       <!-- Авторы -->
       <div class="section-name big">
-        Автор(ы):
+        Автор(ы)
         <div class="section-text">
           <ul>
             <li v-for="author in manuscriptAuthors" :key="author.id">

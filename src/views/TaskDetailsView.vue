@@ -62,7 +62,8 @@ const setTab = (tab) => {
       <!-- Первая строка -->
       <div class="title Lora-family big">
         <span
-          >{{ task.type }} &nbsp;|&nbsp; {{ task.stage }} &nbsp;|&nbsp; {{ task.createdAt }}</span
+          >{{ task.type }} &nbsp;|&nbsp; {{ task.stage }} &nbsp;|&nbsp; Задача создана:
+          {{ task.createdAt }}</span
         >
       </div>
 

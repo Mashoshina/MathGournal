@@ -14,9 +14,9 @@
     {
       "id": "1",
       "userId": 1,
-      "login": "EugenFed_01",
-      "password": "EugenFed_01",
-      "name": "Евгений Фёдоров",
+      "login": "VlFed_01",
+      "password": "VlFed_01",
+      "name": "Владимир Фёдоров",
       "mail": "vladimir_fedorof@gmail.com",
       "role": ["main_red", "red", "rev", "author"],
       "notifs": [
@@ -298,7 +298,7 @@
     {
       "id": "1",
       "redactorsId": 1,
-      "name": "Евгений Фёдоров",
+      "name": "Владимир Фёдоров",
       "mail": "vladimir_fedorof@gmail.com",
       "mainChapter": "математическое моделирование",
       "countReviews": 45,

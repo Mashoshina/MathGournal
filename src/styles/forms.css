@@ -142,14 +142,22 @@
     .modal-containers {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-md);
+      gap: 12px;
       padding: var(--spacing-sm) var(--spacing-sm);
 
-      max-height: 380px;
+      max-height: 600px;
       overflow-y: auto;
 
       border: var(--strock-sm) solid var(--primary-gray-two);
       border-radius: var(--radius-md);
+
+      .modal-cards {
+        font-family: var(--font-Biryani);
+        color: var(--black);
+        padding: var(--spacing-md);
+        border: var(--strock-tn) solid #ddd;
+        border-radius: var(--radius-sm);
+      }
 
       &.row {
         display: flex;
@@ -159,15 +167,6 @@
 
         min-height: 80px;
         overflow-x: auto;
-      }
-
-      .modal-cards {
-        margin-bottom: var(--spacing-sm);
-        font-family: var(--font-Biryani);
-        color: var(--black);
-        padding: var(--spacing-md);
-        border: var(--strock-tn) solid #ddd;
-        border-radius: var(--radius-sm);
       }
     }
   }

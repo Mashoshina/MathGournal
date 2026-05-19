@@ -322,7 +322,7 @@ const deleteTaskByManuscript = async () => {
           <div v-if="reviewsWithReviewer.length === 0">Рецензий нет</div>
           <ul v-else>
             <li v-for="review in reviewsWithReviewer" :key="review.id">
-              {{ review.reviewerName }}:
+              {{ review.reviewerName }} ({{ review.reviewerMail }}):
 
               <a
                 v-for="file in review.reviewesFiles"
@@ -339,7 +339,7 @@ const deleteTaskByManuscript = async () => {
       </div>
 
       <!-- Авторы -->
-      <div class="section-name big">Автор(ы):</div>
+      <div class="section-name big">Автор(ы)</div>
       <div class="section-text">
         <ul>
           <li v-for="author in manuscriptAuthors" :key="author.id">
@@ -349,13 +349,13 @@ const deleteTaskByManuscript = async () => {
       </div>
 
       <!-- редактор -->
-      <div class="section-name big">Редакторы</div>
+      <div class="section-name big">Редактор(ы)</div>
       <div class="section-text">
-        <div v-if="manuscriptRedactors.length">
-          <div v-for="redactor in manuscriptRedactors" :key="redactor.id">
+        <ul v-if="manuscriptRedactors.length">
+          <li v-for="redactor in manuscriptRedactors" :key="redactor.id">
             {{ redactor.name }}:&nbsp; {{ redactor.mail }}
-          </div>
-        </div>
+          </li>
+        </ul>
 
         <div v-else>Без редакторв</div>
         <ChangeRedactors v-if="!isReadonly" @open="showRedactorsOverlay = true" />
@@ -364,7 +364,7 @@ const deleteTaskByManuscript = async () => {
 
     <!-- ДЕЙСТВИЯ -->
     <div v-if="!isReadonly">
-      <div class="section-name big">Действия:</div>
+      <div class="section-name big">Действия</div>
 
       <div class="actions-block">
         <button class="bright-button editor" @click="openActionModal('reject')">
@@ -403,29 +403,25 @@ const deleteTaskByManuscript = async () => {
       <div class="modals form">
         <!-- текущие редакторы -->
         <div class="section-name big">Текущие редакторы</div>
-        <div class="modal-containers">
-          <div v-if="manuscriptRedactors.length">
-            <div v-for="r in manuscriptRedactors" :key="r.id">
-              <label>
-                <div class="modal-cards">
-                  <input type="checkbox" :value="r.redactorsId" v-model="selectedRedactors" />
-                  {{ r.name }} | {{ r.mail }}
-                </div>
-              </label>
-            </div>
+        <div v-if="manuscriptRedactors.length" class="modal-containers" style="gap: 12px">
+          <div v-for="r in manuscriptRedactors" :key="r.id">
+            <label>
+              <div class="modal-cards">
+                <input type="checkbox" :value="r.redactorsId" v-model="selectedRedactors" />
+                {{ r.name }} | {{ r.mail }}
+              </div>
+            </label>
           </div>
-          <div v-else>Редакторов нет</div>
         </div>
+        <div v-else>Редакторов нет</div>
 
         <!-- поиск -->
         <div class="section-name big">Поиск редакторов</div>
-
         <input
           v-model="searchQuery"
           placeholder="Поиск редакторов по имени или почте"
           class="search-input-small"
         />
-
         <div class="modal-containers">
           <div v-for="r in filteredRedactors" :key="r.id">
             <label>

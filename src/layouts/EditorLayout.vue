@@ -23,7 +23,7 @@ import AppFooter from '@/components/AppFooter.vue'
   width: 1340px;
   margin: -120px auto 40px auto;
   background: var(--white);
-  min-height: 600px;
+  min-height: 400px;
   padding: 24px;
   border-radius: 28px;
 }

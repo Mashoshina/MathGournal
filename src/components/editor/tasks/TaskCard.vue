@@ -32,7 +32,7 @@ defineProps({
       <div class="cards info-block">
         <strong>Автор(ы):</strong>
         <div v-for="author in task.authors" :key="author.authorsId">
-          {{ author.name }}: {{ author.mail }}
+          {{ author.name }} ({{ author.mail }})
         </div>
       </div>
 

@@ -44,7 +44,7 @@ const openManuscript = () => {
       <div class="cards info-block">
         <strong>Автор(ы):</strong>
         <div v-for="author in manuscript.authors" :key="author.authorsId">
-          {{ author.name }} | {{ author.mail }}
+          {{ author.name }} ({{ author.mail }})
         </div>
       </div>
 
@@ -53,7 +53,7 @@ const openManuscript = () => {
         <strong>Редактор(ы): </strong>
         <div v-if="manuscript.redactors?.length">
           <div v-for="r in manuscript.redactors" :key="r.redactorsId">
-            {{ r.name }} | {{ r.mail }}
+            {{ r.name }} ({{ r.mail }})
           </div>
         </div>
         <span v-else> Без редактора </span>

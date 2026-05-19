@@ -47,7 +47,6 @@
   width: fit-content;
   gap: 8px;
   margin-right: var(--spacing-sm);
-  margin-top: var(--spacing-sm);
 
   padding: 4px 8px;
   background: var(--white);
