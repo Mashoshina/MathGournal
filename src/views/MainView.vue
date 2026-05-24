@@ -24,23 +24,28 @@ onMounted(async () => {
 })
 /* --- текущий выпуск --- */
 const currentRelease = computed(() => {
-  if (!releases.value.length) return null
-  return releases.value[releases.value.length - 1]
+  if (!currentVolume.value || !releases.value.length) return null
+
+  const volumeReleases = releases.value.filter(
+    (r) => currentVolume.value.releasesId.includes(r.relId) && r.stage === 'Опубликовано',
+  )
+  return volumeReleases[volumeReleases.length - 1] || null
 })
 
 /* --- текущий том --- */
 const currentVolume = computed(() => {
-  if (!currentRelease.value) return null
+  if (!volumes.value.length) return null
+  const publishedVolumes = volumes.value.filter((v) => v.stage === 'Опубликовано')
+  if (!publishedVolumes.length) return null
 
-  const volId = currentRelease.value.volumes[0]
-  return volumes.value.find((v) => v.volId === volId)
+  return publishedVolumes.sort((a, b) => b.year - a.year || b.volNum - a.volNum)[0]
 })
 
-/* --- рукописи текущего тома --- */
-const volumeManuscripts = computed(() => {
-  if (!currentVolume.value) return []
+/* --- рукописи текущего выпуска --- */
+const releaseManuscripts = computed(() => {
+  if (!currentRelease.value) return []
 
-  return currentVolume.value.manuscripts
+  return currentRelease.value.manuscripts
     .map((id) => manuscripts.value.find((m) => m.manuscriptId === id))
     .filter(Boolean)
 })
@@ -49,7 +54,7 @@ const volumeManuscripts = computed(() => {
 const grouped = computed(() => {
   const g = {}
 
-  volumeManuscripts.value.forEach((m) => {
+  releaseManuscripts.value.forEach((m) => {
     if (!g[m.chapter]) g[m.chapter] = []
     g[m.chapter].push(m)
   })
@@ -65,9 +70,9 @@ const getAuthors = (ids) => {
     .join(', ')
 }
 
-/* --- разделы текущего тома --- */
-const volumeChapters = computed(() => {
-  return [...new Set(volumeManuscripts.value.map((m) => m.chapter))]
+/* --- разделы текущего выпуска --- */
+const releaseChapters = computed(() => {
+  return [...new Set(releaseManuscripts.value.map((m) => m.chapter))]
 })
 </script>
 
@@ -81,14 +86,14 @@ const volumeChapters = computed(() => {
         <div class="title Lora-family large">Текущий выпуск №{{ currentRelease.relNum }}</div>
 
         <div class="title Lora-family large">
-          {{ currentRelease.year }} | Том
-          {{ currentRelease.volumes.indexOf(currentVolume.volId) + 1 }}
+          {{ currentVolume.year }} | Том
+          {{ currentVolume.volNum }}
         </div>
 
-        <div class="title Lora-family big">Разделы в этом томе:</div>
-        <span v-for="(chapter, index) in volumeChapters" :key="chapter" class="section-text">
+        <div class="title Lora-family big">Разделы в этом выпуске:</div>
+        <span v-for="(chapter, index) in releaseChapters" :key="chapter" class="section-text">
           {{ chapter }}
-          <span v-if="index !== volumeChapters.length - 1">, </span>
+          <span v-if="index !== releaseChapters.length - 1">, </span>
         </span>
 
         <button class="bright-button main" style="width: fit-content">

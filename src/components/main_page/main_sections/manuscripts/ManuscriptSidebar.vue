@@ -14,7 +14,7 @@ defineEmits(['select-file'])
       <div class="title Lora-family big">Авторы</div>
 
       <ul v-for="author in authors" :key="author.id" class="section-text">
-        <li v-for="author in authors" :key="author.id">{{ author.name }}: {{ author.mail }}</li>
+        <li>{{ author.name }}: {{ author.mail }}</li>
       </ul>
     </div>
 

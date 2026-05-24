@@ -21,7 +21,8 @@ const messageText = ref('')
 
 const releases = ref([])
 const volumes = ref([])
-const selectedVolume = ref(null)
+
+const selectedRelease = ref(null)
 
 const props = defineProps({
   manuscript: Object,
@@ -144,14 +145,15 @@ const loadPublishingData = async () => {
 }
 
 const currentRelease = computed(() => {
-  const currentYear = new Date().getFullYear()
-  return releases.value.find((r) => r.year === currentYear)
+  if (!currentVolumes.value.length) return []
+
+  const releaseIds = currentVolumes.value.flatMap((v) => v.releasesId || [])
+  return releases.value.filter((r) => releaseIds.includes(r.relId))
 })
 
 const currentVolumes = computed(() => {
-  if (!currentRelease.value) return []
-
-  return volumes.value.filter((v) => currentRelease.value.volumes.includes(v.volId))
+  const currentYear = new Date().getFullYear()
+  return volumes.value.filter((v) => v.year === currentYear)
 })
 
 /*Открытие окна после нажатия на кнопки удалить/отправить на доработку/опубликовать рукопись */
@@ -167,9 +169,12 @@ const openActionModal = async (type) => {
 
 /*Совершение действия с рукописью*/
 const submitAction = async () => {
+  if (actionType.value === 'publish' && !selectedRelease.value) {
+    alert('Выберите выпуск текущего тома')
+    return
+  }
   const today = new Date().toISOString().split('T')[0]
 
-  /* 1. обновляем события рукописи */
   const updatedEvents = [
     ...(props.manuscript.events || []),
     {
@@ -184,54 +189,52 @@ const submitAction = async () => {
     events: updatedEvents,
   })
 
-  if (actionType.value === 'reject') {
+  if (actionType.value === 'reject' || actionType.value === 'publish') {
     await deleteTaskByManuscript()
   }
 
-  if (actionType.value === 'publish') {
-    await deleteTaskByManuscript()
-  }
+  try {
+    const usersRes = await axios.get('http://localhost:3001/users')
+    const users = usersRes.data
+    const authors = props.manuscript.authorsId
 
-  // 2. получаем пользователей
-  const usersRes = await axios.get('http://localhost:3001/users')
-  const users = usersRes.data
+    const targetUsers = users.filter((u) => authors.includes(u.userId))
 
-  // 3. ищем авторов → пользователей
-  const authors = props.manuscript.authorsId
+    for (const user of targetUsers) {
+      const newNotif = {
+        id: Date.now() + Math.random(),
+        title: notifTitleMap[actionType.value],
+        text: messageText.value,
+        date: today,
+      }
 
-  const targetUsers = users.filter((u) => authors.includes(u.userId))
+      const updatedNotifs = [...(user.notifs || []), newNotif]
 
-  // 4. добавляем уведомления
-  for (const user of targetUsers) {
-    const newNotif = {
-      id: Date.now(),
-      title: notifTitleMap[actionType.value],
-      text: messageText.value,
-      date: today,
+      await axios.patch(`http://localhost:3001/users/${user.id}`, {
+        notifs: updatedNotifs,
+      })
     }
-
-    const updatedNotifs = [...(user.notifs || []), newNotif]
-
-    await axios.patch(`http://localhost:3001/users/${user.id}`, {
-      notifs: updatedNotifs,
-    })
+  } catch (err) {
+    console.error('Ошибка при отправке уведомлений:', err)
   }
 
   if (actionType.value === 'publish') {
-    if (!selectedVolume.value) {
-      alert('Выберите том')
-      return
+    const release = releases.value.find((r) => r.relId === selectedRelease.value)
+
+    if (release) {
+      const idToSave = props.manuscript.manuscriptId || props.manuscript.id
+
+      const updatedManuscripts = [...(release.manuscripts || [])]
+      if (!updatedManuscripts.includes(idToSave)) {
+        updatedManuscripts.push(idToSave)
+      }
+
+      await axios.patch(`http://localhost:3001/releases/${release.id}`, {
+        manuscripts: updatedManuscripts,
+      })
     }
-
-    /* Если опубликовывается рукопись*/
-    const volume = volumes.value.find((v) => v.volId === selectedVolume.value)
-
-    const updatedManuscripts = [...(volume.manuscripts || []), props.manuscript.id]
-
-    await axios.patch(`http://localhost:3001/volumes/${volume.id}`, {
-      manuscripts: updatedManuscripts,
-    })
   }
+
   showActionModal.value = false
   location.reload()
 }
@@ -245,7 +248,12 @@ const isReadonly = computed(() => {
 const deleteTaskByManuscript = async () => {
   const tasksRes = await axios.get('http://localhost:3001/tasks')
 
-  const task = tasksRes.data.find((t) => Number(t.manuscriptId) === Number(props.manuscript.id))
+  const mId = Number(props.manuscript.manuscriptId) || props.manuscript.manuscriptId
+  const idStr = Number(props.manuscript.id) || props.manuscript.id
+
+  const task = tasksRes.data.find(
+    (t) => String(t.manuscriptId) === String(mId) || String(t.manuscriptId) === String(idStr),
+  )
 
   if (task) {
     await axios.delete(`http://localhost:3001/tasks/${task.id}`)
@@ -453,14 +461,14 @@ const deleteTaskByManuscript = async () => {
 
         <div v-if="actionType === 'publish'">
           <div class="text-blocks">
-            <div class="section-name big" style="margin-top: 0px">Выберите том</div>
+            <div class="section-name big" style="margin-top: 0px">Выберите выпуск</div>
           </div>
 
           <div class="modal-containers row" style="margin-top: var(--spacing-md)">
-            <div v-for="vol in currentVolumes" :key="vol.id">
+            <div v-for="rel in currentRelease" :key="rel.id">
               <label class="modal-cards">
-                <input type="radio" :value="vol.volId" v-model="selectedVolume" />
-                Том {{ vol.volId }}
+                <input type="radio" :value="rel.relId" v-model="selectedRelease" />
+                Выпуск №{{ rel.relNum }}
               </label>
             </div>
           </div>
