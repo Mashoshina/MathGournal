@@ -15,7 +15,7 @@ import VueFeather from 'vue-feather'
 
     <button class="profile-btn">
       Профиль
-      <vue-feather type="user" size="24" />
+      <vue-feather type="user" size="28" />
     </button>
   </header>
 </template>

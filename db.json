@@ -7,7 +7,9 @@
       "password": "Admin_00",
       "name": "Системный пользователь",
       "mail": "admin@mail.ru",
-      "role": ["admin"],
+      "role": [
+        "admin"
+      ],
       "notifs": [],
       "savedManuscripts": []
     },
@@ -18,7 +20,12 @@
       "password": "VlFed_01",
       "name": "Владимир Фёдоров",
       "mail": "vladimir_fedorof@gmail.com",
-      "role": ["main_red", "red", "rev", "author"],
+      "role": [
+        "main_red",
+        "red",
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -36,7 +43,11 @@
       "password": "ValenVal_02",
       "name": "Валентинов И.И.",
       "mail": "valenii@gmail.com",
-      "role": ["red", "rev", "author"],
+      "role": [
+        "red",
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -54,7 +65,11 @@
       "password": "Luntik_0303",
       "name": "Лунтик",
       "mail": "luni_lu@gmail.com",
-      "role": ["red", "rev", "author"],
+      "role": [
+        "red",
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -72,7 +87,10 @@
       "password": "FeodoraDu_04",
       "name": "Фёдоров Е.А.",
       "mail": "eg_fedorof@gmail.com",
-      "role": ["rev", "author"],
+      "role": [
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -90,7 +108,10 @@
       "password": "RafailDaut_05",
       "name": "Рафаил Даутов",
       "mail": "dau_dau_@inbox.com",
-      "role": ["rev", "author"],
+      "role": [
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -108,7 +129,10 @@
       "password": "Matvashik_06",
       "name": "Матвей Вашин",
       "mail": "matvash@gmail.com",
-      "role": ["rev", "author"],
+      "role": [
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -126,7 +150,10 @@
       "password": "Luzhhaika_07",
       "name": "Лужнец П. П.",
       "mail": "luzhh_72@gmail.com",
-      "role": ["rev", "author"],
+      "role": [
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -144,7 +171,10 @@
       "password": "08_rezenzent_R",
       "name": "Рецензент Р. Р.",
       "mail": "reviewer@gmail.com",
-      "role": ["rev", "author"],
+      "role": [
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -162,7 +192,9 @@
       "password": "Artem_Makovar_09",
       "name": "Артём Маковецкий",
       "mail": "makovar@mail.ru",
-      "role": ["author"],
+      "role": [
+        "author"
+      ],
       "notifs": [
         {
           "id": 1779628737895.627,
@@ -180,7 +212,10 @@
       "password": "Asif_ka_YOY_10",
       "name": "Асиф ЙОКУС",
       "mail": "asyok@mail.ru",
-      "role": ["rev", "author"],
+      "role": [
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1779628737979.4583,
@@ -198,7 +233,10 @@
       "password": "grebka_yA_11",
       "name": "Б.Л. Гребенщик",
       "mail": "b_l_greb_4ik@mail.ru",
-      "role": ["rev", "author"],
+      "role": [
+        "rev",
+        "author"
+      ],
       "notifs": [
         {
           "id": 1,
@@ -216,7 +254,9 @@
       "password": "zikhor_12",
       "name": "Олег Зихоров",
       "mail": "zikhor_12@mail.ru",
-      "role": ["author"],
+      "role": [
+        "author"
+      ],
       "notifs": [
         {
           "id": 1779626253134,
@@ -234,7 +274,9 @@
       "password": "dk_13",
       "name": "ДК Холиков",
       "mail": "dk_13@mail.ru",
-      "role": ["author"],
+      "role": [
+        "author"
+      ],
       "notifs": [
         {
           "id": 1779626253225,
@@ -252,7 +294,9 @@
       "password": "shaibu_14",
       "name": "Г.Ш. Байбулова",
       "mail": "shaibu_14@mail.ru",
-      "role": ["author"],
+      "role": [
+        "author"
+      ],
       "notifs": [
         {
           "id": 1779628999970.1042,
@@ -270,7 +314,9 @@
       "password": "khalim_15",
       "name": "Л.Р. Калимуллина",
       "mail": "khalim_15@mail.ru",
-      "role": ["author"],
+      "role": [
+        "author"
+      ],
       "notifs": [
         {
           "id": 1779629000051.8694,
@@ -288,7 +334,9 @@
       "password": "chebotar_16",
       "name": "А.Б. Чеботарева",
       "mail": "chebotar_16@mail.ru",
-      "role": ["author"],
+      "role": [
+        "author"
+      ],
       "notifs": [
         {
           "id": 1779629000129.0234,
@@ -427,14 +475,19 @@
   ],
   "editoralAdvice": [
     {
-      "id": 0,
-      "redactorsId": [1]
+      "id": "0",
+      "redactorsId": [
+        1
+      ]
     }
   ],
   "editoralCollegium": [
     {
-      "id": 0,
-      "redactorsId": [2, 3]
+      "id": "0",
+      "redactorsId": [
+        2,
+        3
+      ]
     }
   ],
   "reviews": [
@@ -443,7 +496,9 @@
       "reviewesId": 1,
       "reviewersId": 4,
       "manuscriptId": 1,
-      "reviewesFiles": ["./public/manuscripts/review1.pdf"]
+      "reviewesFiles": [
+        "./public/manuscripts/review1.pdf"
+      ]
     }
   ],
   "manuscripts": [
@@ -452,9 +507,14 @@
       "manuscriptId": 1,
       "stage": "В процессе",
       "redactorStatus": "mine",
-      "redactorsId": [1, 2],
+      "redactorsId": [
+        1,
+        2
+      ],
       "title": "Многопараметрический функционал для оценки поворота и перемещения в задаче регистрации облака точек",
-      "authorsId": [9],
+      "authorsId": [
+        9
+      ],
       "keyWords": [
         "ICP-алгоритм",
         "3D",
@@ -464,9 +524,14 @@
       ],
       "description": "Статья посвящена разработке многопараметрического функционала качества для задачи регистрации 3D-облаков точек. Предлагаемый подход позволяет совместно и оптимально вычислять матрицу поворота и вектор перемещения, обеспечивая высокую точность сопоставления и робастность к зашумленным данным и частичным перекрытиям облаков.",
       "chapter": "Математика",
-      "manuscriptFiles": ["/public/manuscripts/mfdop.pdf", "/public/manuscripts/mfdop2.pdf"],
+      "manuscriptFiles": [
+        "/public/manuscripts/mfdop.pdf",
+        "/public/manuscripts/mfdop2.pdf"
+      ],
       "manuscriptPicture": [],
-      "coverLetter": ["/public/manuscripts/letter1.pdf"],
+      "coverLetter": [
+        "/public/manuscripts/letter1.pdf"
+      ],
       "sentDate": "2026-02-12",
       "version": 1,
       "events": [
@@ -506,9 +571,15 @@
       "manuscriptId": 2,
       "stage": "В процессе",
       "redactorStatus": "by_name",
-      "redactorsId": [1, 2],
+      "redactorsId": [
+        1,
+        2
+      ],
       "title": "Аналитическое исследование механизмов нелинейного распределения в гидродинамике с помощью уравнения Буати-Леона-Мианны-Пемпинелли",
-      "authorsId": [10, 11],
+      "authorsId": [
+        10,
+        11
+      ],
       "keyWords": [
         "устойчивость решений",
         "динамика сплошных сред",
@@ -517,9 +588,13 @@
       ],
       "description": "В статье проводится аналитическое исследование механизмов нелинейного распределения в гидродинамических системах на основе уравнения Буати–Леона–Мианны–Пемпинелли. Рассматриваются фундаментальные свойства модели, включая структуру нелинейных членов, дисперсионные характеристики и условия существования устойчивых решений.",
       "chapter": "Математическое моделирование",
-      "manuscriptFiles": ["/public/manuscripts/2026-03-01_20-24-42.pdf"],
+      "manuscriptFiles": [
+        "/public/manuscripts/2026-03-01_20-24-42.pdf"
+      ],
       "manuscriptPicture": [],
-      "coverLetter": ["/public/manuscripts/letter1.pdf"],
+      "coverLetter": [
+        "/public/manuscripts/letter1.pdf"
+      ],
       "sentDate": "2026-02-15",
       "version": 1,
       "events": [
@@ -540,6 +615,12 @@
           "user": 1,
           "date": "2026-03-15",
           "version": 1
+        },
+        {
+          "event": "Рецензенты приглашены",
+          "user": 1,
+          "date": "2026-05-25",
+          "version": 1
         }
       ]
     },
@@ -548,9 +629,13 @@
       "manuscriptId": 3,
       "stage": "Опубликовано",
       "redactorStatus": "none",
-      "redactorsId": [1],
+      "redactorsId": [
+        1
+      ],
       "title": "Интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности",
-      "authorsId": [11],
+      "authorsId": [
+        11
+      ],
       "keyWords": [
         "задача Коши",
         "уравнение теплопроводности",
@@ -559,9 +644,13 @@
       ],
       "description": "В статье рассматривается интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности. Предложенный подход позволяет представить исходную параболическую задачу в эквивалентной интегральной форме, что упрощает анализ существования, единственности и устойчивости решений.",
       "chapter": "Математика",
-      "manuscriptFiles": ["/public/manuscripts/12939-196408-1-PB.pdf"],
+      "manuscriptFiles": [
+        "/public/manuscripts/12939-196408-1-PB.pdf"
+      ],
       "manuscriptPicture": [],
-      "coverLetter": ["/public/manuscripts/letter1.pdf"],
+      "coverLetter": [
+        "/public/manuscripts/letter1.pdf"
+      ],
       "sentDate": "2026-02-01",
       "version": 1,
       "events": [
@@ -590,10 +679,17 @@
       "manuscriptId": 1776952964739,
       "stage": "Опубликовано",
       "redactorStatus": "none",
-      "redactorsId": [1],
+      "redactorsId": [
+        1
+      ],
       "title": "test",
-      "authorsId": [9],
-      "keyWords": ["d1", " d2"],
+      "authorsId": [
+        9
+      ],
+      "keyWords": [
+        "d1",
+        " d2"
+      ],
       "description": "test description",
       "chapter": "Математика",
       "manuscriptFiles": [
@@ -629,13 +725,25 @@
       "manuscriptId": 1776956373363,
       "stage": "Отклонено",
       "redactorStatus": "none",
-      "redactorsId": [1],
+      "redactorsId": [
+        1
+      ],
       "title": "test2 title",
-      "authorsId": [9],
-      "keyWords": ["1", " 2", "3", " 5"],
+      "authorsId": [
+        9
+      ],
+      "keyWords": [
+        "1",
+        " 2",
+        "3",
+        " 5"
+      ],
       "description": "test2 description",
       "chapter": "Математика",
-      "manuscriptFiles": ["/public/manuscripts/letter1.pdf", "/public/manuscripts/mfdop2.pdf"],
+      "manuscriptFiles": [
+        "/public/manuscripts/letter1.pdf",
+        "/public/manuscripts/mfdop2.pdf"
+      ],
       "manuscriptPicture": [],
       "coverLetter": [],
       "sentDate": "2026-04-23",
@@ -665,13 +773,25 @@
       "manuscriptId": 1778135591992,
       "stage": "Опубликовано",
       "redactorStatus": "mine",
-      "redactorsId": [1, 3],
+      "redactorsId": [
+        1,
+        3
+      ],
       "title": "Test 3",
-      "authorsId": [9, 10],
-      "keyWords": ["key1", " key2", "key3"],
+      "authorsId": [
+        9,
+        10
+      ],
+      "keyWords": [
+        "key1",
+        " key2",
+        "key3"
+      ],
       "description": "Test description 3",
       "chapter": "Физика",
-      "manuscriptFiles": ["/public/manuscripts/test_file3.pdf"],
+      "manuscriptFiles": [
+        "/public/manuscripts/test_file3.pdf"
+      ],
       "coverLetter": [],
       "sentDate": "2026-05-07",
       "version": 1,
@@ -728,9 +848,14 @@
       "manuscriptId": 1779626221612,
       "stage": "Опубликовано",
       "redactorStatus": "mine",
-      "redactorsId": [1],
+      "redactorsId": [
+        1
+      ],
       "title": "НЕЛОКАЛЬНЫЕ КРАЕВЫЕ ЗАДАЧИ ДЛЯ НАГРУЖЕННОГО ПСЕВДОПАРАБОЛИЧЕСКОГО УРАВНЕНИЯ ТРЕТЬЕГО ПОРЯДКА",
-      "authorsId": [13, 12],
+      "authorsId": [
+        13,
+        12
+      ],
       "keyWords": [
         "нелокальная задача",
         " нелокальное условие",
@@ -745,7 +870,9 @@
       ],
       "description": "Доказано существование и единственность решений нелокальных задач в прямо\nугольной области для нагруженного псевдопараболического уравнения третьего по\nрядка. При доказательстве разрешимости изучаемых задач применяются методы\nтеории дифференциальных уравнений, теории интегральных уравнений, функции\nРимана. Исследуемые задачи сводятся к эквивалентным интегральным уравнениям\nВольтерры второго рода, которые безусловно разрешимы.",
       "chapter": "Математика",
-      "manuscriptFiles": ["/public/manuscripts/13071-196745-1-PB.pdf"],
+      "manuscriptFiles": [
+        "/public/manuscripts/13071-196745-1-PB.pdf"
+      ],
       "coverLetter": [],
       "sentDate": "2026-05-24",
       "version": 1,
@@ -774,9 +901,15 @@
       "manuscriptId": 1779628925251,
       "stage": "Опубликовано",
       "redactorStatus": "mine",
-      "redactorsId": [1],
+      "redactorsId": [
+        1
+      ],
       "title": "КВАНТОВО-ХИМИЧЕСКОЕ ИССЛЕДОВАНИЕ ЭЛЕКТРОФИЗИЧЕСКИХ СВОЙСТВ ФЛУОРЕН- И ФТАЛИДСОДЕРЖАЩИХ СОПОЛИАРИЛЕНЭФИРКЕТОНОВ",
-      "authorsId": [14, 15, 16],
+      "authorsId": [
+        14,
+        15,
+        16
+      ],
       "keyWords": [
         "сополиариленэфиркетоны",
         " квантово-химическое моделирование",
@@ -820,10 +953,20 @@
       "createdAt": "2026-02-12",
       "type": "Оценить отзывы рецензентов",
       "stage": "Рецензенты приглашены",
-      "invitedReviewersId": [4, 5, 6],
-      "acceptedReviewersId": [5],
-      "declinedReviewersId": [6],
-      "reviewesId": [4]
+      "invitedReviewersId": [
+        4,
+        5,
+        6
+      ],
+      "acceptedReviewersId": [
+        5
+      ],
+      "declinedReviewersId": [
+        6
+      ],
+      "reviewesId": [
+        4
+      ]
     },
     {
       "id": "2",
@@ -832,7 +975,9 @@
       "createdAt": "2026-02-15",
       "type": "Найти и пригласить рецензентов",
       "stage": "Рецензенты не приглашены",
-      "invitedReviewersId": [],
+      "invitedReviewersId": [
+        4
+      ],
       "acceptedReviewersId": [],
       "declinedReviewersId": [],
       "reviewesId": []
@@ -844,7 +989,9 @@
       "volId": 1,
       "volNum": 11,
       "year": 2026,
-      "releasesId": [1],
+      "releasesId": [
+        1
+      ],
       "stage": "Опубликовано"
     }
   ],
@@ -853,7 +1000,13 @@
       "id": "1",
       "relId": 1,
       "relNum": 1,
-      "manuscripts": [3, 1776952964739, 1779626221612, 1778135591992, 1779628925251],
+      "manuscripts": [
+        3,
+        1776952964739,
+        1779626221612,
+        1778135591992,
+        1779628925251
+      ],
       "stage": "Опубликовано"
     }
   ]

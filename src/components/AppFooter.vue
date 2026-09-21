@@ -137,7 +137,7 @@
 <style scoped>
 .footer {
   width: 100%;
-  padding: 48px 72px;
+  padding: 50px 72px;
   box-sizing: border-box;
 }
 

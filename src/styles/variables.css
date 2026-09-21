@@ -28,9 +28,9 @@
   --green: #0a7410;
 
   /*gradients*/
-  --main-gradient: linear-gradient(90deg, #622b72, #422b49);
-  --editor-gradient: linear-gradient(90deg, #6f1c1c, #361919);
-  --review-gradient: linear-gradient(90deg, #086640, #114c32);
+  --main-gradient: linear-gradient(140deg, #622b72, #422b49);
+  --editor-gradient: linear-gradient(30deg, #810e17, #361919);
+  --review-gradient: linear-gradient(150deg, #086640, #114c32);
 
   /*-------------------------------------------
                     SPACING
@@ -73,7 +73,7 @@
   --normal-weight: 400;
   --medium-weight: 600;
   --bold-weight: 700;
-  --black-bold-weight: 900;
+  --black-bold-weight: 700;
 
   /*-------------------------------------------
                     FONT SIZE
