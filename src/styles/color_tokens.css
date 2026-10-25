@@ -1,0 +1,25 @@
+:root {
+  /*basic colours*/
+  --primary-gray: #f5f5f5;
+  --gray-second: #e6e6e6;
+  --gray-third: #b2b1b1;
+  --red-error: #b40e0e;
+
+  /*main styles*/
+  --purple-main: #622b72;
+  --black-purple: #422b49;
+  --soft-purple: #cab6cc;
+  --purple-gradient: linear-gradient(140deg, #622b72, #422b49);
+
+  /*editor styles*/
+  --red-editor: #810e17;
+  --black-red: #361919;
+  --soft-red: #ecd5df;
+  --red-gradient: linear-gradient(30deg, #810e17, #361919);
+
+  /*reviewer styles*/
+  --green-review: #086640;
+  --black-green: #114c32;
+  --soft-green: #c6f0cc;
+  --green-gradient: linear-gradient(150deg, #086640, #114c32);
+}

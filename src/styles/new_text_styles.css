@@ -1,0 +1,70 @@
+.text-h1 {
+  font-family: var(--font-Lora);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-h1);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  text-indent: var(--text-indent);
+  color: black;
+}
+
+.text-h2 {
+  font-family: var(--font-Lora);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-h2);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  text-indent: var(--text-indent);
+  color: black;
+}
+
+.text-h3 {
+  font-family: var(--font-Lora);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-h3);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  text-indent: var(--text-indent);
+  color: black;
+}
+
+.basic-text-bold {
+  font-family: var(--font-Roboto);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-body);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  text-indent: var(--text-indent);
+  color: black;
+}
+
+.basic-text {
+  font-family: var(--font-Roboto);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-body);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  text-indent: var(--text-indent);
+  color: black;
+}
+
+.small-text {
+  font-family: var(--font-Roboto);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-body-sm);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  text-indent: var(--text-indent);
+  color: black;
+}
+
+.hyperlink {
+  font-family: var(--font-Roboto);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-body);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  text-indent: var(--text-indent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
