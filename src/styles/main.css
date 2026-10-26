@@ -2,6 +2,11 @@
 @import './components.css';
 @import './text_styles.css';
 @import './forms.css';
+@import './color_tokens.css';
+@import './text_tokens.css';
+@import './new_text_styles.css';
+@import './button_tokens.css';
+@import './buttons.css';
 
 body {
   font-family: var(--font-main);

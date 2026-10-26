@@ -1,3 +1,7 @@
+/* ============================================================
+   BUTTON TOKENS — переменные размеров/отступов кнопок + темы
+   Подключается ПОСЛЕ color_tokens.css и text_tokens.css
+   ============================================================ */
 :root {
   --btn-radius: 8px;
 
@@ -11,4 +15,60 @@
   --btn-gap-lg: 16px;
 
   --btn-transition: 0.18s ease-in-out;
+
+  /* --- Strokes (outside → имитация через inset box-shadow) --- */
+  --btn-stroke-width: 2px; /* general: outside 2 */
+  --btn-stroke-nav-hover: 4px; /* nav big hover/selected: bottom outside 4 */
+  --btn-stroke-nav-small: 2px; /* nav small hover/selected: bottom outside 2 */
+
+  /* --- Bright button hover: «чуть темнее» --- */
+  --btn-bright-hover-filter: brightness(85%);
+}
+
+:root {
+  .theme-main {
+    --theme-accent: var(--purple-main);
+  }
+}
+
+/* ============================================================
+   ТЕМЫ. Вешаются на корневой контейнер страницы:
+   <div class="theme-editor"> … </div>
+   Либо на конкретную кнопку: <button class="general-button editor">
+   ============================================================ */
+
+/* main — дефолт для всего документа: если тема не указана явно,
+   кнопки автоматически «мейновые» */
+:root,
+.theme-main {
+  --theme-accent: var(--purple-main); /* #622b72 */
+  --theme-accent-strong: var(--black-purple);
+  --theme-accent-soft: var(--soft-purple);
+  --theme-gradient: var(--purple-gradient);
+}
+
+.theme-editor {
+  --theme-accent: var(--red-editor); /* #810e17 */
+  --theme-accent-strong: var(--black-red);
+  --theme-accent-soft: var(--soft-red);
+  --theme-gradient: var(--red-gradient);
+}
+
+.theme-review {
+  --theme-accent: var(--green-review); /* #086640 */
+  --theme-accent-strong: var(--black-green);
+  --theme-accent-soft: var(--soft-green);
+  --theme-gradient: var(--green-gradient);
+}
+
+/* Явные модификаторы на самой кнопке (наследуются из :root,
+   поэтому !important здесь безопасен) */
+.main {
+  --theme-accent: var(--purple-main) !important;
+}
+.editor {
+  --theme-accent: var(--red-editor) !important;
+}
+.review {
+  --theme-accent: var(--green-review) !important;
 }

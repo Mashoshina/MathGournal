@@ -1,0 +1,51 @@
+/* ============================================================
+   FORM/CONTAINER TOKENS — переменные размеров контейнеров и форм
+   Подключается ПОСЛЕ color_tokens.css и text_tokens.css
+   ============================================================ */
+
+:root {
+  /* --- Ширина --- */
+  --container-max-width: 1340px; /* content-container / content-block-* */
+  --overlay-form-min-width: 800px; /* overlay-form */
+  --overlay-form-max-width: 1200px;
+  --surety-form-min-width: 400px; /* surety-form */
+  --surety-form-max-width: 600px;
+  --enter-register-form-width: 800px; /* enter-register-form (min = max) */
+
+  /* --- Высота --- */
+  --container-min-height: 400px; /* content-container / container-scroll-y / overlay-form / enter-page-content(405) */
+  --overlay-form-max-height: 1200px; /* overlay-form */
+  --scroll-container-max-height: 800px; /* container-scroll-y */
+  --page-content-min-height: 405px; /* enter-page-content / main-page-content */
+
+  /* --- Gap (по умолчанию 16, кроме отдельно указанных) --- */
+  --form-gap: 16px; /* все контейнеры и формы */
+  --main-page-content-gap: 32px; /* main-page-content */
+
+  /* --- Padding: вертикаль | горизонталь --- */
+  --container-padding-v: 32px; /* content-container / overlay-form / surety-form / enter-register-form */
+  --container-padding-h: 32px;
+  --scroll-padding-v: 16px; /* container-scroll-y */
+  --scroll-padding-h: 16px;
+  --enter-page-padding-v: 32px; /* enter-page-content */
+  --enter-page-padding-h: 48px;
+  --main-page-padding-v: 50px; /* main-page-content */
+  --main-page-padding-h: 16px;
+
+  /* --- Corner radius --- */
+  --radius-container: 24px; /* content-container / overlay-form / surety-form / enter-register-form */
+  --radius-scroll: 12px; /* container-scroll-y */
+
+  /* --- Stroke (контейнеры и формы) --- */
+  --form-stroke-width: 2px;
+  --form-stroke-color: var(--gray-second); /* #e6e6e6 из color_tokens.css */
+
+  /* --- Fill --- */
+  --form-fill: white;
+
+  /* --- Shadow (Figma: x0 y4 blur4 black 25%) --- */
+  --shadow-container: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  /* --- Close button (feather icons) --- */
+  --close-button-size: 24px;
+}

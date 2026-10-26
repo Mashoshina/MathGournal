@@ -1,1 +1,166 @@
-/*buttons styles*/
+/* ============================================================
+   BUTTONS — переиспользуемые стили кнопок
+   Зависит от: color_tokens.css, text_tokens.css, button_tokens.css
+   (именно в этом порядке подключать в main.css)
+
+   Структура классов:
+   <button class="text-button     editor">        — текстовая, тема редактора
+   <button class="general-button  review selected"> — контурная, тема рецензента, выбрана
+   <button class="bright-button   main">          — заливная
+   <button class="nav-button-big   editor">       — навигационная большая
+   <button class="nav-button-small main selected">— навигационная малая, активный таб
+
+   Тема берётся из --theme-accent. Источник темы (по приоритету):
+   1) явный модификатор на кнопке: .main / .editor / .review
+   2) тема страницы-контейнера: .theme-main / .theme-editor / .theme-review
+   3) глобальный дефолт (:root → main)
+
+   Состояния:
+   - hover/press описаны одним списком селекторов;
+   - «остаётся нажатой» (выбор/активный таб) — класс .selected,
+     стили .selected совпадают с hover и не сбрасываются при уходе курсора.
+   ============================================================ */
+
+/* ---------- Общая база для всех кнопок ---------- */
+.text-button,
+.general-button,
+.bright-button,
+.nav-button-big,
+.nav-button-small {
+  display: inline-flex; /* auto-layout hug + content center */
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Убираем дефолтный outline, но возвращаем доступный фокус */
+.text-button:focus-visible,
+.general-button:focus-visible,
+.bright-button:focus-visible,
+.nav-button-big:focus-visible,
+.nav-button-small:focus-visible {
+  outline: 2px solid var(--theme-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   1) TEXT BUTTON
+   hug, gap 8, padding 12|6, текст basic-text-bold
+   default: чёрный;  hover/press/selected: цвет темы
+   ============================================================ */
+.text-button {
+  gap: var(--btn-gap);
+  padding: var(--btn-size-hug-padding-x) var(--btn-size-hug-padding-y);
+  color: black;
+}
+
+/* базовая типографика подтягивается классом .basic-text-bold из
+   new_text_styles.css, здесь только переопределяем цвет */
+.text-button:hover,
+.text-button:active,
+.text-button.selected {
+  color: var(--theme-accent);
+}
+
+/* ============================================================
+   2) GENERAL BUTTON (контурная)
+   hug, gap 8, padding 12|6, текст basic-text-bold
+   default и hover одинаковы по структуре (fill white, stroke 2 outside),
+   различаются цветом текста: default — чёрный, hover — тематический
+   ============================================================ */
+.general-button {
+  gap: var(--btn-gap);
+  /* padding + ширина обводки, чтобы текст не «прыгал» при hover */
+  padding: calc(var(--btn-size-hug-padding-x) + var(--btn-stroke-width))
+    calc(var(--btn-size-hug-padding-y) + var(--btn-stroke-width));
+  background: white;
+  color: black;
+  /* stroke 2px OUTSIDE без влияния на layout: inset box-shadow
+     рисуется поверх фона, поэтому белый fill сохраняется */
+  box-shadow: inset 0 0 0 var(--btn-stroke-width) var(--theme-accent);
+  border-radius: var(--btn-radius);
+}
+
+.general-button:hover,
+.general-button:active,
+.general-button.selected {
+  background: white;
+  color: var(--theme-accent);
+  box-shadow: inset 0 0 0 var(--btn-stroke-width) var(--theme-accent);
+}
+
+/* ============================================================
+   3) BRIGHT BUTTON (заливная)
+   hug, gap 8, padding 12|6, fill = цвет темы, текст basic-text-bold белый
+   hover/press: чуть темнее
+   ============================================================ */
+.bright-button {
+  gap: var(--btn-gap);
+  padding: var(--btn-pad-v) var(--btn-pad-h);
+  background: var(--theme-accent);
+  color: white;
+  border-radius: var(--btn-radius);
+}
+
+.bright-button:hover,
+.bright-button:active,
+.bright-button.selected {
+  filter: var(--btn-bright-hover-filter);
+}
+
+/* ============================================================
+   4) NAVIGATION BUTTON — BIG
+   fill (на всю ширину контейнера), gap 16, padding 32|16, текст text-h1 белый
+   default: как описано;  hover/press/selected: нижняя обводка outside 4
+   ============================================================ */
+.nav-button-big {
+  width: 100%; /* auto-layout fill */
+  gap: var(--btn-gap-nav-big);
+  padding: var(--btn-pad-v-nav) var(--btn-pad-h-nav);
+  background: var(--theme-accent);
+  color: white;
+  border-radius: var(--btn-radius);
+}
+
+.nav-button-big:hover,
+.nav-button-big:active,
+.nav-button-big.selected {
+  /* bottom outside stroke 4 — box-shadow не влияет на layout.
+     цвет: white */
+  box-shadow: 0 var(--btn-stroke-nav-hover) 0 0 white;
+}
+
+/* ============================================================
+   5) NAVIGATION BUTTON — SMALL
+   fill, gap 8, padding 32|16, текст basic-text-bold
+   default: чёрный;  hover/press/selected: цвет темы + нижняя обводка outside 2
+   ============================================================ */
+.nav-button-small {
+  width: 100%; /* auto-layout fill */
+  gap: var(--btn-gap);
+  padding: var(--btn-size-hug-padding-x) var(--btn-size-hug-padding-y);
+  color: black;
+}
+
+.nav-button-small:hover,
+.nav-button-small:active,
+.nav-button-small.selected {
+  color: var(--theme-accent);
+  box-shadow: 0 var(--btn-stroke-nav-small) 0 0 var(--theme-accent);
+}
+
+/* ---------- Утилиты ---------- */
+.button--disabled,
+.text-button:disabled,
+.general-button:disabled,
+.bright-button:disabled,
+.nav-button-big:disabled,
+.nav-button-small:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}

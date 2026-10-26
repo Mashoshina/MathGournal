@@ -1,0 +1,212 @@
+/* ============================================================
+   NEW FORMS / CONTAINERS — переработанные контейнеры и формы
+   Подключается ПОСЛЕ tokens.css (и color/text токенов)
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1) content-container — общий блок контента (редактор/рецензент)
+   auto layout vertical; width: hug (max 1340); height: hug (min 400)
+   align: top-left; fill white; gap 16; padding 32|32; shadow; radius 24
+   ------------------------------------------------------------ */
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* верхний левый угол */
+  justify-content: flex-start;
+  width: fit-content; /* hug */
+  max-width: var(--container-max-width);
+  height: fit-content; /* hug */
+  min-height: var(--container-min-height);
+  gap: var(--form-gap);
+  padding: var(--container-padding-v) var(--container-padding-h);
+  background: var(--form-fill);
+  border-radius: var(--radius-container);
+  box-shadow: var(--shadow-container);
+}
+
+/* ------------------------------------------------------------
+   2) content-block-vertical — универсальный вертикальный блок
+   auto layout vertical; width: fill (max 1340); height: fill
+   align: top-left; gap 16; padding 0; без fill
+   ------------------------------------------------------------ */
+.content-block-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* верхний левый угол */
+  justify-content: flex-start;
+  width: 100%; /* fill */
+  max-width: var(--container-max-width);
+  height: 100%; /* fill */
+  gap: var(--form-gap);
+  padding: 0;
+}
+
+/* ------------------------------------------------------------
+   3) content-block-horizontal — универсальный горизонтальный блок
+   auto layout horizontal; width: fill (max 1340); height: fill
+   align: left-center; gap 16; padding 0; без fill
+   ------------------------------------------------------------ */
+.content-block-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* по центру вертикали */
+  justify-content: flex-start; /* с левого края */
+  width: 100%; /* fill */
+  max-width: var(--container-max-width);
+  height: 100%; /* fill */
+  gap: var(--form-gap);
+  padding: 0;
+}
+
+/* ------------------------------------------------------------
+   4) container-scroll-y — внутренний контейнер со скроллом по Y
+   auto layout vertical; width: fill; height: hug (min 400, max 800)
+   align: центр по горизонтали, сверху; gap 16; padding 16|16
+   stroke 2 gray-second; fill white; radius 12
+   ------------------------------------------------------------ */
+.container-scroll-y {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* содержимое по центру с верхнего края */
+  justify-content: flex-start;
+  width: 100%; /* fill */
+  height: fit-content; /* hug */
+  min-height: var(--container-min-height);
+  max-height: var(--scroll-container-max-height);
+  overflow-y: auto; /* собственный вертикальный скролл */
+  gap: var(--form-gap);
+  padding: var(--scroll-padding-v) var(--scroll-padding-h);
+  background: var(--form-fill);
+  border: var(--form-stroke-width) solid var(--form-stroke-color);
+  border-radius: var(--radius-scroll);
+}
+
+/* ------------------------------------------------------------
+   5) overlay-form — форма поверх полупрозрачного чёрного фона
+   auto layout vertical; width: fill (min 800, max 1200)
+   height: hug (min 400, max 1200); align: top-left
+   gap 16; padding 32|32; stroke 2 gray-second; fill white; radius 24
+   ------------------------------------------------------------ */
+.overlay-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* верхний левый угол */
+  justify-content: flex-start;
+  width: 100%; /* fill */
+  min-width: var(--overlay-form-min-width);
+  max-width: var(--overlay-form-max-width);
+  height: fit-content; /* hug */
+  min-height: var(--container-min-height);
+  max-height: var(--overlay-form-max-height);
+  gap: var(--form-gap);
+  padding: var(--container-padding-v) var(--container-padding-h);
+  background: var(--form-fill);
+  border: var(--form-stroke-width) solid var(--form-stroke-color);
+  border-radius: var(--radius-container);
+}
+
+/* form-header — заголовок + кнопка закрытия (крестик feather 24x24)
+   auto layout horizontal; width: fill; height: hug
+   align: left-center; gap: auto (заголовок слева, крестик справа) */
+.form-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* с центра левого края */
+  justify-content: space-between; /* gap auto → прижимаем концы */
+  width: 100%;
+  height: fit-content;
+  gap: var(--form-gap); /* минимальный зазор, если не хватает места */
+}
+
+/* close-button — иконка feather «x» 24x24 */
+.close-button {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--close-button-size);
+  height: var(--close-button-size);
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: black;
+}
+
+.close-button:hover,
+.close-button:active {
+  color: var(--theme-accent);
+}
+
+/* ------------------------------------------------------------
+   6) surety-form — форма подтверждения действия
+   auto layout vertical; width: fill (min 400, max 600); height: hug
+   gap 16; padding 32|32; stroke 2 gray-second; fill white; radius 24
+   ------------------------------------------------------------ */
+.surety-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%; /* fill */
+  min-width: var(--surety-form-min-width);
+  max-width: var(--surety-form-max-width);
+  height: fit-content; /* hug */
+  gap: var(--form-gap);
+  padding: var(--container-padding-v) var(--container-padding-h);
+  background: var(--form-fill);
+  border: var(--form-stroke-width) solid var(--form-stroke-color);
+  border-radius: var(--radius-container);
+}
+
+/* ------------------------------------------------------------
+   7) enter-register-form — авторизация / регистрация / восстановление
+   auto layout vertical; width: fill (min 800, max 800); height: hug
+   align: top-left; gap 16; padding 32|32; fill white; radius 24; shadow
+   ------------------------------------------------------------ */
+.enter-register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* верхний левый угол */
+  justify-content: flex-start;
+  width: 100%; /* fill */
+  min-width: var(--enter-register-form-width);
+  max-width: var(--enter-register-form-width);
+  height: fit-content; /* hug */
+  gap: var(--form-gap);
+  padding: var(--container-padding-v) var(--container-padding-h);
+  background: var(--form-fill);
+  border-radius: var(--radius-container);
+  box-shadow: var(--shadow-container);
+}
+
+/* ------------------------------------------------------------
+   8) enter-page-content — блок контента на странице входа
+   auto layout vertical; height: hug (min 405); align: центр
+   padding 32|48; без fill
+   ------------------------------------------------------------ */
+.enter-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* выравнивание по центру */
+  justify-content: flex-start;
+  height: fit-content; /* hug */
+  min-height: var(--page-content-min-height);
+  padding: var(--enter-page-padding-v) var(--enter-page-padding-h);
+}
+
+/* ------------------------------------------------------------
+   9) main-page-content — блок контента главной страницы
+   auto layout vertical; height: hug (min 405); align: центр
+   gap 32; padding 50|16; без fill
+   ------------------------------------------------------------ */
+.main-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* выравнивание по центру */
+  justify-content: flex-start;
+  height: fit-content; /* hug */
+  min-height: var(--page-content-min-height);
+  gap: var(--main-page-content-gap);
+  padding: var(--main-page-padding-v) var(--main-page-padding-h);
+}
