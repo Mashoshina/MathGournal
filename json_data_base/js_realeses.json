@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rel1",
+    "rel_state": "published",
+    "rel_num": 1,
+    "rel_year": "2026",
+    "rel_date": "2026-06-15",
+    "rel_note": "Первый выпуск 2026 года.",
+    "vols_id": ["vol1"]
+  },
+  {
+    "id": "rel2",
+    "rel_state": "in_work",
+    "rel_num": 2,
+    "rel_year": "2026",
+    "rel_date": "",
+    "rel_note": "Формируется, приём рукописей до 2026-12-01.",
+    "vols_id": ["vol2"]
+  }
+]

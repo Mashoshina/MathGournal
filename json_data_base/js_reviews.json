@@ -1,0 +1,47 @@
+[
+  {
+    "id": "r1",
+    "manusc_id": "m1",
+    "reviewer_id": "u5",
+    "rev_state": "accepted",
+    "rev_date": "2026-03-01",
+    "rev_purpose": "for_authors",
+    "rev_files": ["/files/reviews/r1_for_authors.docx"]
+  },
+  {
+    "id": "r2",
+    "manusc_id": "m1",
+    "reviewer_id": "u5",
+    "rev_state": "accepted",
+    "rev_date": "2026-03-01",
+    "rev_purpose": "for_editors",
+    "rev_files": ["/files/reviews/r2_for_editors.pdf"]
+  },
+  {
+    "id": "r3",
+    "manusc_id": "m2",
+    "reviewer_id": "u6",
+    "rev_state": "in_work",
+    "rev_date": "2026-06-01",
+    "rev_purpose": "for_authors",
+    "rev_files": []
+  },
+  {
+    "id": "r4",
+    "manusc_id": "m4",
+    "reviewer_id": "u5",
+    "rev_state": "accepted",
+    "rev_date": "2026-04-02",
+    "rev_purpose": "for_authors",
+    "rev_files": ["/files/reviews/r4_for_authors.pdf"]
+  },
+  {
+    "id": "r5",
+    "manusc_id": "m2",
+    "reviewer_id": "u6",
+    "rev_state": "declined",
+    "rev_date": "2026-05-20",
+    "rev_purpose": "for_editors",
+    "rev_files": ["/files/reviews/r5_for_editors.docx"]
+  }
+]

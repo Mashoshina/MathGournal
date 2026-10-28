@@ -7,6 +7,8 @@
 @import './new_text_styles.css';
 @import './button_tokens.css';
 @import './buttons.css';
+@import './form_tokens.css';
+@import './new_forms.css';
 
 body {
   font-family: var(--font-main);

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "vol1",
+    "vol_num": 1,
+    "rel_id": "rel1",
+    "manuscs_id": ["m1", "m4"],
+    "vol_sections": ["math", "physic"]
+  },
+  {
+    "id": "vol2",
+    "vol_num": 2,
+    "rel_id": "rel2",
+    "manuscs_id": [],
+    "vol_sections": []
+  }
+]

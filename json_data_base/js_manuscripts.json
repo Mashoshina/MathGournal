@@ -1,0 +1,168 @@
+[
+  {
+    "id": "m1",
+    "manusc_state": "publish",
+    "manusc_date": "2026-06-15",
+    "manusc_authors_id": ["u7", "u8"],
+    "manusc_version": 2,
+    "manusc_title": "Многопараметрический функционал для оценки поворота и перемещения в задаче регистрации облака точек",
+    "manusc_section": "math",
+    "manusc_annotation": "Статья посвящена разработке многопараметрического функционала качества для задачи регистрации 3D-облаков точек. Предлагаемый подход позволяет совместно и оптимально вычислять матрицу поворота и вектор перемещения, обеспечивая высокую точность сопоставления и робастность к зашумлённым данным и частичным перекрытиям облаков.",
+    "manusc_key_words": [
+      "ICP-алгоритм",
+      "3D",
+      "SLAM",
+      "пространственная трансформация",
+      "оптимизационные методы"
+    ],
+    "manusc_files": ["/files/manuscripts/m1_v2.tex", "/files/manuscripts/m1_v2.docx"],
+    "manusc_cover_letters": ["/files/manuscripts/m1_letter.pdf"],
+    "manusc_cover": "/files/manuscripts/m1_cover.png",
+    "manusc_literature": [
+      "Besl P., McKay N. D. A method for registration of 3-D shapes // IEEE TPAMI. — 1992. — V. 14, № 2.",
+      "Rusinkiewicz S., Levoy M. Efficient variants of the ICP algorithm // 3DIM. — 2001."
+    ],
+    "manusc_gratitude": [
+      "Российский фонд базовых исследований",
+      "Кафедра математической кибернетики ВМК МГУ"
+    ],
+    "manusc_note": "",
+    "reviewers_invited": ["u5", "u6"],
+    "reviewers_accept": ["u5"],
+    "reviewers_declined": ["u6"],
+    "reviews": ["r1", "r2"],
+    "editors": ["u3"],
+    "events": [
+      { "version": 1, "event": "Рукопись подана", "user": "u7", "date": "2026-02-12" },
+      {
+        "version": 1,
+        "event": "Главный редактор Владимир Фёдоров назначен ответственным",
+        "user": "u1",
+        "date": "2026-02-12"
+      },
+      {
+        "version": 1,
+        "event": "Приглашение на рецензию отправлено",
+        "user": "u3",
+        "date": "2026-02-14"
+      },
+      { "version": 1, "event": "Рецензия отправлена", "user": "u5", "date": "2026-03-01" },
+      {
+        "version": 2,
+        "event": "Изменены поля рукописи (версия обновлена)",
+        "user": "u7",
+        "date": "2026-04-20"
+      },
+      { "version": 2, "event": "Рукопись опубликована", "user": "u2", "date": "2026-06-15" }
+    ]
+  },
+  {
+    "id": "m2",
+    "manusc_state": "in_work",
+    "manusc_date": "2026-05-03",
+    "manusc_authors_id": ["u8"],
+    "manusc_version": 1,
+    "manusc_title": "Численное моделирование динамики многофазных сред методом частиц",
+    "manusc_section": "dyn_multi_media",
+    "manusc_annotation": "Рассматривается SPH-подобный метод частиц для моделирования взаимодействия газовой и жидкой фаз. Приведены результаты тестовых задач и оценка сходимости.",
+    "manusc_key_words": ["SPH", "многофазные среды", "численное моделирование"],
+    "manusc_files": ["/files/manuscripts/m2_v1.docx"],
+    "manusc_cover_letters": [],
+    "manusc_cover": "",
+    "manusc_literature": [
+      "Monaghan J. J. Smoothed particle hydrodynamics // Reports on Progress in Physics. — 1992."
+    ],
+    "manusc_gratitude": [],
+    "manusc_note": "Ожидается вторая рецензия.",
+    "reviewers_invited": ["u6"],
+    "reviewers_accept": ["u6"],
+    "reviewers_declined": [],
+    "reviews": ["r3"],
+    "editors": ["u3", "u4"],
+    "events": [
+      { "version": 1, "event": "Рукопись подана", "user": "u8", "date": "2026-05-03" },
+      { "version": 1, "event": "Назначены редакторы", "user": "u2", "date": "2026-05-05" }
+    ]
+  },
+  {
+    "id": "m3",
+    "manusc_state": "declined",
+    "manusc_date": "2026-04-10",
+    "manusc_authors_id": ["u7"],
+    "manusc_version": 1,
+    "manusc_title": "Обзор алгоритмов квантовой оптимизации для задач планирования",
+    "manusc_section": "it",
+    "manusc_annotation": "Обзорная статья по применению квантовых отжигателей и QAOA к задачам дискретной оптимизации.",
+    "manusc_key_words": ["квантовые вычисления", "QAOA", "оптимизация"],
+    "manusc_files": ["/files/manuscripts/m3_v1.pdf"],
+    "manusc_cover_letters": ["/files/manuscripts/m3_letter.pdf"],
+    "manusc_cover": "",
+    "manusc_literature": [],
+    "manusc_gratitude": [],
+    "manusc_note": "Отклонена: тема не соответствует профилю журнала.",
+    "reviewers_invited": ["u5"],
+    "reviewers_accept": [],
+    "reviewers_declined": ["u5"],
+    "reviews": [],
+    "editors": ["u3"],
+    "events": [
+      { "version": 1, "event": "Рукопись подана", "user": "u7", "date": "2026-03-25" },
+      { "version": 1, "event": "Рукопись отклонена", "user": "u2", "date": "2026-04-10" }
+    ]
+  },
+  {
+    "id": "m4",
+    "manusc_state": "publish",
+    "manusc_date": "2026-06-15",
+    "manusc_authors_id": ["u8", "u7"],
+    "manusc_version": 1,
+    "manusc_title": "Метод сжатия гауссовых сценографических представлений",
+    "manusc_section": "physic",
+    "manusc_annotation": "Предложен метод аппроксимации гауссовых смесей, позволяющий сократить число компонент без потери точности рендеринга.",
+    "manusc_key_words": ["гауссовы смеси", "сжатие", "рендеринг"],
+    "manusc_files": ["/files/manuscripts/m4_v1.tex"],
+    "manusc_cover_letters": [],
+    "manusc_cover": "/files/manuscripts/m4_cover.png",
+    "manusc_literature": [
+      "Kerbl B. et al. 3D Gaussian Splatting for Real-Time Radiance Field Rendering // SIGGRAPH. — 2023."
+    ],
+    "manusc_gratitude": [],
+    "manusc_note": "",
+    "reviewers_invited": ["u5"],
+    "reviewers_accept": ["u5"],
+    "reviewers_declined": [],
+    "reviews": ["r4"],
+    "editors": ["u4"],
+    "events": [
+      { "version": 1, "event": "Рукопись подана", "user": "u8", "date": "2026-02-28" },
+      { "version": 1, "event": "Рецензия принята", "user": "u4", "date": "2026-04-02" },
+      { "version": 1, "event": "Рукопись опубликована", "user": "u2", "date": "2026-06-15" }
+    ]
+  },
+  {
+    "id": "m5",
+    "manusc_state": "deleted",
+    "manusc_date": "2026-01-20",
+    "manusc_authors_id": ["u7"],
+    "manusc_version": 1,
+    "manusc_title": "Черновик: заметки по теории групп",
+    "manusc_section": "math",
+    "manusc_annotation": "Удалённый черновик.",
+    "manusc_key_words": [],
+    "manusc_files": [],
+    "manusc_cover_letters": [],
+    "manusc_cover": "",
+    "manusc_literature": [],
+    "manusc_gratitude": [],
+    "manusc_note": "Удалена автором до подачи.",
+    "reviewers_invited": [],
+    "reviewers_accept": [],
+    "reviewers_declined": [],
+    "reviews": [],
+    "editors": [],
+    "events": [
+      { "version": 1, "event": "Черновик создан", "user": "u7", "date": "2026-01-18" },
+      { "version": 1, "event": "Рукопись удалена", "user": "u7", "date": "2026-01-20" }
+    ]
+  }
+]
