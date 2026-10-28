@@ -3,7 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const dir = 'src/json_data_base'
+const dir = 'json_data_base'
 const prefix = 'js_' // только файлы вида js_<сущность>.json попадают в базу
 const db = {}
 
