@@ -1,6 +1,6 @@
 <!-------------------------------------------
               FOOTER
-  Адаптивный компонент подвала (desktop / mobile).
+  Адаптивный переиспользуемый компонент подвала (desktop / mobile).
 
   Точки адаптивности:
   
@@ -11,9 +11,6 @@
     .main    — фиолетовая тема   (--purple-main)
     .editor  — красная тема      (--red-editor)
     .review  — зелёная тема      (--green-review)
-
-  Зависимости: color_tokens.css, new_text_styles.css
-  (текст внутри набирается классами basic-text-bold / text-h2 / hyperlinks)
 --------------------------------------------->
 
 <script setup>

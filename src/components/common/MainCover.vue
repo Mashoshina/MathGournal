@@ -1,12 +1,10 @@
 <!-------------------------------------------
-              COVER (review / editor)
-  Адаптивный компонент обложки (desktop / mobile).
+              MAIN COVER
+  Адаптивный переиспользуемый компонент обложки главной страницы (desktop / mobile).
 
   Точки адаптивности:
     desktop : min-width 769px
     mobile  : max-width 768px
-
-  Зависимости: color_tokens.css, new_text_styles.css, new_buttons.css
 --------------------------------------------->
 
 <script setup>

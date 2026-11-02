@@ -1,3 +1,7 @@
+<!-------------------------------------------
+            ТЕСТОВАЯ СТРАНИЦА
+--------------------------------------------->
+
 <script setup>
 import SiteHat from '@/components/common/SiteHat.vue'
 import SiteFooter from '@/components/common/SiteFooter.vue'

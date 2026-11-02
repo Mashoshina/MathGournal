@@ -1,6 +1,6 @@
 <!-------------------------------------------
               HAT
-  Адаптивный компонент шапки (desktop / mobile).
+  Адаптивный переиспользуемый компонент шапки (desktop / mobile).
 
   Точки адаптивности:
     desktop : min-width 769px
@@ -10,9 +10,6 @@
     .main    — фиолетовая тема   (--purple-main)
     .editor  — красная тема      (--red-editor)
     .review  — зелёная тема      (--green-review)
-
-  Зависимости: color_tokens.css, new_text_styles.css, new_buttons.css
-  (текст внутри набирается классами basic-text-bold / text-h3 / text-buttons / basic-bold-text)
 --------------------------------------------->
 
 <script setup>
