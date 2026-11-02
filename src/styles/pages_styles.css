@@ -1,0 +1,145 @@
+/*-------------------------------------------
+              PAGES STYLES
+  Стили оформления страниц в целом (desktop / mobile).
+
+  Точки адаптивности:
+    desktop : min-width 769px
+    mobile  : max-width 768px
+
+  Классы:
+    .main-page-central-body      — центральная часть главной страницы
+    .main-page-body              — body главной страницы
+    .reviewer-editor-page-body   — body страниц рецензента/редактора (desktop only)
+    .common-page                 — общий шаблон остальных страниц
+
+  Зависимости: color_tokens.css (var(--primary-gray), var(--gray-second))
+---------------------------------------------*/
+
+/* Базовые токены шаблона страниц */
+:root {
+  --page-fill: transparent; /* fill: none по умолчанию */
+  --page-gap: 16px; /* gap для main-page-central-body (desktop) */
+  --common-page-gap: 48px; /* gap для common-page (desktop) */
+}
+
+/*-------------------------------------------
+        1) MAIN-PAGE-CENTRAL-BODY
+  Универсальная центральная часть главной страницы.
+  padding: none | fill: none
+  gap: desktop 16px ; mobile 8px
+  width: адаптируется под устройство (100% от родителя)
+  height: «обнимает» содержимое
+  flow: vertical
+---------------------------------------------*/
+.main-page-central-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: var(--page-gap);
+  padding: 0;
+  background: var(--page-fill);
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+}
+
+/*-------------------------------------------
+           2) MAIN-PAGE-BODY
+  Оболочка body главной страницы.
+  padding: none
+  gap: 2px (одинаков на desktop и mobile)
+  width: адаптируется под устройство (100%)
+  height: «обнимает» содержимое
+  flow: vertical
+---------------------------------------------*/
+.main-page-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 2px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+}
+
+/*-------------------------------------------
+       3) REVIEWER-EDITOR-PAGE-BODY
+  Оболочка body страниц редактора и рецензента.
+  Доступна только с десктопных устройств.
+  padding: none | fill: none
+  gap: -120px (элементы перекрываются,
+               верхние блоки «наезжают» на нижние)
+  width: заполняет viewport (desktop)
+  height: «обнимает» содержимое
+  flow: vertical
+---------------------------------------------*/
+.reviewer-editor-page-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: -120px;
+  padding: 0;
+  margin: 0;
+  background: var(--page-fill);
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+}
+
+/* Страницы редактора/рецензента — только desktop:
+   на мобильных устройствах оболочка не отображается. */
+@media (max-width: 768px) {
+  .reviewer-editor-page-body {
+    display: none;
+  }
+}
+
+/*-------------------------------------------
+             4) COMMON-PAGE
+  Общий шаблон остальных страниц (вход, регистрация
+  и т.д.).
+  padding: none | fill: gray (--primary-gray)
+  gap: desktop 48px ; mobile 24px
+  width: адаптируется под устройство (100%)
+  height: «обнимает» содержимое
+  flow: vertical
+---------------------------------------------*/
+.common-page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: var(--common-page-gap);
+  padding: 0;
+  margin: 0;
+  background: var(--primary-gray);
+  width: 100%;
+  min-height: 100vh;
+  height: fit-content;
+  box-sizing: border-box;
+}
+
+/*-------------------------------------------
+          RESPONSIVE: DESKTOP (>= 769px)
+---------------------------------------------*/
+@media (min-width: 769px) {
+  :root {
+    --page-gap: 16px;
+    --common-page-gap: 48px;
+  }
+}
+
+/*-------------------------------------------
+           RESPONSIVE: MOBILE (<= 768px)
+---------------------------------------------*/
+@media (max-width: 768px) {
+  :root {
+    --page-gap: 8px;
+    --common-page-gap: 24px;
+  }
+}

@@ -1,70 +1,166 @@
+/*-------------------------------------------
+              NEW TEXT STYLES
+  Адаптивные текстовые стили (desktop / mobile).
+
+  Точки адаптивности:
+    desktop : min-width 769px
+    mobile  : max-width 768px
+
+  Шрифты: Lora (заголовки), Roboto (базовый текст и ссылки)
+
+  Зависимости: color_tokens.css — должен быть подключён раньше этого файла
+  (в нём определены базовые цвета и тематические переключатели
+   .theme-main / .theme-editor / .theme-reviewer)
+---------------------------------------------*/
+
+/* Базовые токены, используемые текстовыми стилями */
+:root {
+  --text-black: #000000; /* фиксированный цвет текста */
+  --theme-color: var(--purple-main); /* по умолчанию — тема главной страницы */
+}
+
+/*-------------------------------------------
+            HEADERS AND TITLES
+---------------------------------------------*/
+
+/*-------- text-h1: Lora, 700, black; desktop 32px / mobile 16px --------*/
 .text-h1 {
-  font-family: var(--font-Lora);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--text-h1);
-  line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-normal);
-  text-indent: var(--text-indent);
-  color: black;
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  color: var(--text-black);
 }
 
+/*-------- text-h2: Lora, 600, black; desktop 24px / mobile 16px --------*/
 .text-h2 {
-  font-family: var(--font-Lora);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--text-h2);
-  line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-normal);
-  text-indent: var(--text-indent);
-  color: black;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  color: var(--text-black);
 }
 
+/*-------- text-h3: Lora, 400, black; desktop 14px / mobile 12px --------*/
 .text-h3 {
-  font-family: var(--font-Lora);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--text-h3);
-  line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-normal);
-  text-indent: var(--text-indent);
-  color: black;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  color: var(--text-black);
 }
 
+/*-------------------------------------------
+                BASIC TEXT
+---------------------------------------------*/
+
+/*-------- basic-text-bold: Roboto, 600, black; desktop 16px / mobile 14px --------*/
 .basic-text-bold {
-  font-family: var(--font-Roboto);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--text-body);
-  line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-normal);
-  text-indent: var(--text-indent);
-  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  color: var(--text-black);
 }
 
+/*-------- basic-text: Roboto, 400, black; desktop 16px / mobile 14px --------*/
 .basic-text {
-  font-family: var(--font-Roboto);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--text-body);
-  line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-normal);
-  text-indent: var(--text-indent);
-  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: var(--text-black);
 }
 
+/*-------- small-text: Roboto, 400, black; desktop 12px / mobile 8px --------*/
 .small-text {
-  font-family: var(--font-Roboto);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--text-body-sm);
-  line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-normal);
-  text-indent: var(--text-indent);
-  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: var(--text-black);
 }
 
-.hyperlink {
-  font-family: var(--font-Roboto);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--text-body);
-  line-height: var(--line-height-normal);
-  letter-spacing: var(--letter-spacing-normal);
-  text-indent: var(--text-indent);
+/*-------------------------------------------
+               HYPERLINKS
+  Цвет зависит от тематики страницы
+  (.theme-main / .theme-editor / .theme-reviewer)
+---------------------------------------------*/
+.hyperlinks {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: var(--theme-color);
+  cursor: pointer;
   text-decoration: underline;
-  text-underline-offset: 2px;
+}
+
+.hyperlinks:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Явные тематические модификаторы (если тема не задана на контейнере) */
+.hyperlinks.main {
+  color: var(--purple-main);
+}
+
+.hyperlinks.editor {
+  color: var(--red-editor);
+}
+
+.hyperlinks.reviewer {
+  color: var(--green-review);
+}
+
+/*-------------------------------------------
+          RESPONSIVE: DESKTOP (>= 769px)
+---------------------------------------------*/
+@media (min-width: 769px) {
+  .text-h1 {
+    font-size: 32px;
+  }
+
+  .text-h2 {
+    font-size: 24px;
+  }
+
+  .text-h3 {
+    font-size: 14px;
+  }
+
+  .basic-text-bold {
+    font-size: 16px;
+  }
+
+  .basic-text {
+    font-size: 16px;
+  }
+
+  .small-text {
+    font-size: 12px;
+  }
+
+  .hyperlinks {
+    font-size: 16px;
+  }
+}
+
+/*-------------------------------------------
+           RESPONSIVE: MOBILE (<= 768px)
+---------------------------------------------*/
+@media (max-width: 768px) {
+  .text-h1 {
+    font-size: 16px;
+  }
+
+  .text-h2 {
+    font-size: 16px;
+  }
+
+  .text-h3 {
+    font-size: 12px;
+  }
+
+  .basic-text-bold {
+    font-size: 12px;
+  }
+
+  .basic-text {
+    font-size: 12px;
+  }
+
+  .small-text {
+    font-size: 8px;
+  }
+
+  .hyperlinks {
+    font-size: 12px;
+  }
 }

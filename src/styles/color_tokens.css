@@ -1,3 +1,10 @@
+/*-------------------------------------------
+            COLOR TOKENS
+  Тематические токены цветов для трёх типов страниц:
+  - главная страница   (main / purple)
+  - страница редактора (editor / red)
+  - страница рецензента (reviewer / green)
+---------------------------------------------*/
 :root {
   /*basic colours*/
   --primary-gray: #f5f5f5;
@@ -22,4 +29,35 @@
   --black-green: #114c32;
   --soft-green: #c6f0cc;
   --green-gradient: linear-gradient(150deg, #086640, #114c32);
+}
+
+/*-------------------------------------------
+        ТЕМАТИЧЕСКИЕ ПЕРЕКЛЮЧАТЕЛИ
+  Вешаются на контейнер страницы (body или корневой div),
+  чтобы тематические стили (например, гиперссылки)
+  автоматически брали нужный цвет.
+---------------------------------------------*/
+
+/* Главная страница — фиолетовая тема */
+.theme-main {
+  --theme-color: var(--purple-main);
+  --theme-color-dark: var(--black-purple);
+  --theme-color-soft: var(--soft-purple);
+  --theme-gradient: var(--purple-gradient);
+}
+
+/* Страница редактора — красная тема */
+.theme-editor {
+  --theme-color: var(--red-editor);
+  --theme-color-dark: var(--black-red);
+  --theme-color-soft: var(--soft-red);
+  --theme-gradient: var(--red-gradient);
+}
+
+/* Страница рецензента — зелёная тема */
+.theme-reviewer {
+  --theme-color: var(--green-review);
+  --theme-color-dark: var(--black-green);
+  --theme-color-soft: var(--soft-green);
+  --theme-gradient: var(--green-gradient);
 }

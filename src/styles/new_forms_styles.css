@@ -1,0 +1,618 @@
+/*-------------------------------------------
+              NEW FORMS / CONTAINER STYLES
+  Стили контейнеров и интерактивных форм (desktop / mobile).
+
+  Точки адаптивности (совпадают с new_text_styles.css
+  и new_buttons_styles.css):
+    desktop : min-width 769px
+    mobile  : max-width 768px
+
+  Контейнеры:
+    .content-block-vertical        — вертикальный блок контента
+    .content-block-horizontal      — горизонтальный блок контента (с переносом строк)
+    .enter-register-form           — формы входа / регистрации / смены пароля
+    .overlay-form                  — формы на оверлее (со скроллом при переполнении)
+    .space-between-form            — горизонтальный блок с равным распределением
+    .scroll-container              — независимо скроллящийся контейнер
+    .content-container             — контент страниц редактора/рецензента (desktop only)
+    .main-page-content-container   — контент главной страницы
+
+  Интерактивные формы:
+    .enter-box                     — стандартное поле ввода (1 строка)
+    .manuscripts-cards-header      — заголовок превью карточек рукописи (desktop only)
+    .manuscripts-card              — превью карточки рукописи (desktop only)
+    .interactive-card              — мини-карточка выбора автора/редактора/рецензента
+
+  Зависимости: color_tokens.css, new_text_styles.css
+  Тематические подварианты берутся из переключателей
+  .theme-main / .theme-editor / .theme-reviewer, а также
+  явных классов .main / .editor / .review на самом элементе.
+---------------------------------------------*/
+
+/*-------------------------------------------
+        ТОКЕНЫ И БАЗОВЫЕ НАСТРОЙКИ
+---------------------------------------------*/
+:root {
+  --form-white: #ffffff;
+  --form-black: #000000;
+  --form-stroke: var(--gray-second); /* обводки контейнеров: 2px gray-second */
+  --form-shadow: 0 4px 0 rgba(0, 0, 0, 0.25); /* drop shadow y=4 x=0 black 25% */
+
+  /* Тема для тематических форм (по умолчанию — главная страница) */
+  --form-theme: var(--purple-main);
+  --form-theme-soft: var(--soft-purple);
+
+  /* Адаптивные токены контейнеров (значения по умолчанию = desktop).
+     В @media-блоках они переопределяются, поэтому вложенные
+     content-block'и всегда наследуют актуальные значения. */
+  --block-gap: 16px;
+
+  --container-padding-y: 16px;
+  --container-padding-x: 32px;
+  --container-radius: 24px;
+  --container-max-width: 800px;
+
+  --overlay-max-height: 900px;
+
+  --scroll-padding: 16px;
+  --scroll-radius: 12px;
+  --scroll-max-height: 1080px;
+
+  --main-page-padding-y: 16px;
+  --main-page-padding-x: 50px;
+
+  --enter-box-height: 200px;
+}
+
+/*-------------------------------------------
+       1) CONTENT-BLOCK-VERTICAL
+  Универсальный вертикальный блок контента.
+  padding: none | fill: none
+  width: заполняет родителя (в пределах его padding)
+  height: «обнимает» содержимое
+  alignment: align top left | flow: vertical
+---------------------------------------------*/
+.content-block-vertical {
+  display: flex;
+  flex-direction: column; /* flow: vertical */
+  flex-wrap: nowrap;
+  align-items: flex-start; /* align left (кроссовая ось) */
+  justify-content: flex-start; /* align top */
+  gap: var(--block-gap);
+  padding: 0;
+  background: transparent; /* fill: none */
+  width: 100%;
+  height: fit-content;
+}
+
+/*-------------------------------------------
+       2) CONTENT-BLOCK-HORIZONTAL
+  Универсальный горизонтальный блок контента.
+  padding: none | fill: none
+  width: заполняет родителя (в пределах его padding)
+  height: «обнимает» содержимое; при нехватке места
+          контент переносится в следующую строку
+  alignment: align left | flow: horizontal
+---------------------------------------------*/
+.content-block-horizontal {
+  display: flex;
+  flex-direction: row; /* flow: horizontal */
+  flex-wrap: wrap; /* перенос содержимого при сужении экрана */
+  align-items: center; /* align left по основной оси */
+  justify-content: flex-start;
+  gap: var(--block-gap);
+  padding: 0;
+  background: transparent; /* fill: none */
+  width: 100%;
+  height: fit-content;
+}
+
+/*-------------------------------------------
+       3) ENTER-REGISTER-FORM
+  Формы входа, регистрации, изменения пароля.
+  padding: desktop 16 | 32 ; mobile 16 | 8
+  gap: desktop 16 ; mobile 12
+  fill: white | shadow: drop y=4 x=0 black 25%
+  radius: desktop 24 ; mobile 12
+  width: заполняет родителя, max 800px (desktop) / вся доступная ширина (mobile)
+  height: «обнимает» содержимое
+  alignment: align top left | flow: vertical
+---------------------------------------------*/
+.enter-register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--block-gap);
+  padding: var(--container-padding-y) var(--container-padding-x);
+  background: var(--form-white);
+  box-shadow: var(--form-shadow);
+  border-radius: var(--container-radius);
+  width: 100%;
+  max-width: var(--container-max-width);
+  height: fit-content;
+  margin: 0 auto; /* центрирование внутри родительского контейнера */
+}
+
+/* На мобильных форма занимает всю доступную ширину без ограничения */
+@media (max-width: 768px) {
+  .enter-register-form {
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+/*-------------------------------------------
+            4) OVERLAY-FORM
+  Формы, всплывающие на оверлее.
+  padding: desktop 16 | 32 ; mobile 16 | 8
+  gap: desktop 16 ; mobile 12
+  fill: white | stroke: 2px gray-second
+  radius: desktop 24 ; mobile 12
+  width: заполняет родителя, max 800px (desktop) / 300px (mobile)
+  height: «обнимает» содержимое, max 900px (desktop) / 400px (mobile),
+          при переполнении — вертикальный scroll
+  alignment: align top left | flow: vertical
+---------------------------------------------*/
+.overlay-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--block-gap);
+  padding: var(--container-padding-y) var(--container-padding-x);
+  background: var(--form-white);
+  border: 2px solid var(--form-stroke);
+  border-radius: var(--container-radius);
+  width: 100%;
+  max-width: var(--container-max-width);
+  height: fit-content;
+  max-height: var(--overlay-max-height);
+  overflow-y: auto; /* вертикальный скролл, если контент не помещается */
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .overlay-form {
+    max-width: 300px;
+  }
+}
+
+/* Тонкая полоса прокрутки для содержимого оверлей-форм */
+.overlay-form::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overlay-form::-webkit-scrollbar-thumb {
+  background: var(--gray-third);
+  border-radius: 3px;
+}
+
+/*-------------------------------------------
+        5) SPACE-BETWEEN-FORM
+  Горизонтальный блок с равномерным распределением
+  внутренних элементов (justify-content: space-between).
+  padding: none | gap: auto
+  fill: none
+  radius: desktop 24 ; mobile 12
+  width: заполняет родителя ; height: «обнимает» содержимое
+  alignment: align left | flow: horizontal
+---------------------------------------------*/
+.space-between-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; /* равномерное распределение блоков */
+  gap: normal; /* gap: auto — расстояние определяется распределением */
+  padding: 0;
+  background: transparent;
+  border-radius: var(--container-radius);
+  width: 100%;
+  height: fit-content;
+}
+
+/*-------------------------------------------
+          6) SCROLL-CONTAINER
+  Контейнер со независимой вертикальной прокруткой.
+  padding: desktop 16 | 16 ; mobile 8 | 8
+  gap: desktop 16 ; mobile 12
+  fill: none | stroke: 2px gray-second
+  radius: desktop 12 ; mobile 6
+  width: заполняет родителя ; height: «обнимает» содержимое,
+         max 1080px (desktop) / 400px (mobile)
+  alignment: align top center | flow: vertical
+---------------------------------------------*/
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* align center по кроссовой оси */
+  justify-content: flex-start; /* align top */
+  gap: var(--block-gap);
+  padding: var(--scroll-padding);
+  background: transparent;
+  border: 2px solid var(--form-stroke);
+  border-radius: var(--scroll-radius);
+  width: 100%;
+  height: fit-content;
+  max-height: var(--scroll-max-height);
+  overflow-y: auto; /* независимый вертикальный скролл */
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: var(--gray-third);
+  border-radius: 4px;
+}
+
+/*-------------------------------------------
+        7) CONTENT-CONTAINER
+  Контент страниц редактора и рецензента
+  (доступен только с десктопных устройств).
+  padding: 32 | 32 | gap: 16 | radius: 24
+  fill: white | shadow: drop y=4 x=0 black 25%
+  width: 1200–1340px ; height: «обнимает» содержимое, min 400px
+  alignment: align top left | flow: vertical
+---------------------------------------------*/
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 32px;
+  background: var(--form-white);
+  box-shadow: var(--form-shadow);
+  border-radius: 24px;
+  width: 100%;
+  min-width: 1200px;
+  max-width: 1340px;
+  height: fit-content;
+  min-height: 400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Страницы редактора/рецензента — только desktop:
+   на мобильных контейнер скрыт. */
+@media (max-width: 768px) {
+  .content-container {
+    display: none;
+  }
+}
+
+/*-------------------------------------------
+      8) MAIN-PAGE-CONTENT-CONTAINER
+  Контейнер контента главной страницы.
+  padding: desktop 16 | 50 ; mobile 8 | 25
+  gap: desktop 16 ; mobile 12
+  fill: none
+  width: заполняет родителя ; height: «обнимает» содержимое
+  alignment: align top left | flow: vertical
+---------------------------------------------*/
+.main-page-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--block-gap);
+  padding: var(--main-page-padding-y) var(--main-page-padding-x);
+  background: transparent;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+}
+
+/*===========================================
+          ИНТЕРАКТИВНЫЕ ФОРМЫ
+==========================================*/
+
+/*-------------------------------------------
+        9) ENTER-BOX
+  Стандартное поле ввода (одна строка).
+  Ширина умещается в контейнер с учётом его padding,
+  высота: desktop 200px ; mobile 100px.
+---------------------------------------------*/
+.enter-box {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: var(--enter-box-height);
+  box-sizing: border-box;
+  padding: 8px 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--form-black);
+  background: var(--form-white);
+  border: 2px solid var(--form-stroke);
+  border-radius: 8px;
+  outline: none;
+  resize: none; /* одна строка — ресайз запрещён */
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.enter-box::placeholder {
+  color: var(--gray-third);
+}
+
+.enter-box:hover {
+  border-color: var(--gray-third);
+}
+
+.enter-box:focus,
+.enter-box:focus-visible {
+  border-color: var(--form-theme);
+  box-shadow: 0 0 0 2px var(--form-theme-soft);
+}
+
+/* Состояние ошибки валидации */
+.enter-box.error,
+.enter-box.is-error {
+  border-color: var(--red-error);
+}
+
+.enter-box.error:focus,
+.enter-box.is-error:focus {
+  box-shadow: 0 0 0 2px rgba(180, 14, 14, 0.25);
+}
+
+/*-------------------------------------------
+     10) MANUSCRIPTS-CARDS-HEADER
+  Заголовок превью карточек рукописи
+  (страницы редактора и рецензента, desktop only).
+  padding: 8 | 16 | gap: 16 | radius: 12
+  fill: soft-red (editor) / soft-green (review)
+  text: basic-text-bold
+  text-color: red-editor / green-review
+  width: заполняет родителя ; height: «обнимает» содержимое
+  alignment: align left | flow: horizontal
+---------------------------------------------*/
+.manuscripts-cards-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+
+  /* Дефолт — тема страницы редактора */
+  background: var(--soft-red);
+  color: var(--red-editor);
+}
+
+.manuscripts-cards-header .basic-text-bold,
+.manuscripts-cards-header > * {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* Явные тематические модификаторы */
+.manuscripts-cards-header.editor {
+  background: var(--soft-red);
+  color: var(--red-editor);
+}
+
+.manuscripts-cards-header.review,
+.manuscripts-cards-header.reviewer {
+  background: var(--soft-green);
+  color: var(--green-review);
+}
+
+/* Тема, приходящая от контейнера страницы */
+.theme-editor .manuscripts-cards-header {
+  background: var(--soft-red);
+  color: var(--red-editor);
+}
+
+.theme-reviewer .manuscripts-cards-header,
+.theme-review .manuscripts-cards-header {
+  background: var(--soft-green);
+  color: var(--green-review);
+}
+
+/*-------------------------------------------
+        11) MANUSCRIPTS-CARD
+  Превью карточки рукописи (desktop only).
+  padding: 12 | 24 | gap: 16 | radius: 12
+  fill: white | stroke: 2px gray
+  width: заполняет родителя ; height: «обнимает» содержимое
+  alignment: align top left | flow: vertical
+  hover: тень под карточкой
+---------------------------------------------*/
+.manuscripts-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 12px 24px;
+  background: var(--form-white);
+  border: 2px solid var(--gray-third);
+  border-radius: 12px;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  box-shadow: none;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.manuscripts-card:hover {
+  box-shadow: var(--form-shadow); /* тень под карточкой при наведении */
+}
+
+/*-------------------------------------------
+        12) INTERACTIVE-CARD
+  Мини-карточки выбора авторов / редакторов / рецензентов.
+  padding: 16 | 16 | gap: 16 | radius: 12
+  fill: white | stroke: 2px gray
+  width: заполняет родителя ; height: «обнимает» содержимое
+  alignment: align top left | flow: vertical
+  hover: тень под карточкой
+  selected (единичное нажатие): stroke цвета темы страницы
+---------------------------------------------*/
+.interactive-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: var(--form-white);
+  border: 2px solid var(--gray-third);
+  border-radius: 12px;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: none;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.interactive-card:hover {
+  box-shadow: var(--form-shadow); /* тень под карточкой при наведении */
+}
+
+/* Выбранное состояние — обводка цвета темы страницы */
+.interactive-card.selected,
+.interactive-card.is-selected,
+.interactive-card[aria-pressed='true'] {
+  border-color: var(--form-theme);
+}
+
+/* Явные тематические модификаторы выбранной карточки */
+.interactive-card.selected.editor,
+.interactive-card.is-selected.editor {
+  border-color: var(--red-editor);
+}
+
+.interactive-card.selected.review,
+.interactive-card.selected.reviewer,
+.interactive-card.is-selected.review,
+.interactive-card.is-selected.reviewer {
+  border-color: var(--green-review);
+}
+
+.interactive-card.selected.main,
+.interactive-card.is-selected.main {
+  border-color: var(--purple-main);
+}
+
+/* Тема, приходящая от контейнера страницы */
+.theme-editor .interactive-card.selected,
+.theme-editor .interactive-card.is-selected {
+  border-color: var(--red-editor);
+}
+
+.theme-reviewer .interactive-card.selected,
+.theme-reviewer .interactive-card.is-selected,
+.theme-review .interactive-card.selected,
+.theme-review .interactive-card.is-selected {
+  border-color: var(--green-review);
+}
+
+.theme-main .interactive-card.selected,
+.theme-main .interactive-card.is-selected {
+  border-color: var(--purple-main);
+}
+
+/*-------------------------------------------
+   ТЕМАТИЧЕСКИЕ ПЕРЕКЛЮЧАТЕЛИ ДЛЯ ФОРМ
+  (передают цвет темы внутрь форм/контейнеров)
+---------------------------------------------*/
+.theme-main {
+  --form-theme: var(--purple-main);
+  --form-theme-soft: var(--soft-purple);
+}
+
+.theme-editor {
+  --form-theme: var(--red-editor);
+  --form-theme-soft: var(--soft-red);
+}
+
+.theme-reviewer,
+.theme-review {
+  --form-theme: var(--green-review);
+  --form-theme-soft: var(--soft-green);
+}
+
+/*-------------------------------------------
+          RESPONSIVE: DESKTOP (>= 769px)
+---------------------------------------------*/
+@media (min-width: 769px) {
+  :root {
+    --block-gap: 16px;
+
+    --container-padding-y: 16px;
+    --container-padding-x: 32px;
+    --container-radius: 24px;
+    --container-max-width: 800px;
+
+    --overlay-max-height: 900px;
+
+    --scroll-padding: 16px;
+    --scroll-radius: 12px;
+    --scroll-max-height: 1080px;
+
+    --main-page-padding-y: 16px;
+    --main-page-padding-x: 50px;
+
+    --enter-box-height: 200px;
+  }
+
+  .enter-box {
+    font-size: 16px;
+  }
+}
+
+/*-------------------------------------------
+           RESPONSIVE: MOBILE (<= 768px)
+---------------------------------------------*/
+@media (max-width: 768px) {
+  :root {
+    --block-gap: 12px;
+
+    --container-padding-y: 16px;
+    --container-padding-x: 8px;
+    --container-radius: 12px;
+    --container-max-width: 100%;
+
+    --overlay-max-height: 400px;
+
+    --scroll-padding: 8px;
+    --scroll-radius: 6px;
+    --scroll-max-height: 400px;
+
+    --main-page-padding-y: 8px;
+    --main-page-padding-x: 25px;
+
+    --enter-box-height: 100px;
+  }
+
+  .enter-box {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}

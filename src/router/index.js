@@ -1,3 +1,7 @@
+/* Файл отвечает за навигацию:
+связывает URL с компонентами, определяет структуру макетов
+и защищает маршруты от неавторизованного доступа. */
+
 import { createRouter, createWebHistory } from 'vue-router'
 import EditorLayout from '../layouts/EditorLayout.vue'
 import TaskView from '../views/TasksView.vue'

@@ -1,0 +1,367 @@
+/*-------------------------------------------
+              NEW BUTTONS STYLES
+  Адаптивные стили кнопок (desktop / mobile).
+
+  Точки адаптивности (совпадают с new_text_styles.css):
+    desktop : min-width 769px
+    mobile  : max-width 768px
+
+  Виды кнопок:
+    .text-button            — текстовая кнопка (без фона, «обнимает» контент)
+    .general-button         — контурная кнопка (белый fill + тематический stroke)
+    .bright-button          — залитая кнопка (тематический fill, белый текст)
+    .navigation-big         — крупная навигационная кнопка (растягивается на контейнер)
+    .navigation-small       — мелкая навигационная кнопка (растягивается на контейнер)
+    .filter-button          — кнопка фильтра (наследует базу general-кнопки)
+
+  Тематические подварианты (кроме navigation-big — она всегда белая на теме):
+    .main    — фиолетовая тема   (--purple-main)
+    .editor  — красная тема      (--red-editor)
+    .review  — зелёная тема      (--green-review)
+
+  Тема также может приходить «сверху» от контейнера страницы:
+  .theme-main / .theme-editor / .theme-reviewer задают --btn-theme
+  в color_tokens.css. Если у кнопки нет явного класса темы, берётся
+  --btn-theme из родителя (по умолчанию — главная тема).
+
+  Зависимости: color_tokens.css, new_text_styles.css
+  (текст внутри кнопок набирается классами basic-text-bold / text-h2)
+---------------------------------------------*/
+
+/*-------------------------------------------
+        ТОКЕНЫ И БАЗОВЫЕ НАСТРОЙКИ
+---------------------------------------------*/
+:root {
+  /* Цвет текущей темы для кнопок; по умолчанию — главная страница */
+  --btn-theme: var(--purple-main);
+  --btn-white: #ffffff;
+  --btn-black: #000000;
+
+  /* Базовый размер иконки внутри кнопки (адаптив см. в @media) */
+  --btn-icon-size: 16px;
+}
+
+/*-------------------------------------------
+           ОБЩИЕ СВОЙСТВА ВСЕХ КНОПОК
+---------------------------------------------*/
+.text-button,
+.general-button,
+.bright-button,
+.navigation-big,
+.navigation-small,
+.filter-button {
+  display: inline-flex;
+  align-items: center; /* alignment: center */
+  justify-content: center;
+  flex-flow: row nowrap; /* flow: horizontal */
+
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+}
+
+/* Контентные кнопки «обнимают» своё содержимое */
+.text-button,
+.general-button,
+.bright-button,
+.filter-button {
+  width: fit-content;
+  height: fit-content;
+}
+
+/* Навигационные кнопки заполняют ширину контейнера, высота — по контенту */
+.navigation-big,
+.navigation-small {
+  width: 100%;
+  height: fit-content;
+}
+
+/*-------------------------------------------
+        ТЕКСТ ВНУТРИ КНОПОК (адаптив)
+  Наследует размеры из new_text_styles.css,
+  поэтому текст в кнопке масштабируется вместе
+  с самим классом текста.
+---------------------------------------------*/
+.text-button .basic-text-bold,
+.general-button .basic-text-bold,
+.bright-button .basic-text-bold,
+.navigation-small .basic-text-bold,
+.filter-button .basic-text-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: inherit; /* цвет берётся из состояния кнопки */
+}
+
+.navigation-big .text-h2 {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: inherit;
+}
+
+/*-------------------------------------------
+        ИКОНКИ ВНУТРИ КНОПОК (svg)
+  Адаптируются под размер текста на устройстве:
+  базовый размер задается переменной --btn-icon-size,
+  вариант .btn-icon--match делает иконку ровно в 1em
+  (т.е. равной кеглю текста внутри кнопки).
+---------------------------------------------*/
+.text-button svg,
+.general-button svg,
+.bright-button svg,
+.navigation-big svg,
+.navigation-small svg,
+.filter-button svg {
+  width: var(--btn-icon-size);
+  height: var(--btn-icon-size);
+  flex-shrink: 0;
+  display: block;
+  fill: currentColor; /* иконка наследует цвет текста кнопки */
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+/* Иконка строго «в тон тексту»: равна font-size кнопки */
+.btn-icon--match {
+  width: 1em;
+  height: 1em;
+}
+
+/*-------------------------------------------
+             1) TEXT-BUTTON
+---------------------------------------------*/
+.text-button {
+  gap: 8px; /* desktop, см. @media */
+  padding: 0;
+  background: transparent;
+  color: var(--btn-black); /* default text color: black */
+}
+
+.text-button:hover,
+.text-button:active,
+.text-button:focus-visible,
+.text-button.is-pressed {
+  color: var(--btn-theme); /* hover/press/click — цвет темы страницы */
+}
+
+/*-------------------------------------------
+            2) GENERAL-BUTTONS
+---------------------------------------------*/
+.general-button {
+  gap: 8px; /* desktop, см. @media */
+  padding: 12px 6px; /* desktop, см. @media */
+  background: var(--btn-white); /* fill: white */
+  color: var(--btn-theme); /* text color: theme */
+  border: 2px solid var(--btn-theme); /* stroke: 2px theme */
+}
+
+.general-button:hover,
+.general-button:active,
+.general-button:focus-visible,
+.general-button.is-pressed {
+  color: var(--btn-white);
+  background: var(--btn-theme); /* fill: theme */
+  border-color: transparent; /* stroke: none */
+}
+
+/*-------------------------------------------
+            3) BRIGHT-BUTTONS
+---------------------------------------------*/
+.bright-button {
+  gap: 8px; /* desktop, см. @media */
+  padding: 12px 6px; /* desktop, см. @media */
+  background: var(--btn-theme); /* fill: theme */
+  color: var(--btn-white); /* text color: white */
+}
+
+.bright-button:hover,
+.bright-button:active,
+.bright-button:focus-visible,
+.bright-button.is-pressed {
+  /* fill: на 15% темнее дефолтного цвета темы */
+  background: color-mix(in srgb, var(--btn-theme) 85%, black 15%);
+  color: var(--btn-white);
+}
+
+/*-------------------------------------------
+        4) NAVIGATION-BUTTONS-BIG
+---------------------------------------------*/
+.navigation-big {
+  gap: 8px; /* desktop, см. @media */
+  padding: 32px 16px; /* desktop, см. @media */
+  background: var(--btn-theme);
+  color: var(--btn-white); /* text color: white */
+  border-bottom: 4px solid transparent; /* default bottom stroke: none */
+}
+
+.navigation-big:hover,
+.navigation-big:active,
+.navigation-big:focus-visible,
+.navigation-big.is-pressed {
+  border-bottom-color: var(--btn-white); /* bottom stroke: 4px white */
+}
+
+/*-------------------------------------------
+        5) NAVIGATION-BUTTONS-SMALL
+---------------------------------------------*/
+.navigation-small {
+  gap: 8px; /* desktop, см. @media */
+  padding: 32px 16px; /* desktop, см. @media */
+  background: transparent;
+  color: var(--btn-black); /* default text color: black */
+  border-bottom: 4px solid transparent; /* default bottom stroke: none */
+}
+
+.navigation-small:hover,
+.navigation-small:active,
+.navigation-small:focus-visible,
+.navigation-small.is-pressed {
+  color: var(--btn-theme);
+  border-bottom-color: var(--btn-theme); /* bottom stroke: 4px theme */
+}
+
+/*-------------------------------------------
+             6) FILTER-BUTTON
+  База = стиль general-кнопки + состояние selected
+---------------------------------------------*/
+.filter-button {
+  gap: 8px; /* desktop, см. @media */
+  padding: 12px 6px; /* desktop, см. @media */
+  background: var(--btn-white);
+  color: var(--btn-theme);
+  border: 2px solid var(--btn-theme);
+}
+
+.filter-button:hover,
+.filter-button:active,
+.filter-button:focus-visible {
+  color: var(--btn-white);
+  background: var(--btn-theme);
+  border-color: transparent;
+}
+
+/* Активный (выбранный) фильтр остаётся «залитым» */
+.filter-button.selected,
+.filter-button[aria-pressed='true'] {
+  color: var(--btn-white);
+  background: var(--btn-theme);
+  border-color: transparent;
+}
+
+/*-------------------------------------------
+        ТЕМАТИЧЕСКИЕ ПОДВАРИАНТЫ ЦВЕТОВ
+  Явные классы на самой кнопке (переопределяют тему контейнера)
+---------------------------------------------*/
+.text-button.main,
+.general-button.main,
+.bright-button.main,
+.navigation-big.main,
+.navigation-small.main,
+.filter-button.main {
+  --btn-theme: var(--purple-main);
+}
+
+.text-button.editor,
+.general-button.editor,
+.bright-button.editor,
+.navigation-big.editor,
+.navigation-small.editor,
+.filter-button.editor {
+  --btn-theme: var(--red-editor);
+}
+
+.text-button.review,
+.text-button.reviewer,
+.general-button.review,
+.general-button.reviewer,
+.bright-button.review,
+.bright-button.reviewer,
+.navigation-big.review,
+.navigation-big.reviewer,
+.navigation-small.review,
+.navigation-small.reviewer,
+.filter-button.review,
+.filter-button.reviewer {
+  --btn-theme: var(--green-review);
+}
+
+/* Тема, приходящая от контейнера страницы (.theme-main/.theme-editor/.theme-reviewer) */
+.theme-main {
+  --btn-theme: var(--purple-main);
+}
+
+.theme-editor {
+  --btn-theme: var(--red-editor);
+}
+
+.theme-reviewer,
+.theme-review {
+  --btn-theme: var(--green-review);
+}
+
+/*-------------------------------------------
+          RESPONSIVE: DESKTOP (>= 769px)
+---------------------------------------------*/
+@media (min-width: 769px) {
+  :root {
+    --btn-icon-size: 16px; /* иконки под текст 16px */
+  }
+
+  .text-button {
+    gap: 8px;
+    padding: 0;
+  }
+
+  .general-button,
+  .bright-button,
+  .filter-button {
+    gap: 8px;
+    padding: 12px 6px;
+  }
+
+  .navigation-big,
+  .navigation-small {
+    gap: 8px;
+    padding: 32px 16px;
+  }
+}
+
+/*-------------------------------------------
+           RESPONSIVE: MOBILE (<= 768px)
+---------------------------------------------*/
+@media (max-width: 768px) {
+  :root {
+    --btn-icon-size: 14px; /* иконки под уменьшенный текст 14px */
+  }
+
+  .text-button {
+    gap: 4px;
+    padding: 0;
+  }
+
+  .general-button,
+  .bright-button,
+  .filter-button {
+    gap: 4px;
+    padding: 8px 4px;
+  }
+
+  .navigation-big,
+  .navigation-small {
+    gap: 4px;
+    padding: 12px 6px;
+  }
+}
