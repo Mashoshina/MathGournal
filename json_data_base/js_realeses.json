@@ -1,20 +1,20 @@
 [
   {
-    "id": "rel1",
-    "rel_state": "published",
+    "id": "rel-0001-r06hj",
+    "rel_state": "publish",
     "rel_num": 1,
-    "rel_year": "2026",
-    "rel_date": "2026-06-15",
-    "rel_note": "Первый выпуск 2026 года.",
-    "vols_id": ["vol1"]
+    "rel_year": "2024",
+    "rel_date": "2024-07-11",
+    "rel_note": "",
+    "vols_id": ["vol-0001-j5lop", "vol-0002-j5ldm"]
   },
   {
-    "id": "rel2",
-    "rel_state": "in_work",
+    "id": "rel-0002-4jk6",
+    "rel_state": "publish",
     "rel_num": 2,
-    "rel_year": "2026",
-    "rel_date": "",
-    "rel_note": "Формируется, приём рукописей до 2026-12-01.",
-    "vols_id": ["vol2"]
+    "rel_year": "2025",
+    "rel_date": "2025-09-01",
+    "rel_note": "",
+    "vols_id": ["vol-0003-j0kju"]
   }
 ]

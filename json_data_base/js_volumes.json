@@ -1,16 +1,26 @@
 [
   {
-    "id": "vol1",
+    "id": "vol-0001-j5lop",
     "vol_num": 1,
-    "rel_id": "rel1",
-    "manuscs_id": ["m1", "m4"],
-    "vol_sections": ["math", "physic"]
+    "rel_id": "",
+    "manuscs_id": ["man-2024-001-ph"],
+    "vol_sections": ["physic"],
+    "note": ""
   },
   {
-    "id": "vol2",
+    "id": "vol-0002-j5ldm",
     "vol_num": 2,
-    "rel_id": "rel2",
-    "manuscs_id": [],
-    "vol_sections": []
+    "rel_id": "",
+    "manuscs_id": ["man-2024-002-mt"],
+    "vol_sections": ["math"],
+    "note": ""
+  },
+  {
+    "id": "vol-0003-j0kju",
+    "vol_num": 1,
+    "rel_id": "",
+    "manuscs_id": ["man-2024-003-as", "man-2024-009-dm"],
+    "vol_sections": ["congrat", "astronomy"],
+    "note": "В честь юбилея профессора Л. Д. Ландау"
   }
 ]
