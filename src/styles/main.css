@@ -1,17 +1,21 @@
-@import './variables.css';
-@import './components.css';
-@import './text_styles.css';
-@import './forms.css';
 @import './color_tokens.css';
-@import './text_tokens.css';
+@import './pages_styles.css';
 @import './new_text_styles.css';
-@import './button_tokens.css';
-@import './buttons.css';
-@import './form_tokens.css';
-@import './new_forms.css';
+
+@import './new_forms_styles.css';
+@import './new_buttons_styles.css';
 
 body {
-  font-family: var(--font-main);
   margin: 0;
-  background: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  background: var(--primary-gray);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
 }
