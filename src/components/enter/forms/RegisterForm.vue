@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import VueFeather from 'vue-feather'
+import { getUsers } from '@/api/editorApi'
 
 const username = ref('')
 const lastName = ref('')
@@ -14,17 +15,84 @@ const personalDataConsent = ref(false)
 
 const isPasswordVisible = ref(false)
 const isConfirmPasswordVisible = ref(false)
+const hasTriedToContinue = ref(false)
+const users = ref([])
+const apiError = ref('')
+
+const allowedPasswordSymbols = `!"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`
+
+const isUsernameValid = computed(() => /^[a-z0-9_-]+$/.test(username.value))
+
+const isPasswordValid = computed(
+  () =>
+    password.value.length >= 6 &&
+    [...password.value].every(
+      (character) => /[A-Za-z0-9]/.test(character) || allowedPasswordSymbols.includes(character),
+    ),
+)
+
+const isUsernameTaken = computed(() =>
+  users.value.some((user) => user.username?.toLowerCase() === username.value.trim().toLowerCase()),
+)
+
+const isEmailTaken = computed(() =>
+  users.value.some((user) => user.user_mail?.toLowerCase() === email.value.trim().toLowerCase()),
+)
+
+const doEmailsMatch = computed(
+  () => email.value.trim().toLowerCase() === confirmEmail.value.trim().toLowerCase(),
+)
+
+const doPasswordsMatch = computed(() => password.value === confirmPassword.value)
+
+const hasMissingRequiredFields = computed(
+  () =>
+    !username.value.trim() ||
+    !lastName.value.trim() ||
+    !firstName.value.trim() ||
+    !email.value.trim() ||
+    !confirmEmail.value.trim() ||
+    !password.value ||
+    !confirmPassword.value ||
+    !personalDataConsent.value,
+)
+
+const shouldShowUsernameFormatError = computed(
+  () => username.value.length > 0 && !isUsernameValid.value,
+)
+
+async function submitRegistration() {
+  hasTriedToContinue.value = true
+  apiError.value = ''
+
+  // Сначала показываем напоминание, не сбрасывая заполненные поля.
+  if (hasMissingRequiredFields.value) return
+
+  try {
+    const response = await getUsers()
+    users.value = response.data
+
+    // Здесь пока только проверки формы; создание аккаунта не выполняется.
+  } catch {
+    apiError.value = 'Не удалось проверить данные. Попробуйте позже.'
+  }
+}
 </script>
 
 <template>
-  <form class="content-block-vertical" @submit.prevent>
+  <form class="content-block-vertical" novalidate @submit.prevent="submitRegistration">
     <button type="button" class="text-button">
       <vue-feather type="arrow-left" />
       <span class="basic-text-bold">Назад</span>
     </button>
 
     <h1 class="text-h2">Регистрация</h1>
-    <span class="basic-text">* — обязательные поля</span>
+    <span
+      class="basic-text"
+      :style="{ color: hasTriedToContinue && hasMissingRequiredFields ? 'var(--red-error)' : '' }"
+    >
+      * — обязательные поля
+    </span>
 
     <div class="content-block-vertical">
       <div class="content-block-vertical">
@@ -33,14 +101,31 @@ const isConfirmPasswordVisible = ref(false)
           id="register-username"
           v-model="username"
           class="enter-box register-form-input"
+          :class="{
+            error:
+              shouldShowUsernameFormatError ||
+              (hasTriedToContinue && (hasMissingRequiredFields || isUsernameTaken)),
+          }"
           type="text"
           autocomplete="username"
-          pattern="[a-z0-9_-]+"
           required
+          aria-describedby="register-username-help register-username-error"
         />
-        <span class="basic-text">
-          Имя пользователя должно содержать только строчные латинские буквы, цифры, дефисы и
-          подчёркивания.
+        <span
+          id="register-username-help"
+          class="basic-text"
+          :style="{ color: shouldShowUsernameFormatError ? 'var(--red-error)' : '' }"
+        >
+          Имя пользователя должно содержать только строчные буквы, цифры и дефисы/подчёркивания
+        </span>
+        <span
+          v-if="hasTriedToContinue && isUsernameTaken"
+          id="register-username-error"
+          class="basic-text"
+          :style="{ color: 'var(--red-error)' }"
+          role="alert"
+        >
+          Данное имя пользователя уже занято другим пользователем
         </span>
       </div>
 
@@ -85,10 +170,19 @@ const isConfirmPasswordVisible = ref(false)
           id="register-email"
           v-model="email"
           class="enter-box register-form-input"
+          :class="{ error: hasTriedToContinue && isEmailTaken }"
           type="email"
           autocomplete="email"
           required
         />
+        <span
+          v-if="hasTriedToContinue && isEmailTaken"
+          class="basic-text"
+          :style="{ color: 'var(--red-error)' }"
+          role="alert"
+        >
+          Эта почта уже привязана к другому аккаунту.
+        </span>
       </div>
 
       <div class="content-block-vertical">
@@ -97,24 +191,36 @@ const isConfirmPasswordVisible = ref(false)
           id="register-confirm-email"
           v-model="confirmEmail"
           class="enter-box register-form-input"
+          :class="{
+            error: hasTriedToContinue && confirmEmail.length > 0 && !doEmailsMatch,
+          }"
           type="email"
           autocomplete="email"
           required
         />
+        <span
+          v-if="hasTriedToContinue && confirmEmail && !doEmailsMatch"
+          class="basic-text"
+          :style="{ color: 'var(--red-error)' }"
+          role="alert"
+        >
+          Почты не совпадают
+        </span>
       </div>
 
       <div class="content-block-vertical">
         <label for="register-password" class="basic-text-bold">Пароль *</label>
 
-        <div class="content-block-horizontal">
+        <div class="content-block-horizontal password-field">
           <input
             id="register-password"
             v-model="password"
             class="enter-box register-form-input"
+            :class="{ error: hasTriedToContinue && password && !isPasswordValid }"
             :type="isPasswordVisible ? 'text' : 'password'"
             autocomplete="new-password"
-            minlength="6"
             required
+            aria-describedby="register-password-help"
           />
           <button
             type="button"
@@ -126,11 +232,18 @@ const isConfirmPasswordVisible = ref(false)
           </button>
         </div>
 
-        <div class="basic-text">
-          <p>Пароль должен содержать только следующие символы:</p>
+        <div
+          id="register-password-help"
+          class="basic-text"
+          :style="{
+            color: hasTriedToContinue && password && !isPasswordValid ? 'var(--red-error)' : '',
+          }"
+        >
+          <p>Для пароля можно использовать только следующие символы:</p>
           <ul>
-            <li>Заглавные и строчные латинские буквы (A–Z, a–z)</li>
-            <li>Цифры</li>
+            <li>Заглавные латинские буквы: от A до Z</li>
+            <li>Строчные латинские буквы: от a до z</li>
+            <li>Цифры от 0 до 9</li>
             <li>
               Символы: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~
             </li>
@@ -142,14 +255,16 @@ const isConfirmPasswordVisible = ref(false)
       <div class="content-block-vertical">
         <label for="register-confirm-password" class="basic-text-bold">Повторите пароль *</label>
 
-        <div class="content-block-horizontal">
+        <div class="content-block-horizontal password-field">
           <input
             id="register-confirm-password"
             v-model="confirmPassword"
             class="enter-box register-form-input"
+            :class="{
+              error: hasTriedToContinue && confirmPassword && !doPasswordsMatch,
+            }"
             :type="isConfirmPasswordVisible ? 'text' : 'password'"
             autocomplete="new-password"
-            minlength="6"
             required
           />
           <button
@@ -161,13 +276,28 @@ const isConfirmPasswordVisible = ref(false)
             <vue-feather :type="isConfirmPasswordVisible ? 'eye-off' : 'eye'" />
           </button>
         </div>
+
+        <span
+          v-if="hasTriedToContinue && confirmPassword && !doPasswordsMatch"
+          class="basic-text"
+          :style="{ color: 'var(--red-error)' }"
+          role="alert"
+        >
+          Пароли не совпадают
+        </span>
       </div>
 
       <label class="content-block-horizontal">
         <input v-model="personalDataConsent" type="checkbox" required />
-        <span class="basic-text">Даю согласие на обработку и хранение персональных данных *</span>
+        <span class="basic-text">
+          Даю согласие на условия обработки и хранения персональных данных *
+        </span>
       </label>
     </div>
+
+    <span v-if="apiError" class="basic-text" :style="{ color: 'var(--red-error)' }" role="alert">
+      {{ apiError }}
+    </span>
 
     <button type="submit" class="bright-button">
       <span class="basic-text-bold">Продолжить</span>

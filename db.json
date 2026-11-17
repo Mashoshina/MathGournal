@@ -1,1013 +1,1001 @@
 {
-  "users": [
+  "manuscripts": [
     {
-      "id": "0",
-      "userId": 0,
-      "login": "admin",
-      "password": "Admin_00",
-      "name": "Системный пользователь",
-      "mail": "admin@mail.ru",
-      "role": [
-        "admin"
+      "id": "man-2024-001-ph",
+      "manusc_state": "publish",
+      "manusc_date_sent": "2024-01-15",
+      "manusc_date_solution": "2024-05-20",
+      "manusc_authors_id": [
+        "usr-0001-mj3k",
+        "usr-0002-qw8e"
       ],
-      "notifs": [],
-      "savedManuscripts": []
-    },
-    {
-      "id": "1",
-      "userId": 1,
-      "login": "VlFed_01",
-      "password": "VlFed_01",
-      "name": "Владимир Фёдоров",
-      "mail": "vladimir_fedorof@gmail.com",
-      "role": [
-        "main_red",
-        "red",
-        "rev",
-        "author"
+      "manusc_version": 1,
+      "manusc_title": "Голографическая запутанность как источник эффективной кривизны в AdS/CFT-соответствии",
+      "manusc_section": "physic",
+      "manusc_annotation": "В работе показано, как тензор энергии-импульса гравитационного дуала возникает из квантовой запутанности граничной теории. Предложен вариационный принцип, в котором уравнения Эйнштейна выводятся как условие стационарности энтропии запутанности Реньи.",
+      "manusc_key_words": [
+        "голография",
+        "AdS/CFT",
+        "запутанность",
+        "энтропия Реньи",
+        "эффективная гравитация"
       ],
-      "notifs": [
+      "manusc_files": [
+        "files/manuscripts/holographic_entanglement_curvature.pdf",
+        "files/manuscripts/holographic_entanglement_curvature.tex"
+      ],
+      "manusc_cover_letters": [
+        "files/manuscripts/cover_letter_holographic_entanglement.pdf"
+      ],
+      "manusc_cover": "files/manuscripts/media/holographic_entanglement_cover.png",
+      "manusc_literature": [
+        "Maldacena J. The Large N Limit of Superconformal Field Theories and Supergravity // Adv. Theor. Math. Phys. 1998. Vol. 2. P. 231–252.",
+        "Ryu S., Takayanagi T. Holographic Derivation of Entanglement Entropy from AdS/CFT // Phys. Rev. Lett. 2006. Vol. 96. Art. 181602."
+      ],
+      "manusc_gratitude": [
+        "Институт теоретической и математической физики"
+      ],
+      "manusc_note": "Принята после двух раундов рецензирования.",
+      "reviewers_invited": [
+        "usr-0006-gh2n",
+        "usr-0007-mn4k",
+        "usr-0008-pl9d"
+      ],
+      "reviewers_accept": [
+        "usr-0006-gh2n",
+        "usr-0007-mn4k"
+      ],
+      "reviewers_declined": [
+        "usr-0008-pl9d"
+      ],
+      "reviews": [],
+      "editors": [
+        "usr-0005-cv7b"
+      ],
+      "events": [
         {
-          "id": 1,
-          "title": "Новое уведомление",
-          "text": "Текст уведомления",
-          "date": "21-01-2026"
-        }
-      ],
-      "savedManuscripts": []
-    },
-    {
-      "id": "2",
-      "userId": 2,
-      "login": "Val_02",
-      "password": "ValenVal_02",
-      "name": "Валентинов И.И.",
-      "mail": "valenii@gmail.com",
-      "role": [
-        "red",
-        "rev",
-        "author"
-      ],
-      "notifs": [
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
         {
-          "id": 1,
-          "title": "Новое уведомление",
-          "text": "Текст уведомления",
-          "date": "21-01-2026"
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
         }
-      ],
-      "savedManuscripts": []
+      ]
     },
     {
-      "id": "3",
-      "userId": 3,
-      "login": "Luntik_0303",
-      "password": "Luntik_0303",
-      "name": "Лунтик",
-      "mail": "luni_lu@gmail.com",
-      "role": [
-        "red",
-        "rev",
-        "author"
+      "id": "man-2024-002-mt",
+      "manusc_state": "publish",
+      "manusc_date_sent": "2024-02-03",
+      "manusc_date_solution": "2024-06-11",
+      "manusc_authors_id": [
+        "usr-0004-za1x"
       ],
-      "notifs": [
+      "manusc_version": 1,
+      "manusc_title": "Спектральная геометрия фрактальных графов и аномальная диффузия на них",
+      "manusc_section": "math",
+      "manusc_annotation": "Вводится класс фрактальных графов, возникающих как пределы итеративных функциональных систем с переменным ветвлением. Вычислена спектральная размерность и показано, что случайное блуждание на таких графах демонстрирует субдиффузию.",
+      "manusc_key_words": [
+        "фрактальные графы",
+        "спектральная размерность",
+        "аномальная диффузия",
+        "мультифрактальный анализ",
+        "случайные блуждания"
+      ],
+      "manusc_files": [
+        "files/manuscripts/spectral_geometry_fractal_graphs.tex",
+        "files/manuscripts/spectral_geometry_fractal_graphs.pdf"
+      ],
+      "manusc_cover_letters": [
+        "files/manuscripts/cover_letter_spectral_fractal.pdf"
+      ],
+      "manusc_cover": "files/manuscripts/media/spectral_fractal_cover.png",
+      "manusc_literature": [
+        "Kigami J. Analysis on Fractals. Cambridge: Cambridge University Press, 2001.",
+        "Hambly B. M., Kumagai T. Diffusion on the Sierpinski gasket // Probab. Theory Related Fields. 1999. Vol. 114. P. 413–435."
+      ],
+      "manusc_gratitude": [
+        "МГУ им. М. В. Ломоносова"
+      ],
+      "manusc_note": "Опубликована",
+      "reviewers_invited": [
+        "usr-0007-mn4k",
+        "usr-0008-pl9d"
+      ],
+      "reviewers_accept": [
+        "usr-0007-mn4k",
+        "usr-0008-pl9d"
+      ],
+      "reviewers_declined": [],
+      "reviews": [],
+      "editors": [
+        "usr-0002-qw8e"
+      ],
+      "events": [
         {
-          "id": 1,
-          "title": "Новое уведомление",
-          "text": "Текст уведомления",
-          "date": "21-01-2026"
-        }
-      ],
-      "savedManuscripts": []
-    },
-    {
-      "id": "4",
-      "userId": 4,
-      "login": "FeodoraDu_04",
-      "password": "FeodoraDu_04",
-      "name": "Фёдоров Е.А.",
-      "mail": "eg_fedorof@gmail.com",
-      "role": [
-        "rev",
-        "author"
-      ],
-      "notifs": [
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
         {
-          "id": 1,
-          "title": "Новое уведомление",
-          "text": "Текст уведомления",
-          "date": "21-01-2026"
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
         }
-      ],
-      "savedManuscripts": []
+      ]
     },
     {
-      "id": "5",
-      "userId": 5,
-      "login": "RafailDaut_05",
-      "password": "RafailDaut_05",
-      "name": "Рафаил Даутов",
-      "mail": "dau_dau_@inbox.com",
-      "role": [
-        "rev",
-        "author"
+      "id": "man-2024-003-as",
+      "manusc_state": "publish",
+      "manusc_date_sent": "2024-03-10",
+      "manusc_date_solution": "2024-08-01",
+      "manusc_authors_id": [
+        "usr-0009-ty6r",
+        "usr-0006-gh2n"
       ],
-      "notifs": [
+      "manusc_version": 1,
+      "manusc_title": "Гравитационно-волновые послесвечения от слияний первичных чёрных дыр в кластеризованных гало тёмной материи",
+      "manusc_section": "astronomy",
+      "manusc_annotation": "Исследуется вклад кластеризации первичных чёрных дыр в темп слияний, регистрируемых LIGO/Virgo/KAGRA. Построена модель гало ПЧД с учётом динамического трения и трёхчастичных взаимодействий.",
+      "manusc_key_words": [
+        "первичные чёрные дыры",
+        "гравитационные волны",
+        "тёмная материя",
+        "темп слияний",
+        "детекторы третьего поколения"
+      ],
+      "manusc_files": [
+        "files/manuscripts/gw_afterglow_pbh_halos_1.tex",
+        "files/manuscripts/gw_afterglow_pbh_halos_2.tex",
+        "files/manuscripts/gw_afterglow_pbh_halos_1.pdf",
+        "files/manuscripts/gw_afterglow_pbh_halos_2.pdf"
+      ],
+      "manusc_cover_letters": [],
+      "manusc_cover": "",
+      "manusc_literature": [
+        "Bird S. et al. Did LIGO detect dark matter? // Phys. Rev. Lett. 2016. Vol. 116. Art. 201301.",
+        "Abbott B. P. et al. GWTC-3: Compact Binary Coalescences Observed by LIGO and Virgo // Phys. Rev. X. 2023. Vol. 13. Art. 041039."
+      ],
+      "manusc_gratitude": [
+        "Институт астрономии РАН",
+        "International Centre for Theoretical Sciences"
+      ],
+      "manusc_note": "Опубликована",
+      "reviewers_invited": [
+        "usr-0007-mn4k",
+        "usr-0008-pl9d",
+        "usr-0005-cv7b"
+      ],
+      "reviewers_accept": [
+        "usr-0008-pl9d",
+        "usr-0005-cv7b"
+      ],
+      "reviewers_declined": [
+        "usr-0007-mn4k"
+      ],
+      "reviews": [],
+      "editors": [
+        "usr-0004-za1x"
+      ],
+      "events": [
         {
-          "id": 1,
-          "title": "Новое уведомление",
-          "text": "Текст уведомления",
-          "date": "21-01-2026"
-        }
-      ],
-      "savedManuscripts": []
-    },
-    {
-      "id": "6",
-      "userId": 6,
-      "login": "matvash@gmail.com",
-      "password": "Matvashik_06",
-      "name": "Матвей Вашин",
-      "mail": "matvash@gmail.com",
-      "role": [
-        "rev",
-        "author"
-      ],
-      "notifs": [
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
         {
-          "id": 1,
-          "title": "Новое уведомление",
-          "text": "Текст уведомления",
-          "date": "21-01-2026"
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
         }
-      ],
-      "savedManuscripts": []
+      ]
     },
     {
-      "id": "7",
-      "userId": 7,
-      "login": "luzhh_72@gmail.com",
-      "password": "Luzhhaika_07",
-      "name": "Лужнец П. П.",
-      "mail": "luzhh_72@gmail.com",
-      "role": [
-        "rev",
-        "author"
+      "id": "man-2024-004-ph",
+      "manusc_state": "declined",
+      "manusc_date_sent": "2024-04-05",
+      "manusc_date_solution": "2024-07-18",
+      "manusc_authors_id": [
+        "usr-0011-ab8c"
       ],
-      "notifs": [
+      "manusc_version": 1,
+      "manusc_title": "Магнитные скирмионы в ван-дер-ваальсовых гетероструктурах: управление топологией электрическим полем",
+      "manusc_section": "physic",
+      "manusc_annotation": "Показано, что в гетероструктурах на основе двумерных магнитных материалов с нарушенной инверсионной симметрией топологическая фаза скирмионной решётки может переключаться внешним электрическим полем.",
+      "manusc_key_words": [
+        "скирмионы",
+        "ван-дер-ваальсовы гетероструктуры",
+        "магнитоэлектрический эффект",
+        "взаимодействие Дзялошинского–Мории",
+        "энергонезависимая память"
+      ],
+      "manusc_files": [
+        "files/manuscripts/skyrmions_vdw_heterostructures.tex",
+        "files/manuscripts/skyrmions_vdw_heterostructures.pdf"
+      ],
+      "manusc_cover_letters": [],
+      "manusc_cover": "files/manuscripts/media/skyrmions_vdw_cover.png",
+      "manusc_literature": [
+        "Fert A., Reyren N., Cros V. Magnetic skyrmions: advances in physics and potential applications // Nat. Rev. Mater. 2017. Vol. 2. Art. 17031."
+      ],
+      "manusc_gratitude": [
+        "University of Twente"
+      ],
+      "manusc_note": "Отлонена",
+      "reviewers_invited": [
+        "usr-0003-rt5y",
+        "usr-0008-pl9d"
+      ],
+      "reviewers_accept": [
+        "usr-0003-rt5y"
+      ],
+      "reviewers_declined": [],
+      "reviews": [],
+      "editors": [
+        "usr-0002-qw8e"
+      ],
+      "events": [
         {
-          "id": 1,
-          "title": "Новое уведомление",
-          "text": "Текст уведомления",
-          "date": "21-01-2026"
-        }
-      ],
-      "savedManuscripts": []
-    },
-    {
-      "id": "8",
-      "userId": 8,
-      "login": "08_rezenzent_R",
-      "password": "08_rezenzent_R",
-      "name": "Рецензент Р. Р.",
-      "mail": "reviewer@gmail.com",
-      "role": [
-        "rev",
-        "author"
-      ],
-      "notifs": [
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
         {
-          "id": 1,
-          "title": "Новое уведомление",
-          "text": "Текст уведомления",
-          "date": "21-01-2026"
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
         }
-      ],
-      "savedManuscripts": []
+      ]
     },
     {
-      "id": "9",
-      "userId": 9,
-      "login": "Artem_Makovar_09",
-      "password": "Artem_Makovar_09",
-      "name": "Артём Маковецкий",
-      "mail": "makovar@mail.ru",
-      "role": [
-        "author"
+      "id": "man-2024-005-mm",
+      "manusc_state": "declined",
+      "manusc_date_sent": "2024-05-12",
+      "manusc_date_solution": "2024-09-02",
+      "manusc_authors_id": [
+        "usr-0012-de5v",
+        "usr-0004-za1x"
       ],
-      "notifs": [
+      "manusc_version": 1,
+      "manusc_title": "Стохастическая модель морфогенеза с топологической регуляцией межклеточных контактов",
+      "manusc_section": "math_model",
+      "manusc_annotation": "Предложена стохастическая модель роста тканей, в которой клетки обмениваются сигналами через динамически перестраиваемую сеть контактов. Показано, что топологические характеристики сети регулируют формирование пространственных паттернов.",
+      "manusc_key_words": [
+        "морфогенез",
+        "стохастические модели",
+        "межклеточные контакты",
+        "топология сети",
+        "бифуркации"
+      ],
+      "manusc_files": [
+        "files/manuscripts/stochastic_morphogenesis_network.tex"
+      ],
+      "manusc_cover_letters": [
+        "files/manuscripts/cover_letter_skyrmions_vdw.pdf"
+      ],
+      "manusc_cover": "files/manuscripts/media/morphogenesis_cover.png",
+      "manusc_literature": [
+        "Turing A. M. The Chemical Basis of Morphogenesis // Philos. Trans. R. Soc. B. 1952. Vol. 237. P. 37–72."
+      ],
+      "manusc_gratitude": [],
+      "manusc_note": "Отклонена",
+      "reviewers_invited": [
+        "usr-0006-gh2n",
+        "usr-0008-pl9d"
+      ],
+      "reviewers_accept": [
+        "usr-0006-gh2n"
+      ],
+      "reviewers_declined": [
+        "usr-0008-pl9d"
+      ],
+      "reviews": [],
+      "editors": [
+        "usr-0004-za1x"
+      ],
+      "events": [
         {
-          "id": 1779628737895.627,
-          "title": "Рукопись опубликована",
-          "text": "",
-          "date": "2026-05-24"
-        }
-      ],
-      "savedManuscripts": []
-    },
-    {
-      "id": "10",
-      "userId": 10,
-      "login": "AsiYOY_10",
-      "password": "Asif_ka_YOY_10",
-      "name": "Асиф ЙОКУС",
-      "mail": "asyok@mail.ru",
-      "role": [
-        "rev",
-        "author"
-      ],
-      "notifs": [
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
         {
-          "id": 1779628737979.4583,
-          "title": "Рукопись опубликована",
-          "text": "",
-          "date": "2026-05-24"
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
         }
-      ],
-      "savedManuscripts": []
+      ]
     },
     {
-      "id": "11",
-      "userId": 11,
-      "login": "grebka_yA_11",
-      "password": "grebka_yA_11",
-      "name": "Б.Л. Гребенщик",
-      "mail": "b_l_greb_4ik@mail.ru",
-      "role": [
-        "rev",
-        "author"
+      "id": "man-2024-006-it",
+      "manusc_state": "in_work",
+      "manusc_date_sent": "2024-09-14",
+      "manusc_date_solution": "none",
+      "manusc_authors_id": [
+        "usr-0008-pl9d",
+        "usr-0006-gh2n"
       ],
-      "notifs": [
+      "manusc_version": 1,
+      "manusc_title": "Квантовая коррекция ошибок на гиперболических кодах с локальными проверками",
+      "manusc_section": "it",
+      "manusc_annotation": "Предложен класс квантовых LDPC-кодов на основе гиперболических поверхностей с ограниченной кривизной, допускающих локальные проверки стабилизаторов. Доказана теорема о пороге исправления ошибок, не зависящем от размера системы.",
+      "manusc_key_words": [
+        "квантовые LDPC-коды",
+        "гиперболические поверхности",
+        "порог ошибок",
+        "стабилизаторы",
+        "декодирование"
+      ],
+      "manusc_files": [
+        "files/manuscripts/hyperbolic_quantum_ldpc.tex"
+      ],
+      "manusc_cover_letters": [
+        "files/manuscripts/cover_letter_hyperbolic_ldpc.pdf"
+      ],
+      "manusc_cover": "files/manuscripts/media/hyperbolic_ldpc_cover.png",
+      "manusc_literature": [
+        "Gottesman D. Stabilizer Codes and Quantum Error Correction. PhD thesis. Caltech, 1997.",
+        "Breuckmann N. P., Eberhardt J. N. Quantum Low-Density Parity-Check Codes // PRX Quantum. 2021. Vol. 2. Art. 040101."
+      ],
+      "manusc_gratitude": [
+        "California Institute of Technology",
+        "International Centre for Theoretical Sciences"
+      ],
+      "manusc_note": "Находится на рассмотрении",
+      "reviewers_invited": [
+        "usr-0007-mn4k",
+        "usr-0003-rt5y"
+      ],
+      "reviewers_accept": [
+        "usr-0007-mn4k"
+      ],
+      "reviewers_declined": [
+        "usr-0003-rt5y"
+      ],
+      "reviews": [],
+      "editors": [
+        "usr-0005-cv7b"
+      ],
+      "events": [
         {
-          "id": 1,
-          "title": "Рукопись опубликована",
-          "text": "Текст уведомления",
-          "date": "23-04-2026"
-        }
-      ],
-      "savedManuscripts": []
-    },
-    {
-      "id": "12",
-      "userId": 12,
-      "login": "zikhor_12",
-      "password": "zikhor_12",
-      "name": "Олег Зихоров",
-      "mail": "zikhor_12@mail.ru",
-      "role": [
-        "author"
-      ],
-      "notifs": [
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
         {
-          "id": 1779626253134,
-          "title": "Рукопись опубликована",
-          "text": "",
-          "date": "2026-05-24"
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
         }
-      ],
-      "savedManuscripts": []
+      ]
     },
     {
-      "id": "13",
-      "userId": 13,
-      "login": "dk_13",
-      "password": "dk_13",
-      "name": "ДК Холиков",
-      "mail": "dk_13@mail.ru",
-      "role": [
-        "author"
+      "id": "man-2024-007-mc",
+      "manusc_state": "in_work",
+      "manusc_date_sent": "2024-10-01",
+      "manusc_date_solution": "none",
+      "manusc_authors_id": [
+        "usr-0007-mn4k",
+        "usr-0003-rt5y"
       ],
-      "notifs": [
+      "manusc_version": 1,
+      "manusc_title": "Термодинамическая неопределённость в квантовых машинах Отто с конечным временем цикла",
+      "manusc_section": "mechanic",
+      "manusc_annotation": "Исследуется связь между квантовой неопределённостью и диссипацией в квантовых тепловых машинах, работающих по циклу Отто за конечное время. Выведено обобщённое соотношение неопределённости для работы и КПД.",
+      "manusc_key_words": [
+        "квантовая термодинамика",
+        "машина Отто",
+        "соотношения неопределённости",
+        "конечное время",
+        "ионные ловушки"
+      ],
+      "manusc_files": [
+        "files/manuscripts/thermodynamic_uncertainty_otto.tex"
+      ],
+      "manusc_cover_letters": [],
+      "manusc_cover": "",
+      "manusc_literature": [
+        "Kosloff R. Quantum Thermodynamics: A Dynamical Viewpoint // Entropy. 2013. Vol. 15. P. 2100–2128.",
+        "Vinjanampathy S., Anders J. Quantum thermodynamics // Contemp. Phys. 2016. Vol. 57. P. 545–579."
+      ],
+      "manusc_gratitude": [
+        "Институт теоретической физики им. Л. Д. Ландау"
+      ],
+      "manusc_note": "Находится на рассмотрении",
+      "reviewers_invited": [
+        "usr-0006-gh2n",
+        "usr-0008-pl9d",
+        "usr-0005-cv7b"
+      ],
+      "reviewers_accept": [],
+      "reviewers_declined": [],
+      "reviews": [],
+      "editors": [
+        "usr-0002-qw8e"
+      ],
+      "events": [
         {
-          "id": 1779626253225,
-          "title": "Рукопись опубликована",
-          "text": "",
-          "date": "2026-05-24"
-        }
-      ],
-      "savedManuscripts": []
-    },
-    {
-      "id": "14",
-      "userId": 14,
-      "login": "shaibu_14",
-      "password": "shaibu_14",
-      "name": "Г.Ш. Байбулова",
-      "mail": "shaibu_14@mail.ru",
-      "role": [
-        "author"
-      ],
-      "notifs": [
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
         {
-          "id": 1779628999970.1042,
-          "title": "Рукопись опубликована",
-          "text": "",
-          "date": "2026-05-24"
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
         }
-      ],
-      "savedManuscripts": []
+      ]
     },
     {
-      "id": "15",
-      "userId": 15,
-      "login": "khalim_15",
-      "password": "khalim_15",
-      "name": "Л.Р. Калимуллина",
-      "mail": "khalim_15@mail.ru",
-      "role": [
-        "author"
+      "id": "man-2024-008-dm",
+      "manusc_state": "in_work",
+      "manusc_date_sent": "2024-11-05",
+      "manusc_date_solution": "none",
+      "manusc_authors_id": [
+        "usr-0005-cv7b",
+        "usr-0010-ws3f",
+        "usr-0001-mj3k"
       ],
-      "notifs": [
+      "manusc_version": 1,
+      "manusc_title": "Адаптивные тензорные сети для решения многомасштабных уравнений в частных производных",
+      "manusc_section": "mechanic",
+      "manusc_annotation": "Разработан метод адаптивного сжатия тензорных сетей, автоматически выбирающий ранг в зависимости от локальной гладкости решения. Показано, что для уравнений с многомасштабными решениями метод даёт логарифмическую сложность по числу степеней свободы.",
+      "manusc_key_words": [
+        "тензорные сети",
+        "многомасштабные уравнения",
+        "адаптивные ранги",
+        "численные методы",
+        "уравнение Шрёдингера"
+      ],
+      "manusc_files": [
+        "files/manuscripts/adaptive_tensor_networks_pde.tex"
+      ],
+      "manusc_cover_letters": [
+        "files/manuscripts/cover_letter_adaptive_tensor.docx"
+      ],
+      "manusc_cover": "files/manuscripts/media/adaptive_tensor_cover.png",
+      "manusc_literature": [
+        "Oseledets I. V. Tensor-Train Decomposition // SIAM J. Sci. Comput. 2011. Vol. 33. P. 2295–2317.",
+        "Lubich C., Oseledets I. V., Vandereycken B. Time Integration of Tensor Trains // SIAM J. Numer. Anal. 2015. Vol. 53. P. 917–941."
+      ],
+      "manusc_gratitude": [
+        "Институт ядерных исследований РАН",
+        "Сколковский институт науки и технологий",
+        "Институт теоретической и математической физики"
+      ],
+      "manusc_note": "Находится на рассмотрении",
+      "reviewers_invited": [],
+      "reviewers_accept": [],
+      "reviewers_declined": [],
+      "reviews": [],
+      "editors": [
+        "usr-0004-za1x"
+      ],
+      "events": [
         {
-          "id": 1779629000051.8694,
-          "title": "Рукопись опубликована",
-          "text": "",
-          "date": "2026-05-24"
-        }
-      ],
-      "savedManuscripts": []
-    },
-    {
-      "id": "16",
-      "userId": 16,
-      "login": "chebotar_16",
-      "password": "chebotar_16",
-      "name": "А.Б. Чеботарева",
-      "mail": "chebotar_16@mail.ru",
-      "role": [
-        "author"
-      ],
-      "notifs": [
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
         {
-          "id": 1779629000129.0234,
-          "title": "Рукопись опубликована",
-          "text": "",
-          "date": "2026-05-24"
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
         }
+      ]
+    },
+    {
+      "id": "man-2024-009-dm",
+      "manusc_state": "publish",
+      "manusc_date_sent": "2024-06-01",
+      "manusc_date_solution": "2024-06-15",
+      "manusc_authors_id": [
+        "usr-0001-mj3k",
+        "usr-0002-qw8e",
+        "usr-0003-rt5y"
       ],
-      "savedManuscripts": []
-    }
-  ],
-  "authors": [
-    {
-      "id": "1",
-      "authorsId": 9,
-      "name": "Артём Маковецкий",
-      "mail": "makovar@mail.ru"
+      "manusc_version": 1,
+      "manusc_title": "К юбилею профессора Л. Д. Ландау: полвека идей, опередивших время",
+      "manusc_section": "congrat",
+      "manusc_annotation": "Поздравительная статья, посвящённая юбилею выдающегося физика-теоретика. Прослеживается влияние идей Л. Д. Ландау на развитие теории конденсированного состояния, квантовой теории поля и физики низких температур. Приводятся воспоминания коллег и анализ современных направлений, выросших из его работ.",
+      "manusc_key_words": [
+        "Ландау",
+        "юбилей",
+        "теоретическая физика",
+        "конденсированное состояние",
+        "история науки"
+      ],
+      "manusc_files": [
+        "files/manuscripts/landau_jubilee_ideas.tex"
+      ],
+      "manusc_cover_letters": [
+        "files/manuscripts/cover_letter_landau_jubilee.pdf"
+      ],
+      "manusc_cover": "",
+      "manusc_literature": [
+        "Ландау Л. Д., Лифшиц Е. М. Теоретическая физика: в 10 т. М.: Наука, 1965–1982.",
+        "Khalatnikov I. M. (ed.) Landau: The Physicist and the Man. Oxford: Pergamon Press, 1989."
+      ],
+      "manusc_gratitude": [
+        "Институт теоретической физики им. Л. Д. Ландау",
+        "Институт теоретической и математической физики"
+      ],
+      "manusc_note": "Опубликована в юбилейном выпуске.",
+      "reviewers_invited": [
+        "usr-0005-cv7b",
+        "usr-0007-mn4k"
+      ],
+      "reviewers_accept": [
+        "usr-0005-cv7b",
+        "usr-0007-mn4k"
+      ],
+      "reviewers_declined": [],
+      "reviews": [],
+      "editors": [
+        "usr-0003-rt5y"
+      ],
+      "events": [
+        {
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
+        {
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
+        }
+      ]
     },
     {
-      "id": "2",
-      "authorsId": 10,
-      "name": "Асиф ЙОКУС",
-      "mail": "asyok@mail.ru"
-    },
-    {
-      "id": "3",
-      "authorsId": 11,
-      "name": "Б.Л. Гребенщик",
-      "mail": "b_l_greb_4ik@mail.ru"
-    },
-    {
-      "id": "4",
-      "authorsId": 12,
-      "name": "Олег Зихоров",
-      "mail": "zikhor_12@mail.ru"
-    },
-    {
-      "id": "5",
-      "authorsId": 13,
-      "name": "ДК Холиков",
-      "mail": "dk_13@mail.ru"
-    },
-    {
-      "id": "6",
-      "authorsId": 14,
-      "name": "Г.Ш. Байбулова",
-      "mail": "shaibu_14@mail.ru"
-    },
-    {
-      "id": "7",
-      "authorsId": 15,
-      "name": "Л.Р. Калимуллина",
-      "mail": "khalim_15@mail.ru"
-    },
-    {
-      "id": "8",
-      "authorsId": 16,
-      "name": "А.Б. Чеботарева",
-      "mail": "chebotar_16@mail.ru"
-    }
-  ],
-  "reviewers": [
-    {
-      "id": "1",
-      "reviewersId": 4,
-      "name": "Фёдоров Е.А.",
-      "mail": "eg_fedorof@gmail.com",
-      "mainChapter": "Математическое моделирование",
-      "countReviews": 45,
-      "ivitesCount": 64,
-      "declineCount": 19
-    },
-    {
-      "id": "2",
-      "reviewersId": 5,
-      "name": "Рафаил Даутов",
-      "mail": "dau_dau_@inbox.com",
-      "mainChapter": "Математическое моделирование",
-      "countReviews": 38,
-      "ivitesCount": 48,
-      "declineCount": 10
-    },
-    {
-      "id": "3",
-      "reviewersId": 6,
-      "name": "Матвей Вашин",
-      "mail": "matvash@gmail.com",
-      "mainChapter": "Математическое моделирование",
-      "countReviews": 24,
-      "ivitesCount": 58,
-      "declineCount": 34
-    },
-    {
-      "id": "4",
-      "reviewersId": 7,
-      "name": "Лужнец П. П.",
-      "mail": "luzhh_72@gmail.com",
-      "mainChapter": "Математика",
-      "countReviews": 61,
-      "ivitesCount": 62,
-      "declineCount": 1
-    },
-    {
-      "id": "5",
-      "reviewersId": 8,
-      "name": "Рецензент Р. Р.",
-      "mail": "reviewer@gmail.com",
-      "mainChapter": "Физика",
-      "countReviews": 18,
-      "ivitesCount": 19,
-      "declineCount": 1
-    }
-  ],
-  "redactors": [
-    {
-      "id": "1",
-      "redactorsId": 1,
-      "name": "Владимир Фёдоров",
-      "mail": "vladimir_fedorof@gmail.com",
-      "mainChapter": "математическое моделирование"
-    },
-    {
-      "id": "2",
-      "redactorsId": 2,
-      "name": "Валентинов И.И.",
-      "mail": "valenii@gmail.com",
-      "mainChapter": "математическое моделирование"
-    },
-    {
-      "id": "3",
-      "redactorsId": 3,
-      "name": "Лунтик",
-      "mail": "luni_lu@gmail.com",
-      "mainChapter": "математическое моделирование"
-    }
-  ],
-  "editoralAdvice": [
-    {
-      "id": "0",
-      "redactorsId": [
-        1
+      "id": "man-2024-012-ph",
+      "manusc_state": "in_work",
+      "manusc_date_sent": "2024-12-20",
+      "manusc_date_solution": "none",
+      "manusc_authors_id": [
+        "usr-0005-cv7b",
+        "usr-0011-ab8c"
+      ],
+      "manusc_version": 1,
+      "manusc_title": "Квантовые поправки к гравитационному линзированию в присутствии аксионов",
+      "manusc_section": "physic",
+      "manusc_annotation": "Рассмотрено распространение света в пространстве-времени с аксионным полем, связанным с электромагнитным дуальным тензором. Вычислены однопетлевые квантовые поправки к углу отклонения луча и времени задержки. Показано, что эффект может быть заметен для линз с прицельным параметром порядка радиуса горизонта.",
+      "manusc_key_words": [
+        "аксионы",
+        "гравитационное линзирование",
+        "квантовые поправки",
+        "дуальный тензор",
+        "космология"
+      ],
+      "manusc_files": [
+        "files/manuscripts/quantum_corrections_axion_lensing.tex"
+      ],
+      "manusc_cover_letters": [
+        "files/manuscripts/cover_letter_axion_lensing.docx"
+      ],
+      "manusc_cover": "",
+      "manusc_literature": [
+        "Peccei R. D., Quinn H. R. CP Conservation in the Presence of Pseudoparticles // Phys. Rev. Lett. 1977. Vol. 38. P. 1440–1443.",
+        "Wilczek F. Two Applications of Axion Electrodynamics // Phys. Rev. Lett. 1987. Vol. 58. P. 1799–1802."
+      ],
+      "manusc_gratitude": [
+        "Институт ядерных исследований РАН",
+        "University of Twente"
+      ],
+      "manusc_note": "Находится на рассмотрении",
+      "reviewers_invited": [],
+      "reviewers_accept": [],
+      "reviewers_declined": [],
+      "reviews": [],
+      "editors": [
+        "usr-0002-qw8e"
+      ],
+      "events": [
+        {
+          "version": 1,
+          "event": "Рукопись подана",
+          "user": "admin",
+          "date": "2024-01-15"
+        },
+        {
+          "version": 1,
+          "event": "Главный редактор назначен",
+          "user": "admin",
+          "date": "2024-01-15"
+        }
       ]
     }
   ],
-  "editoralCollegium": [
+  "realeses": [
     {
-      "id": "0",
-      "redactorsId": [
-        2,
-        3
+      "id": "rel-0001-r06hj",
+      "rel_state": "publish",
+      "rel_num": 1,
+      "rel_year": "2024",
+      "rel_date": "2024-07-11",
+      "rel_note": "",
+      "vols_id": [
+        "vol-0001-j5lop",
+        "vol-0002-j5ldm"
+      ]
+    },
+    {
+      "id": "rel-0002-4jk6",
+      "rel_state": "publish",
+      "rel_num": 2,
+      "rel_year": "2025",
+      "rel_date": "2025-09-01",
+      "rel_note": "",
+      "vols_id": [
+        "vol-0003-j0kju"
       ]
     }
   ],
   "reviews": [
     {
-      "id": "1",
-      "reviewesId": 1,
-      "reviewersId": 4,
-      "manuscriptId": 1,
-      "reviewesFiles": [
-        "./public/manuscripts/review1.pdf"
-      ]
+      "id": "",
+      "manusc_id": "",
+      "reviewer_id": "",
+      "rev_state": "",
+      "rev_date": "",
+      "rev_purpose": "",
+      "rev_files": []
     }
   ],
-  "manuscripts": [
+  "users": [
     {
-      "id": "1",
-      "manuscriptId": 1,
-      "stage": "В процессе",
-      "redactorStatus": "mine",
-      "redactorsId": [
-        1,
-        2
+      "id": "usr-0000-mf0b",
+      "username": "admin",
+      "user_mail": "csmpj_admin_user@somemail.ru",
+      "password": "admin",
+      "first_name": "Journal",
+      "last_name": "admin",
+      "patronymic": "",
+      "roles": [
+        "admin"
       ],
-      "title": "Многопараметрический функционал для оценки поворота и перемещения в задаче регистрации облака точек",
-      "authorsId": [
-        9
-      ],
-      "keyWords": [
-        "ICP-алгоритм",
-        "3D",
-        "SLAM",
-        "пространственная трансформация",
-        "оптимизационные методы"
-      ],
-      "description": "Статья посвящена разработке многопараметрического функционала качества для задачи регистрации 3D-облаков точек. Предлагаемый подход позволяет совместно и оптимально вычислять матрицу поворота и вектор перемещения, обеспечивая высокую точность сопоставления и робастность к зашумленным данным и частичным перекрытиям облаков.",
-      "chapter": "Математика",
-      "manuscriptFiles": [
-        "/public/manuscripts/mfdop.pdf",
-        "/public/manuscripts/mfdop2.pdf"
-      ],
-      "manuscriptPicture": [],
-      "coverLetter": [
-        "/public/manuscripts/letter1.pdf"
-      ],
-      "sentDate": "2026-02-12",
-      "version": 1,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-02-12",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Владимир Фёдоров назначен",
-          "user": 0,
-          "date": "2026-02-12",
-          "version": 1
-        },
-        {
-          "event": "Рецензия отправлена",
-          "user": 4,
-          "date": "2026-02-12",
-          "version": 1
-        },
-        {
-          "event": "Список редакторов изменён",
-          "user": 1,
-          "date": "2026-03-18",
-          "version": 1
-        },
-        {
-          "event": "Список редакторов изменён",
-          "user": 1,
-          "date": "2026-05-10"
-        }
-      ]
+      "gender": "none",
+      "organization": "Редакция журнала",
+      "url": "",
+      "phone": "",
+      "orcid": "",
+      "country": "",
+      "signature": "",
+      "biography": "",
+      "notifs": [],
+      "saved_manuscs": []
     },
     {
-      "id": "2",
-      "manuscriptId": 2,
-      "stage": "В процессе",
-      "redactorStatus": "by_name",
-      "redactorsId": [
-        1,
-        2
+      "id": "usr-0001-mj3k",
+      "username": "a-kovaleva",
+      "user_mail": "a.kovaleva@itmp.ru",
+      "password": "Kv@7!mPz#2Lx",
+      "first_name": "Анна",
+      "last_name": "Ковалёва",
+      "patronymic": "Викторовна",
+      "roles": [
+        "author",
+        "main_editor"
       ],
-      "title": "Аналитическое исследование механизмов нелинейного распределения в гидродинамике с помощью уравнения Буати-Леона-Мианны-Пемпинелли",
-      "authorsId": [
-        10,
-        11
-      ],
-      "keyWords": [
-        "устойчивость решений",
-        "динамика сплошных сред",
-        "дисперсионные эффекты",
-        "аналитические методы"
-      ],
-      "description": "В статье проводится аналитическое исследование механизмов нелинейного распределения в гидродинамических системах на основе уравнения Буати–Леона–Мианны–Пемпинелли. Рассматриваются фундаментальные свойства модели, включая структуру нелинейных членов, дисперсионные характеристики и условия существования устойчивых решений.",
-      "chapter": "Математическое моделирование",
-      "manuscriptFiles": [
-        "/public/manuscripts/2026-03-01_20-24-42.pdf"
-      ],
-      "manuscriptPicture": [],
-      "coverLetter": [
-        "/public/manuscripts/letter1.pdf"
-      ],
-      "sentDate": "2026-02-15",
-      "version": 1,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-02-15",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Владимир Фёдоров назначен",
-          "user": 0,
-          "date": "2026-02-15",
-          "version": 1
-        },
-        {
-          "event": "Список редакторов изменён",
-          "user": 1,
-          "date": "2026-03-15",
-          "version": 1
-        },
-        {
-          "event": "Рецензенты приглашены",
-          "user": 1,
-          "date": "2026-05-25",
-          "version": 1
-        }
-      ]
+      "gender": "w",
+      "organization": "Редакция журнала",
+      "url": "https://itmp.ru/people/kovaleva",
+      "phone": "+79001234567",
+      "orcid": "0000-0002-1825-0097",
+      "country": "Россия",
+      "signature": "Главный редактор",
+      "biography": "Физик-теоретик, специалист по AdS/CFT и квантовой запутанности. Автор более 60 публикаций.",
+      "notifs": [],
+      "saved_manuscs": []
     },
     {
-      "id": "3",
-      "manuscriptId": 3,
-      "stage": "Опубликовано",
-      "redactorStatus": "none",
-      "redactorsId": [
-        1
+      "id": "usr-0002-qw8e",
+      "username": "orlov_ed",
+      "user_mail": "d.orlov@itmp.ru",
+      "password": "p@SSw0rd-77",
+      "first_name": "Дмитрий",
+      "last_name": "Орлов",
+      "patronymic": "Сергеевич",
+      "roles": [
+        "author",
+        "editor"
       ],
-      "title": "Интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности",
-      "authorsId": [
-        11
-      ],
-      "keyWords": [
-        "задача Коши",
-        "уравнение теплопроводности",
-        "априорные оценки",
-        "аналитические методы"
-      ],
-      "description": "В статье рассматривается интегродифференциальная переформулировка задачи Коши для квазилинейного уравнения теплопроводности. Предложенный подход позволяет представить исходную параболическую задачу в эквивалентной интегральной форме, что упрощает анализ существования, единственности и устойчивости решений.",
-      "chapter": "Математика",
-      "manuscriptFiles": [
-        "/public/manuscripts/12939-196408-1-PB.pdf"
-      ],
-      "manuscriptPicture": [],
-      "coverLetter": [
-        "/public/manuscripts/letter1.pdf"
-      ],
-      "sentDate": "2026-02-01",
-      "version": 1,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-02-01",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Владимир Фёдоров назначен",
-          "user": 0,
-          "date": "2026-02-01",
-          "version": 1
-        },
-        {
-          "event": "Рукопись опубликована",
-          "user": 1,
-          "date": "2026-04-23",
-          "version": 1
-        }
-      ]
+      "gender": "m",
+      "organization": "Институт теоретической и математической физики",
+      "url": "https://itmp.ru/people/d-orlov",
+      "phone": "+74957654321",
+      "orcid": "0000-0001-5109-3700",
+      "country": "Россия",
+      "signature": "",
+      "biography": "Редактор, работает над AdS/CFT и энтропией запутанности.",
+      "notifs": [],
+      "saved_manuscs": []
     },
     {
-      "id": "bd56",
-      "manuscriptId": 1776952964739,
-      "stage": "Опубликовано",
-      "redactorStatus": "none",
-      "redactorsId": [
-        1
+      "id": "usr-0003-rt5y",
+      "username": "sokolova-ed",
+      "user_mail": "m.sokolova@landau.ru",
+      "password": "Topo!Logy#9",
+      "first_name": "Мария",
+      "last_name": "Соколова",
+      "patronymic": "Павловна",
+      "roles": [
+        "author",
+        "editor"
       ],
-      "title": "test",
-      "authorsId": [
-        9
-      ],
-      "keyWords": [
-        "d1",
-        " d2"
-      ],
-      "description": "test description",
-      "chapter": "Математика",
-      "manuscriptFiles": [
-        "/public/manuscripts/2026-03-01_20-24-42.pdf",
-        "/public/manuscripts/mfdop2.pdf"
-      ],
-      "manuscriptPicture": [],
-      "coverLetter": [],
-      "sentDate": "2026-04-23",
-      "version": 1,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-04-23",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Евгений Фёдоров назначен",
-          "user": 0,
-          "date": "2026-04-23",
-          "version": 1
-        },
-        {
-          "event": "Рукопись опубликована",
-          "user": 1,
-          "date": "2026-04-23"
-        }
-      ]
+      "gender": "w",
+      "organization": "Институт теоретической физики им. Л. Д. Ландау",
+      "url": "https://landau.ac.ru/~msokolova",
+      "phone": "+74962223344",
+      "orcid": "0000-0003-4567-8901",
+      "country": "Россия",
+      "signature": "М. П. Соколова",
+      "biography": "Редактор, исследует майорановские моды и неэрмитову топологию.",
+      "notifs": [],
+      "saved_manuscs": []
     },
     {
-      "id": "040a",
-      "manuscriptId": 1776956373363,
-      "stage": "Отклонено",
-      "redactorStatus": "none",
-      "redactorsId": [
-        1
+      "id": "usr-0004-za1x",
+      "username": "elena_gromova",
+      "user_mail": "e.gromova@mathmsu.ru",
+      "password": "Fr@ct4l-G3o",
+      "first_name": "Елена",
+      "last_name": "Громова",
+      "patronymic": "Романовна",
+      "roles": [
+        "author",
+        "editor"
       ],
-      "title": "test2 title",
-      "authorsId": [
-        9
-      ],
-      "keyWords": [
-        "1",
-        " 2",
-        "3",
-        " 5"
-      ],
-      "description": "test2 description",
-      "chapter": "Математика",
-      "manuscriptFiles": [
-        "/public/manuscripts/letter1.pdf",
-        "/public/manuscripts/mfdop2.pdf"
-      ],
-      "manuscriptPicture": [],
-      "coverLetter": [],
-      "sentDate": "2026-04-23",
-      "version": 1,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-04-23",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Евгений Фёдоров назначен",
-          "user": 0,
-          "date": "2026-04-23",
-          "version": 1
-        },
-        {
-          "event": "Рукопись отклонена",
-          "user": 1,
-          "date": "2026-04-23"
-        }
-      ]
+      "gender": "w",
+      "organization": "МГУ им. М. В. Ломоносова, механико-математический факультет",
+      "url": "https://math.msu.ru/people/egromova",
+      "phone": "+74959397777",
+      "orcid": "0000-0002-9012-3456",
+      "country": "Россия",
+      "signature": "",
+      "biography": "",
+      "notifs": [],
+      "saved_manuscs": []
     },
     {
-      "id": "f977",
-      "manuscriptId": 1778135591992,
-      "stage": "Опубликовано",
-      "redactorStatus": "mine",
-      "redactorsId": [
-        1,
-        3
+      "id": "usr-0005-cv7b",
+      "username": "belov_editor",
+      "user_mail": "belov@inrc.ru",
+      "password": "Ax!on-QFT_22",
+      "first_name": "Сергей",
+      "last_name": "Белов",
+      "patronymic": "",
+      "roles": [
+        "author",
+        "editor"
       ],
-      "title": "Test 3",
-      "authorsId": [
-        9,
-        10
-      ],
-      "keyWords": [
-        "key1",
-        " key2",
-        "key3"
-      ],
-      "description": "Test description 3",
-      "chapter": "Физика",
-      "manuscriptFiles": [
-        "/public/manuscripts/test_file3.pdf"
-      ],
-      "coverLetter": [],
-      "sentDate": "2026-05-07",
-      "version": 1,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-05-07",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Евгений Фёдоров назначен",
-          "user": 0,
-          "date": "2026-05-07",
-          "version": 1
-        },
-        {
-          "event": "Список редакторов изменён",
-          "user": 1,
-          "date": "2026-05-07"
-        },
-        {
-          "event": "Рецензенты приглашены",
-          "user": 1,
-          "date": "2026-05-07",
-          "version": 1
-        },
-        {
-          "event": "Список редакторов изменён",
-          "user": 1,
-          "date": "2026-05-07"
-        },
-        {
-          "event": "Рецензенты приглашены",
-          "user": 1,
-          "date": "2026-05-09",
-          "version": 1
-        },
-        {
-          "event": "Рецензенты приглашены",
-          "user": 1,
-          "date": "2026-05-09",
-          "version": 1
-        },
-        {
-          "event": "Рукопись опубликована",
-          "user": 1,
-          "date": "2026-05-24"
-        }
-      ]
+      "gender": "m",
+      "organization": "Институт ядерных исследований РАН",
+      "url": "https://inr.ac.ru/belov",
+      "phone": "+74991357924",
+      "orcid": "0000-0001-2345-6789",
+      "country": "Россия",
+      "signature": "С. Т. Белов",
+      "biography": "",
+      "notifs": [],
+      "saved_manuscs": []
     },
     {
-      "id": "c76e",
-      "manuscriptId": 1779626221612,
-      "stage": "Опубликовано",
-      "redactorStatus": "mine",
-      "redactorsId": [
-        1
+      "id": "usr-0006-gh2n",
+      "username": "chen-li",
+      "user_mail": "chen.li@icts.cn",
+      "password": "L!ghtC0ne#5",
+      "first_name": "Li",
+      "last_name": "Chen",
+      "patronymic": "",
+      "roles": [
+        "author",
+        "reviewer"
       ],
-      "title": "НЕЛОКАЛЬНЫЕ КРАЕВЫЕ ЗАДАЧИ ДЛЯ НАГРУЖЕННОГО ПСЕВДОПАРАБОЛИЧЕСКОГО УРАВНЕНИЯ ТРЕТЬЕГО ПОРЯДКА",
-      "authorsId": [
-        13,
-        12
-      ],
-      "keyWords": [
-        "нелокальная задача",
-        " нелокальное условие",
-        " регулярное решение",
-        " инте гральное условие",
-        " условие Самарского",
-        " уравнение теплопроводности",
-        " функция Римана",
-        " система интегральных уравнений",
-        " уравнение Вольтерры",
-        " уравнение Абеля"
-      ],
-      "description": "Доказано существование и единственность решений нелокальных задач в прямо\nугольной области для нагруженного псевдопараболического уравнения третьего по\nрядка. При доказательстве разрешимости изучаемых задач применяются методы\nтеории дифференциальных уравнений, теории интегральных уравнений, функции\nРимана. Исследуемые задачи сводятся к эквивалентным интегральным уравнениям\nВольтерры второго рода, которые безусловно разрешимы.",
-      "chapter": "Математика",
-      "manuscriptFiles": [
-        "/public/manuscripts/13071-196745-1-PB.pdf"
-      ],
-      "coverLetter": [],
-      "sentDate": "2026-05-24",
-      "version": 1,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-05-24",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Евгений Фёдоров назначен",
-          "user": 0,
-          "date": "2026-05-24",
-          "version": 1
-        },
-        {
-          "event": "Рукопись опубликована",
-          "user": 1,
-          "date": "2026-05-24"
-        }
-      ]
+      "gender": "m",
+      "organization": "International Centre for Theoretical Sciences",
+      "url": "https://icts.cn/people/chen-li",
+      "phone": "+861012345678",
+      "orcid": "",
+      "country": "China",
+      "signature": "",
+      "biography": "",
+      "notifs": [],
+      "saved_manuscs": []
     },
     {
-      "id": "2345",
-      "manuscriptId": 1779628925251,
-      "stage": "Опубликовано",
-      "redactorStatus": "mine",
-      "redactorsId": [
-        1
+      "id": "usr-0007-mn4k",
+      "username": "i_lebedev",
+      "user_mail": "i.lebedev@landau.ru",
+      "password": "M@j0rana!k",
+      "first_name": "Игорь",
+      "last_name": "Лебедев",
+      "patronymic": "Николаевич",
+      "roles": [
+        "author",
+        "reviewer"
       ],
-      "title": "КВАНТОВО-ХИМИЧЕСКОЕ ИССЛЕДОВАНИЕ ЭЛЕКТРОФИЗИЧЕСКИХ СВОЙСТВ ФЛУОРЕН- И ФТАЛИДСОДЕРЖАЩИХ СОПОЛИАРИЛЕНЭФИРКЕТОНОВ",
-      "authorsId": [
-        14,
-        15,
-        16
-      ],
-      "keyWords": [
-        "сополиариленэфиркетоны",
-        " квантово-химическое моделирование",
-        " элек тронные свойства"
-      ],
-      "description": "Проведены квантово-химические исследования состава и структуры молекул несо\nпряжённых сополимеров полиариленэфиркетонов и изучены их электронные ха\nрактеристики. Рассматривались сополиариленэфиркетоны, содержащие либо фта\nлидные, либо флуореновые функциональные группы. Полученные результаты де\nмонстрируют влияние состава и пространственного расположения функциональных\nгрупп на энергетические параметры молекул, такие как потенциал ионизации, срод\nство к электрону и ширина запрещённой зоны.",
-      "chapter": "Физика",
-      "manuscriptFiles": [
-        "/public/manuscripts/13082-196756-1-PB.pdf",
-        "./public/manuscripts/13082-196756-1-PB.pdf"
-      ],
-      "coverLetter": [],
-      "sentDate": "2026-05-24",
-      "version": 2,
-      "events": [
-        {
-          "event": "Статья получена",
-          "user": 0,
-          "date": "2026-05-24",
-          "version": 1
-        },
-        {
-          "event": "Главный редактор Евгений Фёдоров назначен",
-          "user": 0,
-          "date": "2026-05-24",
-          "version": 1
-        },
-        {
-          "event": "Рукопись опубликована",
-          "user": 1,
-          "date": "2026-05-24"
-        }
-      ]
-    }
-  ],
-  "tasks": [
-    {
-      "id": "1",
-      "taskId": "ЛК-1",
-      "manuscriptId": 1,
-      "createdAt": "2026-02-12",
-      "type": "Оценить отзывы рецензентов",
-      "stage": "Рецензенты приглашены",
-      "invitedReviewersId": [
-        4,
-        5,
-        6
-      ],
-      "acceptedReviewersId": [
-        5
-      ],
-      "declinedReviewersId": [
-        6
-      ],
-      "reviewesId": [
-        4
-      ]
+      "gender": "m",
+      "organization": "Институт теоретической физики им. Л. Д. Ландау",
+      "url": "https://landau.ac.ru/~ilebedev",
+      "phone": "+74963334455",
+      "orcid": "0000-0003-1111-2222",
+      "country": "Россия",
+      "signature": "",
+      "biography": "Специалист по топологическим материалам и сверхпроводящим кубитам.",
+      "notifs": [],
+      "saved_manuscs": []
     },
     {
-      "id": "2",
-      "taskId": "ЛК-2",
-      "manuscriptId": 2,
-      "createdAt": "2026-02-15",
-      "type": "Найти и пригласить рецензентов",
-      "stage": "Рецензенты не приглашены",
-      "invitedReviewersId": [
-        4
+      "id": "usr-0008-pl9d",
+      "username": "j-huang",
+      "user_mail": "j.huang@caltech.edu",
+      "password": "Q!bit-LDPC#8",
+      "first_name": "Jane",
+      "last_name": "Huang",
+      "patronymic": "",
+      "roles": [
+        "author",
+        "reviewer"
       ],
-      "acceptedReviewersId": [],
-      "declinedReviewersId": [],
-      "reviewesId": []
+      "gender": "w",
+      "organization": "California Institute of Technology",
+      "url": "https://caltech.edu/~jhuang",
+      "phone": "+16261234567",
+      "orcid": "0000-0001-9999-0000",
+      "country": "USA",
+      "signature": "",
+      "biography": "",
+      "notifs": [],
+      "saved_manuscs": []
+    },
+    {
+      "id": "usr-0009-ty6r",
+      "username": "khair_ullin",
+      "user_mail": "t.khairullin@inao.ru",
+      "password": "Pbh!Halo_31",
+      "first_name": "Тимур",
+      "last_name": "Хайруллин",
+      "patronymic": "Азатович",
+      "roles": [
+        "author"
+      ],
+      "gender": "m",
+      "organization": "Институт астрономии РАН",
+      "url": "https://inao.ru/people/tkhairullin",
+      "phone": "+74951239876",
+      "orcid": "0000-0002-3333-4444",
+      "country": "Россия",
+      "signature": "",
+      "biography": "Аспирант, занимается первичными чёрными дырами и гравитационно-волновыми сигналами.",
+      "notifs": [],
+      "saved_manuscs": []
+    },
+    {
+      "id": "usr-0010-ws3f",
+      "username": "da_fom_ina",
+      "user_mail": "d.fomina@skoltech.ru",
+      "password": "Sk!rm10n#vdW",
+      "first_name": "Дарья",
+      "last_name": "Фомина",
+      "patronymic": "Олеговна",
+      "roles": [
+        "author"
+      ],
+      "gender": "w",
+      "organization": "Сколковский институт науки и технологий",
+      "url": "https://skoltech.ru/people/dfomina",
+      "phone": "+74957891234",
+      "orcid": "0000-0003-5555-6666",
+      "country": "Россия",
+      "signature": "Д. О. Фомина",
+      "biography": "Исследователь в области двумерного магнетизма и скирмионных структур.",
+      "notifs": [],
+      "saved_manuscs": []
+    },
+    {
+      "id": "usr-0011-ab8c",
+      "username": "vdberg",
+      "user_mail": "h.vdberg@utwente.nl",
+      "password": "VdW!Magnet_9",
+      "first_name": "Henrik",
+      "last_name": "Van Der Berg",
+      "patronymic": "",
+      "roles": [
+        "author"
+      ],
+      "gender": "m",
+      "organization": "University of Twente",
+      "url": "https://utwente.nl/~hvdberg",
+      "phone": "+31534891234",
+      "orcid": "0000-0002-8888-7777",
+      "country": "Нидерланды",
+      "signature": "",
+      "biography": "Физик-экспериментатор",
+      "notifs": [],
+      "saved_manuscs": []
+    },
+    {
+      "id": "usr-0012-de5v",
+      "username": "nikitina",
+      "user_mail": "a.nikitina@msu.ru",
+      "password": "M0rpho!Gen#4",
+      "first_name": "Александра",
+      "last_name": "Никитина",
+      "patronymic": "Юрьевна",
+      "roles": [
+        "author"
+      ],
+      "gender": "w",
+      "organization": "МГУ им. М. В. Ломоносова, биологический факультет",
+      "url": "",
+      "phone": "",
+      "orcid": "0000-0001-7777-6666",
+      "country": "",
+      "signature": "А. Ю. Никитина",
+      "biography": "",
+      "notifs": [],
+      "saved_manuscs": []
     }
   ],
   "volumes": [
     {
-      "id": "1",
-      "volId": 1,
-      "volNum": 11,
-      "year": 2026,
-      "releasesId": [
-        1
+      "id": "vol-0001-j5lop",
+      "vol_num": 1,
+      "rel_id": "",
+      "manuscs_id": [
+        "man-2024-001-ph"
       ],
-      "stage": "Опубликовано"
-    }
-  ],
-  "releases": [
+      "vol_sections": [
+        "physic"
+      ],
+      "note": ""
+    },
     {
-      "id": "1",
-      "relId": 1,
-      "relNum": 1,
-      "manuscripts": [
-        3,
-        1776952964739,
-        1779626221612,
-        1778135591992,
-        1779628925251
+      "id": "vol-0002-j5ldm",
+      "vol_num": 2,
+      "rel_id": "",
+      "manuscs_id": [
+        "man-2024-002-mt"
       ],
-      "stage": "Опубликовано"
+      "vol_sections": [
+        "math"
+      ],
+      "note": ""
+    },
+    {
+      "id": "vol-0003-j0kju",
+      "vol_num": 1,
+      "rel_id": "",
+      "manuscs_id": [
+        "man-2024-003-as",
+        "man-2024-009-dm"
+      ],
+      "vol_sections": [
+        "congrat",
+        "astronomy"
+      ],
+      "note": "В честь юбилея профессора Л. Д. Ландау"
     }
   ]
 }

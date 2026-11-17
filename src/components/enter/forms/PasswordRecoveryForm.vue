@@ -1,19 +1,26 @@
 <script setup>
 import { onUnmounted, ref } from 'vue'
 import VueFeather from 'vue-feather'
+import { getUsers } from '@/api/editorApi'
+
+const emit = defineEmits(['password-reset'])
 
 const step = ref(1)
 const email = ref('')
 const verificationCode = ref('')
 const newPassword = ref('')
 const confirmPassword = ref('')
+
 const isNewPasswordVisible = ref(false)
 const isConfirmPasswordVisible = ref(false)
+const isSubmitting = ref(false)
+const hasTriedPasswordSubmit = ref(false)
 const resendCountdown = ref(30)
-
-let countdownInterval
+const error = ref({ field: '', message: '' })
 
 const allowedPasswordSymbols = `!"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`
+
+let countdownInterval
 
 function isPasswordValid(value) {
   return (
@@ -21,25 +28,6 @@ function isPasswordValid(value) {
     [...value].every(
       (character) => /[A-Za-z0-9]/.test(character) || allowedPasswordSymbols.includes(character),
     )
-  )
-}
-
-function validatePasswords() {
-  const passwordInput = document.querySelector('#recovery-new-password')
-  const confirmPasswordInput = document.querySelector('#recovery-confirm-password')
-
-  if (!passwordInput || !confirmPasswordInput) return
-
-  passwordInput.setCustomValidity(
-    newPassword.value && !isPasswordValid(newPassword.value)
-      ? 'Пароль содержит недопустимые символы или короче 6 символов.'
-      : '',
-  )
-
-  confirmPasswordInput.setCustomValidity(
-    confirmPassword.value && confirmPassword.value !== newPassword.value
-      ? 'Пароли не совпадают.'
-      : '',
   )
 }
 
@@ -56,28 +44,84 @@ function startResendCountdown() {
   }, 1000)
 }
 
-function handleSubmit() {
+async function handleSubmit() {
+  error.value = { field: '', message: '' }
+
   if (step.value === 1) {
-    step.value = 2
-    startResendCountdown()
+    isSubmitting.value = true
+
+    try {
+      const response = await getUsers()
+      const normalizedEmail = email.value.trim().toLowerCase()
+      const userExists = response.data.some(
+        (user) => user.user_mail?.trim().toLowerCase() === normalizedEmail,
+      )
+
+      if (!userExists) {
+        error.value = {
+          field: 'email',
+          message: 'Пользователя с такой электронной почтой не найдено',
+        }
+        return
+      }
+
+      step.value = 2
+      startResendCountdown()
+    } catch {
+      error.value = {
+        field: 'form',
+        message: 'Не удалось проверить почту. Попробуйте позже.',
+      }
+    } finally {
+      isSubmitting.value = false
+    }
+
     return
   }
 
   if (step.value === 2) {
+    // Пока проверка кода не подключена: любой непустой код принимается.
+    if (!verificationCode.value.trim()) return
+
     step.value = 3
+    return
   }
+
+  hasTriedPasswordSubmit.value = true
+
+  if (!isPasswordValid(newPassword.value)) return
+
+  if (newPassword.value !== confirmPassword.value) {
+    error.value = {
+      field: 'confirmPassword',
+      message: 'Пароли не совпадают',
+    }
+    return
+  }
+
+  emit('password-reset', {
+    email: email.value.trim(),
+    password: newPassword.value,
+  })
 }
 
 function resendCode() {
   if (resendCountdown.value > 0) return
 
-  // Здесь позже можно добавить запрос на повторную отправку кода.
+  // Пока повторная отправка не подключена — только перезапускаем таймер.
   startResendCountdown()
 }
 
 function handleBack() {
   if (step.value > 1) {
     step.value -= 1
+    error.value = { field: '', message: '' }
+  }
+}
+
+function clearError(field) {
+  if (error.value.field === field) {
+    error.value = { field: '', message: '' }
   }
 }
 
@@ -105,15 +149,37 @@ onUnmounted(() => {
             id="recovery-email"
             v-model="email"
             class="enter-box recovery-form-input"
+            :class="{ error: error.field === 'email' }"
             type="email"
             autocomplete="email"
             required
+            :aria-invalid="error.field === 'email'"
+            @input="clearError('email')"
           />
+          <span
+            v-if="error.field === 'email'"
+            class="basic-text"
+            :style="{ color: 'var(--red-error)' }"
+            role="alert"
+          >
+            {{ error.message }}
+          </span>
         </div>
+
+        <span
+          v-if="error.field === 'form'"
+          class="basic-text"
+          :style="{ color: 'var(--red-error)' }"
+          role="alert"
+        >
+          {{ error.message }}
+        </span>
       </div>
 
-      <button type="submit" class="bright-button">
-        <span class="basic-text-bold">Продолжить</span>
+      <button type="submit" class="bright-button" :disabled="isSubmitting">
+        <span class="basic-text-bold">
+          {{ isSubmitting ? 'Проверка…' : 'Продолжить' }}
+        </span>
         <vue-feather type="arrow-right" />
       </button>
     </template>
@@ -159,11 +225,18 @@ onUnmounted(() => {
       <h1 class="text-h2">Новый пароль</h1>
 
       <div class="content-block-vertical">
-        <div class="basic-text">
-          <p>Для пароля можно использовать следующие символы:</p>
+        <div
+          class="basic-text"
+          :style="{
+            color:
+              hasTriedPasswordSubmit && !isPasswordValid(newPassword) ? 'var(--red-error)' : '',
+          }"
+        >
+          <p>Для пароля можно использовать только следующие символы:</p>
           <ul>
-            <li>Заглавные и строчные латинские буквы (A–Z, a–z)</li>
-            <li>Цифры (0–9)</li>
+            <li>Заглавные латинские буквы: от A до Z</li>
+            <li>Строчные латинские буквы: от a до z</li>
+            <li>Цифры от 0 до 9</li>
             <li>
               Символы: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~
             </li>
@@ -178,11 +251,13 @@ onUnmounted(() => {
               id="recovery-new-password"
               v-model="newPassword"
               class="enter-box recovery-form-input"
+              :class="{
+                error: hasTriedPasswordSubmit && !isPasswordValid(newPassword),
+              }"
               :type="isNewPasswordVisible ? 'text' : 'password'"
               autocomplete="new-password"
-              minlength="6"
               required
-              @input="validatePasswords"
+              @input="clearError('confirmPassword')"
             />
             <button
               type="button"
@@ -202,11 +277,11 @@ onUnmounted(() => {
               id="recovery-confirm-password"
               v-model="confirmPassword"
               class="enter-box recovery-form-input"
+              :class="{ error: error.field === 'confirmPassword' }"
               :type="isConfirmPasswordVisible ? 'text' : 'password'"
               autocomplete="new-password"
-              minlength="6"
               required
-              @input="validatePasswords"
+              @input="clearError('confirmPassword')"
             />
             <button
               type="button"
@@ -217,6 +292,15 @@ onUnmounted(() => {
               <vue-feather :type="isConfirmPasswordVisible ? 'eye-off' : 'eye'" />
             </button>
           </div>
+
+          <span
+            v-if="error.field === 'confirmPassword'"
+            class="basic-text"
+            :style="{ color: 'var(--red-error)' }"
+            role="alert"
+          >
+            {{ error.message }}
+          </span>
         </div>
       </div>
 
