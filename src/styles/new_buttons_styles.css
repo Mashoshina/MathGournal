@@ -184,7 +184,7 @@
   gap: 8px; /* desktop, см. @media */
   padding: 12px 6px; /* desktop, см. @media */
   background: var(--btn-theme); /* fill: theme */
-  color: var(--btn-white); /* text color: white */
+  color: white; /* text color: white */
 }
 
 .bright-button:hover,
@@ -193,7 +193,7 @@
 .bright-button.is-pressed {
   /* fill: на 15% темнее дефолтного цвета темы */
   background: color-mix(in srgb, var(--btn-theme) 85%, black 15%);
-  color: var(--btn-white);
+  color: white;
 }
 
 /*-------------------------------------------
